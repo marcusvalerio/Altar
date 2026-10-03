@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { IconChevronRight } from "@/components/icons";
 import { Screen, ScreenHeader } from "@/components/ui";
-import { NotificationSettings, PreferenceSettings } from "./settings";
+import { AccountLink, NotificationSettings, PreferenceSettings } from "./settings";
 
 export const metadata: Metadata = { title: "Mais" };
 
@@ -16,6 +16,8 @@ export default function Page() {
   return (
     <Screen>
       <ScreenHeader title="Mais" />
+
+      <AccountLink />
 
       <section aria-labelledby="prefs">
         <h2 id="prefs" className="font-display text-[1.375rem] text-ink">

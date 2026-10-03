@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Faculty_Glyphic, Geist } from "next/font/google";
+import { AccountSync } from "@/components/account-sync";
 import { AppRuntime, DevContentBanner } from "@/components/app-runtime";
 import { BottomNav } from "@/components/bottom-nav";
 import { Splash } from "@/components/splash";
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="relative z-[1]">{children}</div>
         <BottomNav />
         <AppRuntime />
+        <AccountSync />
       </body>
     </html>
   );

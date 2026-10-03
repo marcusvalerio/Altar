@@ -75,3 +75,59 @@ CREATE TABLE IF NOT EXISTS verified_quotes (
   rights                 text NOT NULL DEFAULT 'unknown'
                            CHECK (rights IN ('public_domain', 'licensed', 'short_quotation', 'unknown'))
 );
+
+-- ============================================================================
+-- Contas (opcionais — a leitura nunca exige login)
+-- Cadastro: e-mail → link de confirmação → a pessoa define a senha → entra.
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS users (
+  id                uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  email             text NOT NULL UNIQUE CHECK (email = lower(email)),
+  password_hash     text,                           -- scrypt; nulo até a senha ser criada
+  email_verified_at timestamptz,
+  created_at        timestamptz NOT NULL DEFAULT now(),
+  updated_at        timestamptz NOT NULL DEFAULT now()
+);
+
+-- Links enviados por e-mail (criar senha / redefinir senha). Só o hash é guardado.
+CREATE TABLE IF NOT EXISTS auth_tokens (
+  token_hash  text PRIMARY KEY,
+  email       text NOT NULL CHECK (email = lower(email)),
+  purpose     text NOT NULL CHECK (purpose IN ('signup', 'reset')),
+  created_at  timestamptz NOT NULL DEFAULT now(),
+  expires_at  timestamptz NOT NULL,
+  used_at     timestamptz
+);
+CREATE INDEX IF NOT EXISTS auth_tokens_email_idx ON auth_tokens (email, created_at DESC);
+
+-- Sessões: o cookie leva um token aleatório; o banco guarda só o hash.
+CREATE TABLE IF NOT EXISTS sessions (
+  token_hash  text PRIMARY KEY,
+  user_id     uuid NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  created_at  timestamptz NOT NULL DEFAULT now(),
+  expires_at  timestamptz NOT NULL
+);
+CREATE INDEX IF NOT EXISTS sessions_user_idx ON sessions (user_id);
+
+-- Dados de leitura sincronizados entre aparelhos.
+CREATE TABLE IF NOT EXISTS user_favorites (
+  user_id         uuid NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  devotional_date date NOT NULL,
+  saved_at        timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY (user_id, devotional_date)
+);
+
+CREATE TABLE IF NOT EXISTS user_completions (
+  user_id         uuid NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  devotional_date date NOT NULL,
+  completed_at    timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY (user_id, devotional_date)
+);
+
+CREATE TABLE IF NOT EXISTS user_preferences (
+  user_id     uuid PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+  theme       text NOT NULL DEFAULT 'system' CHECK (theme IN ('system', 'light', 'dark')),
+  text_size   text NOT NULL DEFAULT 'md' CHECK (text_size IN ('sm', 'md', 'lg', 'xl')),
+  updated_at  timestamptz NOT NULL DEFAULT now()
+);

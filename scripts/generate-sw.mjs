@@ -1,36 +1,37 @@
-// Gera out/sw.js depois do build: pré-carrega todas as páginas e recursos
-// estáticos para que as leituras funcionem offline. Sem sincronização, sem backend.
+// Gera public/sw.js antes do build: pré-carrega as páginas de leitura para que
+// funcionem offline. Recursos estáticos (/_next/static) entram no cache na
+// primeira visita. Contas e API nunca são guardadas em cache.
 import { createHash } from "node:crypto";
-import { readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
-import { join, relative, sep } from "node:path";
+import { readFileSync, writeFileSync } from "node:fs";
 
-const OUT = "out";
-const SKIP = [/\.txt$/, /^sw\.js$/, /\.map$/, /^404\/?/, /^_not-found/, /__next\./];
-
-function walk(dir) {
-  return readdirSync(dir).flatMap((name) => {
-    const full = join(dir, name);
-    return statSync(full).isDirectory() ? walk(full) : [full];
-  });
-}
-
-const files = walk(OUT)
-  .map((f) => relative(OUT, f).split(sep).join("/"))
-  .filter((f) => !SKIP.some((re) => re.test(f)));
-
-const hash = createHash("sha256");
-for (const f of files.sort()) hash.update(f).update(readFileSync(join(OUT, f)));
-const version = hash.digest("hex").slice(0, 12);
-
-// "calendario/index.html" → "/calendario/" (trailingSlash: true)
-const urls = files.map((f) => "/" + f.replace(/(^|\/)index\.html$/, "$1"));
+const data = JSON.parse(readFileSync("src/content/generated/devotionals.json", "utf8"));
+const pages = [
+  "/",
+  "/calendario/",
+  "/favoritos/",
+  "/mais/",
+  "/mais/sobre/",
+  "/mais/conteudo/",
+  "/mais/privacidade/",
+  ...data.devotionals.map((d) => `/devocional/${d.id}/`),
+];
+const assets = ["/manifest.webmanifest", "/icons/icon.svg", "/icons/icon-192.png", "/icons/icon-512.png"];
+const version = createHash("sha256")
+  .update(JSON.stringify(pages) + data.meta.sha256 + Date.now())
+  .digest("hex")
+  .slice(0, 12);
 
 const sw = `// Gerado por scripts/generate-sw.mjs — não editar.
 const CACHE = "altar-${version}";
-const PRECACHE = ${JSON.stringify(urls)};
+const PRECACHE = ${JSON.stringify([...pages, ...assets])};
+const NEVER = [/^\\/api\\//, /^\\/conta\\//];
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(caches.open(CACHE).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting()));
+  event.waitUntil(
+    caches.open(CACHE)
+      .then((c) => Promise.all(PRECACHE.map((u) => c.add(u).catch(() => undefined))))
+      .then(() => self.skipWaiting()),
+  );
 });
 
 self.addEventListener("activate", (event) => {
@@ -45,36 +46,40 @@ self.addEventListener("fetch", (event) => {
   const req = event.request;
   if (req.method !== "GET") return;
   const url = new URL(req.url);
-  if (url.origin !== self.location.origin) return;
+  if (url.origin !== self.location.origin || NEVER.some((re) => re.test(url.pathname))) return;
 
-  // Páginas: rede primeiro (conteúdo atualizado), cache quando offline.
+  // Páginas: rede primeiro, cache quando offline.
   if (req.mode === "navigate") {
     event.respondWith(
       fetch(req)
         .then((res) => {
-          const copy = res.clone();
-          caches.open(CACHE).then((c) => c.put(req, copy));
+          if (res.ok) {
+            const copy = res.clone();
+            caches.open(CACHE).then((c) => c.put(url.pathname, copy));
+          }
           return res;
         })
-        .catch(async () => (await caches.match(req, { ignoreSearch: true })) || (await caches.match("/")) || Response.error()),
+        .catch(async () => (await caches.match(url.pathname)) || (await caches.match("/")) || Response.error()),
     );
     return;
   }
 
-  // Recursos estáticos (versionados): cache primeiro.
-  event.respondWith(
-    caches.match(req, { ignoreSearch: url.pathname.startsWith("/_next/static/") ? false : true }).then(
-      (hit) =>
-        hit ||
-        fetch(req).then((res) => {
-          if (res.ok && (url.pathname.startsWith("/_next/") || url.pathname.startsWith("/icons/"))) {
-            const copy = res.clone();
-            caches.open(CACHE).then((c) => c.put(req, copy));
-          }
-          return res;
-        }),
-    ),
-  );
+  // Arquivos versionados do build e ícones: cache primeiro.
+  if (url.pathname.startsWith("/_next/static/") || url.pathname.startsWith("/icons/")) {
+    event.respondWith(
+      caches.match(req).then(
+        (hit) =>
+          hit ||
+          fetch(req).then((res) => {
+            if (res.ok) {
+              const copy = res.clone();
+              caches.open(CACHE).then((c) => c.put(req, copy));
+            }
+            return res;
+          }),
+      ),
+    );
+  }
 });
 
 self.addEventListener("notificationclick", (event) => {
@@ -88,5 +93,5 @@ self.addEventListener("notificationclick", (event) => {
 });
 `;
 
-writeFileSync(join(OUT, "sw.js"), sw);
-console.log(`[offline] out/sw.js — ${urls.length} arquivos, versão ${version}`);
+writeFileSync("public/sw.js", sw);
+console.log(`[offline] public/sw.js — ${pages.length} páginas, versão ${version}`);
