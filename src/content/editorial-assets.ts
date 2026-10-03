@@ -14,9 +14,17 @@ export type IllustrationId = "memoria" | "fraternidade";
 // Exemplo: "2026-10-02": { id: "fraternidade", provisional: true },
 export const illustrationByDate: Record<string, { id: IllustrationId; provisional: true }> = {};
 
-export type BannerId = "criancas";
+export type BannerId = "nao-violencia" | "kardec" | "criancas" | "onu" | "finados";
 
-/** Faixas comemorativas animadas (src/components/date-banners.tsx), por data. */
-export const bannerByDate: Record<string, BannerId> = {
-  "2026-10-12": "criancas",
+/**
+ * Faixas comemorativas animadas (src/components/date-banners.tsx), por dia
+ * do ano ("MM-DD") — valem para qualquer edição. A faixa só aparece em dias
+ * que têm leitura.
+ */
+export const bannerByDay: Record<string, BannerId> = {
+  "10-02": "nao-violencia",
+  "10-03": "kardec",
+  "10-12": "criancas",
+  "10-24": "onu",
+  "11-02": "finados",
 };
