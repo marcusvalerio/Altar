@@ -1,0 +1,518 @@
+{
+  "meta": {
+    "sourceFile": "content/source/devocional_novembro_2026.txt",
+    "heading": "DEVOCIONAL — NOVEMBRO/2026",
+    "subtitle": "30 DIAS DE REFLEXÃO, PRECE E PRÁTICA",
+    "year": 2026,
+    "month": 11,
+    "editorialNote": {
+      "title": "NOTA EDITORIAL DE CONFIABILIDADE",
+      "paragraphs": [
+        "Este é um rascunho completo de conteúdo. As reflexões, perguntas, preces, práticas e frases finais foram redigidas originalmente para este protótipo; as fontes aparecem somente ao final de cada dia.",
+        "As referências não significam que cada frase do devocional esteja presente na obra citada. Elas indicam a obra e o trecho temático que fundamentam a direção espiritual daquele dia.",
+        "Não foram reproduzidos trechos longos de obras de terceiros. Antes de publicação comercial, a edição bibliográfica, paginação e eventual necessidade de licença devem ser conferidas.",
+        "Chico Xavier/Emmanuel e W. W. da Matta e Silva não foram inseridos artificialmente: onde não houve uma fonte específica verificada para sustentar o tema, preferi não atribuir nada a eles."
+      ]
+    },
+    "fieldMapping": {
+      "title": "TEMA",
+      "commemorativeDate.label": "CARD ESPECIAL",
+      "reflection": "REFLEXÃO",
+      "interiorization": "MOMENTO DE INTERIORIZAÇÃO",
+      "prayer": "PRECE",
+      "practice": "PRÁTICA DO DIA",
+      "closingPhrase": "FRASE FINAL",
+      "source.text": "FONTE DE INSPIRAÇÃO"
+    },
+    "sha256": "33662e00c029f2d7265e7df40c99a8e3c6246084434d259cae3701b5f649f429"
+  },
+  "devotionals": [
+    {
+      "id": "2026-11-01",
+      "date": "2026-11-01",
+      "title": "Recomeçar",
+      "reflection": "Recomeçar não exige apagar o que passou. O caminho percorrido também faz parte da pessoa que estamos nos tornando.\n\nHá dias em que imaginamos que precisamos resolver toda a vida de uma vez. Mas transformação não acontece apenas nos grandes momentos. Ela também aparece quando reconhecemos um erro, mudamos uma atitude ou escolhemos fazer novamente aquilo que ontem não conseguimos fazer bem.\n\nO passado pode ensinar sem precisar comandar o presente. Hoje existe uma nova oportunidade de agir com mais consciência.\n\nTalvez o seu recomeço não precise de uma grande decisão. Talvez ele comece com uma pequena escolha feita com sinceridade.",
+      "interiorization": "O que você gostaria de fazer diferente a partir de hoje?",
+      "prayer": "Senhor, ajuda-me a olhar para o caminho que percorri sem permanecer preso a ele. Dá-me humildade para reconhecer meus erros, coragem para mudar e serenidade para compreender que cada novo dia pode ser uma oportunidade de crescimento.",
+      "practice": "Escolha uma pequena atitude que você vem adiando e faça hoje.",
+      "closingPhrase": "Você não precisa voltar ao começo. Precisa apenas dar o próximo passo.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. XVII — Sede perfeitos."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 01"
+    },
+    {
+      "id": "2026-11-02",
+      "date": "2026-11-02",
+      "title": "Memória, saudade e continuidade",
+      "reflection": "Hoje é um dia naturalmente ligado à lembrança daqueles que partiram. A saudade pode apertar, mas lembrar alguém também pode ser uma forma de reconhecer o amor que existiu.\n\nNa perspectiva espírita, a morte não é apresentada como o fim da existência do Espírito. Essa compreensão pode mudar a maneira como olhamos para a ausência: não elimina a saudade, mas pode oferecer outro horizonte para ela.\n\nNão precisamos transformar a lembrança em sofrimento permanente. Podemos recordar uma voz, um gesto, uma história e agradecer pelo que aquela presença significou em nossa vida.\n\nHoje, permita-se lembrar com carinho.",
+      "interiorization": "Existe alguém de quem você sente saudade? Que lembrança dessa pessoa você gostaria de guardar com ternura?",
+      "prayer": "Que eu saiba transformar a saudade em amor, a lembrança em gratidão e a ausência em uma oportunidade de reconhecer a importância dos vínculos que a vida me permitiu construir.",
+      "practice": "Escolha uma lembrança feliz de alguém que partiu e agradeça silenciosamente por ter vivido aquele momento.",
+      "closingPhrase": "Algumas presenças continuam fazendo parte de nós através daquilo que nos ensinaram a amar.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Livro dos Espíritos, Parte segunda — Do mundo espírita ou mundo dos Espíritos, especialmente as questões sobre a separação da alma e do corpo e a vida espiritual."
+      },
+      "commemorativeDate": {
+        "label": "DIA DE FINADOS"
+      },
+      "isSpecial": true,
+      "sourceDayLabel": "DIA 02"
+    },
+    {
+      "id": "2026-11-03",
+      "date": "2026-11-03",
+      "title": "O valor de hoje",
+      "reflection": "É fácil imaginar que seremos melhores amanhã. Mais pacientes amanhã. Mais caridosos amanhã. Mais presentes amanhã.\n\nMas a transformação acontece no único lugar em que podemos agir: o presente.\n\nNão precisamos esperar uma versão perfeita de nós mesmos para começar a praticar o bem. Podemos começar exatamente com aquilo que temos hoje: nossa consciência, nossas escolhas e nossas limitações.\n\nTalvez você ainda tenha muito a aprender. Todos temos. Isso não impede ninguém de dar um passo na direção certa.",
+      "interiorization": "Qual é uma qualidade que você gostaria de exercitar hoje, sem esperar amanhã?",
+      "prayer": "Que eu não transforme o futuro em desculpa para adiar o bem que posso fazer agora. Que eu tenha consciência das minhas limitações sem usá-las como justificativa para permanecer parado.",
+      "practice": "Pratique hoje uma qualidade que você admira em outra pessoa.",
+      "closingPhrase": "O melhor momento para começar a transformação é aquele em que você percebe que precisa dela.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. XVII — Sede perfeitos."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 03"
+    },
+    {
+      "id": "2026-11-04",
+      "date": "2026-11-04",
+      "title": "Escolhas",
+      "reflection": "Todos os dias fazemos escolhas pequenas demais para parecerem espirituais: a maneira como respondemos, aquilo que pensamos antes de falar, o que fazemos quando ninguém está olhando.\n\nÉ justamente nessas pequenas escolhas que nossos valores deixam de ser ideias e se transformam em comportamento.\n\nLiberdade não significa fazer tudo o que desejamos sem consequência. Significa também responder pelo que escolhemos fazer.\n\nHoje, antes de agir por impulso, experimente perguntar: esta escolha aproxima ou afasta a pessoa que desejo me tornar?",
+      "interiorization": "Existe uma escolha que você está prestes a fazer e que merece alguns minutos de reflexão?",
+      "prayer": "Que eu use minha liberdade com consciência. Que eu não atribua aos outros a responsabilidade pelas escolhas que pertencem a mim e que tenha serenidade para aprender com seus resultados.",
+      "practice": "Antes de uma decisão importante hoje, faça uma pausa e pergunte quais consequências sua escolha pode produzir.",
+      "closingPhrase": "Cada escolha é pequena no instante em que acontece, mas pode ensinar muito sobre quem estamos nos tornando.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Livro dos Espíritos, Parte terceira — Leis morais, capítulo sobre a Lei de Liberdade."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 04"
+    },
+    {
+      "id": "2026-11-05",
+      "date": "2026-11-05",
+      "title": "Silêncio",
+      "reflection": "Existe um tipo de silêncio que não é ausência de palavras. É presença.\n\nQuando diminuímos o ruído por alguns minutos, começamos a perceber pensamentos que estavam escondidos pela pressa, sentimentos que estavam sendo empurrados para depois e necessidades que talvez estivéssemos ignorando.\n\nO silêncio não precisa trazer respostas imediatamente. Ele pode simplesmente criar espaço para que a consciência observe.\n\nHoje, não tente preencher cada intervalo. Permita que alguns minutos sejam apenas seus.",
+      "interiorization": "O que aparece em você quando o barulho diminui?",
+      "prayer": "Que eu encontre dentro de mim um espaço de serenidade. Que eu consiga observar meus pensamentos sem ser conduzido automaticamente por cada um deles.",
+      "practice": "Fique cinco minutos sem música, vídeos ou notificações. Apenas respire e observe.",
+      "closingPhrase": "Às vezes, ouvir a própria consciência começa quando paramos de tentar preencher todo silêncio.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. XXVII — Pedi e obtereis, especialmente os ensinamentos sobre recolhimento e sinceridade da prece."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 05"
+    },
+    {
+      "id": "2026-11-06",
+      "date": "2026-11-06",
+      "title": "Paciência",
+      "reflection": "Nem tudo amadurece na velocidade que desejamos.\n\nHá processos que precisam de tempo: uma mudança de hábito, uma relação, uma decisão, uma compreensão, uma ferida que ainda está aprendendo a cicatrizar.\n\nA pressa pode nos fazer confundir movimento com progresso. Às vezes fazemos qualquer coisa apenas para sentir que estamos fazendo alguma coisa.\n\nPaciência não é abandonar o caminho. É continuar caminhando sem exigir que o resultado apareça antes da hora.",
+      "interiorization": "Em que área da sua vida você está exigindo uma resposta imediata?",
+      "prayer": "Que eu tenha serenidade diante do tempo. Ajuda-me a agir quando for necessário e a esperar quando esperar fizer parte do processo.",
+      "practice": "Escolha uma situação que você não pode acelerar e, hoje, concentre-se apenas naquilo que está sob sua responsabilidade.",
+      "closingPhrase": "Nem todo silêncio é ausência de resposta; alguns processos precisam de tempo.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. V — Bem-aventurados os aflitos."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 06"
+    },
+    {
+      "id": "2026-11-07",
+      "date": "2026-11-07",
+      "title": "Gentileza",
+      "reflection": "A gentileza raramente parece grandiosa no momento em que acontece. Uma palavra cuidadosa, uma escuta atenta, uma ajuda oferecida sem espetáculo.\n\nMas é justamente assim que relações são transformadas: por pequenos atos repetidos.\n\nFazer o bem não precisa significar realizar algo extraordinário. Muitas vezes significa apenas perceber que existe alguém diante de nós e tratá-lo com a dignidade que gostaríamos de receber.",
+      "interiorization": "Quem poderia se beneficiar de uma atitude gentil sua hoje?",
+      "prayer": "Que eu aprenda a perceber as necessidades ao meu redor. Que minha vontade de fazer o bem não dependa de reconhecimento.",
+      "practice": "Faça hoje uma gentileza que não possa ser transformada em vantagem para você.",
+      "closingPhrase": "O bem também mora nas pequenas coisas que ninguém aplaude.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. XI — Amar o próximo como a si mesmo."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 07"
+    },
+    {
+      "id": "2026-11-08",
+      "date": "2026-11-08",
+      "title": "Responsabilidade",
+      "reflection": "Existe uma diferença entre responsabilidade e culpa.\n\nA culpa pode nos prender ao que aconteceu. A responsabilidade pode nos perguntar o que faremos a partir daqui.\n\nReconhecer uma falha não precisa significar declarar que somos pessoas ruins. Pode significar admitir que uma escolha não foi boa, reparar o que for possível e tentar agir de outra maneira.\n\nA consciência cresce quando conseguimos olhar para nós mesmos com honestidade e, ao mesmo tempo, com disposição para mudar.",
+      "interiorization": "Existe algo pelo qual você precisa assumir responsabilidade sem se destruir por isso?",
+      "prayer": "Que eu tenha coragem para reconhecer minhas falhas sem fugir delas e sabedoria para transformar arrependimento em mudança concreta.",
+      "practice": "Se você prejudicou alguém e existe uma reparação possível, pense hoje em um primeiro passo.",
+      "closingPhrase": "Reconhecer um erro pode ser o começo de uma transformação, não o fim da esperança.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. XVII — O homem de bem."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 08"
+    },
+    {
+      "id": "2026-11-09",
+      "date": "2026-11-09",
+      "title": "Aprender com a dificuldade",
+      "reflection": "Não precisamos chamar toda dor de presente para reconhecer que uma experiência difícil pode ensinar alguma coisa.\n\nHá sofrimentos que não entendemos imediatamente. Há acontecimentos que simplesmente doem. A espiritualidade não precisa transformar essa dor em uma frase pronta.\n\nTalvez a pergunta mais honesta seja outra: o que posso aprender daqui sem negar o que estou sentindo?\n\nAprender não diminui a dor. Mas pode impedir que ela seja a única coisa que permaneça.",
+      "interiorization": "O que uma dificuldade recente revelou sobre você?",
+      "prayer": "Que eu tenha força para atravessar aquilo que não posso evitar e lucidez para perceber o que minhas experiências podem me ensinar.",
+      "practice": "Escolha uma dificuldade e escreva uma coisa que ela revelou sobre você e uma coisa que você deseja fazer diferente.",
+      "closingPhrase": "Nem toda dor precisa ser explicada para que possamos aprender com ela.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. V — Bem-aventurados os aflitos."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 09"
+    },
+    {
+      "id": "2026-11-10",
+      "date": "2026-11-10",
+      "title": "Esperança",
+      "reflection": "Esperança não é a certeza de que tudo acontecerá exatamente como queremos.\n\nTalvez seja a disposição de continuar acreditando que nossa história ainda pode produzir aprendizado, mesmo quando não conhecemos o próximo capítulo.\n\nExistem dias em que a esperança é grande. Em outros, ela é pequena e quase silenciosa. Ainda assim, uma pequena vontade de continuar pode ser suficiente para atravessar o dia.\n\nNão exija de si uma certeza que você ainda não possui. Cuide da pequena luz que existe.",
+      "interiorization": "Onde você precisa recuperar um pouco de esperança?",
+      "prayer": "Que eu não perca a confiança no futuro por causa das dificuldades do presente. Que eu saiba continuar fazendo minha parte mesmo quando ainda não consigo enxergar o resultado.",
+      "practice": "Faça hoje algo simples que represente cuidado com o seu futuro.",
+      "closingPhrase": "Nem sempre esperança é enxergar a saída. Às vezes é simplesmente continuar caminhando.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. V — Bem-aventurados os aflitos."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 10"
+    },
+    {
+      "id": "2026-11-11",
+      "date": "2026-11-11",
+      "title": "O outro também carrega uma história",
+      "reflection": "Cada pessoa que encontramos possui uma história que não conhecemos completamente.\n\nIsso não significa justificar comportamentos que nos machucam. Significa lembrar que enxergamos apenas uma parte do outro.\n\nQuando julgamos rapidamente, transformamos uma pequena cena em uma história inteira.\n\nTalvez hoje possamos trocar um julgamento automático por uma pergunta: o que eu não sei sobre essa pessoa?",
+      "interiorization": "Existe alguém que você tem julgado sem conhecer toda a história?",
+      "prayer": "Que eu tenha mais indulgência com as imperfeições alheias e mais atenção às minhas próprias. Que eu saiba estabelecer limites sem transformar diferença em condenação.",
+      "practice": "Quando surgir vontade de julgar alguém hoje, faça uma pausa antes de concluir quem aquela pessoa é.",
+      "closingPhrase": "Você conhece apenas uma parte da história de cada pessoa que encontra.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. X — Bem-aventurados os que são misericordiosos."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 11"
+    },
+    {
+      "id": "2026-11-12",
+      "date": "2026-11-12",
+      "title": "Humildade",
+      "reflection": "Humildade não é pensar que não temos valor. É reconhecer que não sabemos tudo.\n\nPodemos ter experiência e ainda aprender. Podemos ter razão em uma situação e ainda assim ter algo a rever na maneira como agimos.\n\nA humildade abre espaço para a transformação porque não precisa defender uma imagem perfeita de nós mesmos.\n\nHoje, experimente trocar a necessidade de estar certo pela disposição de compreender.",
+      "interiorization": "O que alguém poderia lhe ensinar hoje, se você estivesse realmente disposto a ouvir?",
+      "prayer": "Que eu não confunda conhecimento com superioridade. Que eu tenha serenidade para reconhecer aquilo que ainda não sei e disposição para aprender.",
+      "practice": "Escute alguém hoje sem preparar mentalmente sua resposta enquanto a pessoa fala.",
+      "closingPhrase": "Quem acredita que já sabe tudo fecha a porta para aquilo que ainda poderia aprender.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. XVII — Sede perfeitos."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 12"
+    },
+    {
+      "id": "2026-11-13",
+      "date": "2026-11-13",
+      "title": "Quando erramos",
+      "reflection": "Errar faz parte da experiência humana. O que fazemos depois do erro é que pode transformar sua consequência em aprendizado.\n\nHá erros que pedem pedido de desculpas. Outros pedem reparação. Alguns exigem mudança de comportamento. E existem aqueles em que a única coisa possível é aprender para não repetir.\n\nO arrependimento que não produz transformação pode se tornar apenas sofrimento repetido. O arrependimento acompanhado de ação pode abrir um caminho diferente.",
+      "interiorization": "Existe um erro que ainda está pedindo uma atitude sua?",
+      "prayer": "Que eu não fuja das consequências das minhas escolhas. Dá-me humildade para reparar, coragem para pedir perdão e disciplina para não repetir aquilo que preciso transformar.",
+      "practice": "Escolha um erro antigo e identifique uma mudança concreta que você pode manter a partir de hoje.",
+      "closingPhrase": "O erro pode fazer parte da história sem precisar ser o final dela.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. X — Bem-aventurados os que são misericordiosos."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 13"
+    },
+    {
+      "id": "2026-11-14",
+      "date": "2026-11-14",
+      "title": "Perdão",
+      "reflection": "Perdoar não exige fingir que nada aconteceu.\n\nUma ferida pode ter sido real. Um limite pode continuar sendo necessário. Uma relação pode não voltar a ser como antes.\n\nO perdão, quando é verdadeiro, começa dentro: na decisão de não continuar alimentando indefinidamente o ressentimento.\n\nTalvez perdoar seja um processo. Talvez algumas mágoas precisem de tempo. O importante é não transformar a dor recebida em uma identidade permanente.",
+      "interiorization": "Existe uma mágoa que você gostaria de começar a libertar, mesmo que ainda não consiga encerrá-la completamente?",
+      "prayer": "Que eu consiga olhar para minhas feridas sem transformá-las em desejo de ferir. Que eu aprenda a perdoar com verdade, sem negar meus limites e sem esquecer aquilo que preciso aprender.",
+      "practice": "Escreva o nome de uma situação que você deseja entregar ao processo do perdão. Não precisa procurar ninguém hoje.",
+      "closingPhrase": "Perdoar não apaga o passado; pode impedir que ele continue governando o presente.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. X — Bem-aventurados os que são misericordiosos, especialmente “Perdão das ofensas”."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 14"
+    },
+    {
+      "id": "2026-11-15",
+      "date": "2026-11-15",
+      "title": "Liberdade e responsabilidade",
+      "reflection": "Liberdade não é apenas poder escolher. É também responder pelo que fazemos com a possibilidade de escolher.\n\nTodos os dias decidimos palavras, atitudes, prioridades e caminhos. Nem todas as consequências estão sob nosso controle, mas nossas escolhas continuam sendo nossas.\n\nTalvez amadurecer seja aprender a usar a liberdade sem fugir da responsabilidade que vem com ela.",
+      "interiorization": "Que escolha sua merece mais consciência hoje?",
+      "prayer": "Que eu use minha liberdade com responsabilidade. Que eu não coloque nos outros aquilo que pertence às minhas próprias decisões.",
+      "practice": "Antes de agir por impulso, pare alguns segundos e pense na consequência provável da sua escolha.",
+      "closingPhrase": "A liberdade se torna mais consciente quando aceitamos a responsabilidade por nossas escolhas.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Livro dos Espíritos, Parte terceira — Leis morais, capítulo sobre a Lei de Liberdade."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 15"
+    },
+    {
+      "id": "2026-11-16",
+      "date": "2026-11-16",
+      "title": "Trabalho",
+      "reflection": "O trabalho ocupa uma parte enorme da nossa existência. Ele pode ser necessidade, sustento, aprendizado, serviço, desafio e também fonte de cansaço.\n\nNão precisamos romantizar toda dificuldade profissional para reconhecer que nossas atividades podem desenvolver capacidades e produzir algo útil.\n\nTambém precisamos lembrar que descanso faz parte da vida. Trabalhar não significa esquecer que somos pessoas antes de sermos funções.",
+      "interiorization": "O que seu trabalho tem ensinado sobre você?",
+      "prayer": "Que eu encontre dignidade naquilo que faço, responsabilidade no que entrego e equilíbrio para lembrar que meu valor não se resume à minha produtividade.",
+      "practice": "Ao terminar uma tarefa hoje, reconheça uma habilidade que você desenvolveu ou exercitou por meio dela.",
+      "closingPhrase": "Todo trabalho útil pode ensinar alguma coisa, mas nenhuma profissão precisa definir sozinha quem você é.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Livro dos Espíritos, questões 674–676 e 682 — Lei do Trabalho e repouso."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 16"
+    },
+    {
+      "id": "2026-11-17",
+      "date": "2026-11-17",
+      "title": "Servir",
+      "reflection": "Ajudar alguém pode ser uma experiência de encontro, não uma oportunidade de se sentir superior.\n\nQuando servimos esperando reconhecimento, a ajuda pode se transformar em cobrança. Quando servimos apenas para provar que somos bons, o gesto perde parte de sua simplicidade.\n\nServir pode ser simplesmente perceber uma necessidade e fazer aquilo que está ao nosso alcance.",
+      "interiorization": "Onde você pode ser útil sem esperar reconhecimento?",
+      "prayer": "Que eu saiba ajudar com humildade. Que minha vontade de servir não seja uma forma de alimentar meu orgulho, mas uma oportunidade de fazer algum bem.",
+      "practice": "Faça hoje algo útil por alguém sem contar a outras pessoas que fez.",
+      "closingPhrase": "O bem não precisa de plateia para ter valor.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. XVII — O homem de bem."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 17"
+    },
+    {
+      "id": "2026-11-18",
+      "date": "2026-11-18",
+      "title": "Caridade",
+      "reflection": "Caridade é uma palavra que pode parecer grande demais. Mas ela também aparece nas pequenas relações: escutar, compreender, dividir, ajudar, respeitar.\n\nNão se resume ao que colocamos em uma mão. Também envolve aquilo que retiramos do nosso comportamento: a dureza desnecessária, a indiferença, a vontade de humilhar.\n\nHoje, observe não apenas o que você pode oferecer, mas também aquilo que pode deixar de fazer para não ferir.",
+      "interiorization": "Que forma de caridade está ao seu alcance hoje?",
+      "prayer": "Que eu compreenda a caridade como uma maneira de viver com o outro, não apenas como um gesto ocasional.",
+      "practice": "Escolha uma pessoa e ofereça algo que ela realmente precise: tempo, atenção, ajuda ou escuta.",
+      "closingPhrase": "Às vezes, fazer o bem começa simplesmente por não acrescentar sofrimento ao dia de alguém.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. XI — Amar o próximo como a si mesmo."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 18"
+    },
+    {
+      "id": "2026-11-19",
+      "date": "2026-11-19",
+      "title": "Dignidade",
+      "reflection": "Antes de qualquer diferença, existe uma pessoa diante de nós.\n\nDiferenças de origem, aparência, crença, condição social ou modo de pensar podem nos separar culturalmente, mas não precisam impedir o respeito.\n\nA fraternidade começa quando deixamos de exigir que o outro seja parecido conosco para tratá-lo com dignidade.",
+      "interiorization": "Existe alguém diferente de você que você poderia ouvir com mais respeito?",
+      "prayer": "Que eu aprenda a reconhecer dignidade onde meus hábitos poderiam enxergar apenas diferença. Que eu não use minhas convicções como justificativa para diminuir alguém.",
+      "practice": "Hoje, trate com especial atenção alguém que costuma passar despercebido.",
+      "closingPhrase": "Fraternidade não exige que sejamos iguais; exige que reconheçamos o outro como nosso semelhante.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. XI — A lei de amor."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 19"
+    },
+    {
+      "id": "2026-11-20",
+      "date": "2026-11-20",
+      "title": "Humanidade, dignidade e fraternidade",
+      "reflection": "Hoje o Brasil celebra o Dia Nacional de Zumbi e da Consciência Negra.\n\nÉ uma data que convida à memória, ao reconhecimento e à reflexão sobre a dignidade humana. Para um devocional, ela também pode abrir uma pergunta espiritual: como nossas convicções aparecem na forma como tratamos as pessoas?\n\nFraternidade não pode existir apenas como palavra bonita. Ela precisa aparecer na maneira como olhamos, escutamos e respeitamos o outro.\n\nHoje, que a reflexão não seja apenas sobre aquilo que pensamos, mas sobre aquilo que praticamos.",
+      "interiorization": "Que atitudes minhas ajudam a construir respeito e fraternidade?",
+      "prayer": "Que eu tenha coragem para reconhecer preconceitos, hábitos e comportamentos que diminuem outras pessoas. Que eu possa transformar respeito em prática cotidiana.",
+      "practice": "Procure hoje uma oportunidade de aprender algo sobre uma experiência diferente da sua, com respeito e abertura.",
+      "closingPhrase": "Fraternidade começa quando a dignidade do outro deixa de depender daquilo que ele tem em comum conosco.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Lei nº 14.759/2023 — Dia Nacional de Zumbi e da Consciência Negra; para a reflexão espírita, Allan Kardec, O Evangelho segundo o Espiritismo, cap. XI — A lei de amor."
+      },
+      "commemorativeDate": {
+        "label": "DIA NACIONAL DE ZUMBI E DA CONSCIÊNCIA NEGRA"
+      },
+      "isSpecial": true,
+      "sourceDayLabel": "DIA 20"
+    },
+    {
+      "id": "2026-11-21",
+      "date": "2026-11-21",
+      "title": "O que fazemos com aquilo que recebemos?",
+      "reflection": "Recebemos muitas coisas ao longo da vida: tempo, oportunidades, conhecimento, dinheiro, afeto, talentos e confiança.\n\nA pergunta não é apenas quanto temos. É o que fazemos com aquilo que recebemos.\n\nPossuir pode ser uma circunstância. Saber utilizar pode ser uma responsabilidade.\n\nTalvez uma vida significativa não seja medida apenas pelo que conseguimos acumular, mas também pelo que conseguimos transformar em benefício.",
+      "interiorization": "O que você recebeu que poderia ser mais bem utilizado?",
+      "prayer": "Que eu saiba reconhecer os recursos que a vida colocou em minhas mãos e utilizá-los com responsabilidade, sem transformar posse em finalidade da existência.",
+      "practice": "Escolha um recurso seu — tempo, conhecimento, dinheiro ou habilidade — e use uma pequena parte dele em benefício de alguém.",
+      "closingPhrase": "Aquilo que recebemos também pode se tornar uma oportunidade de fazer o bem.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. XVI — Não se pode servir a Deus e a Mamon."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 21"
+    },
+    {
+      "id": "2026-11-22",
+      "date": "2026-11-22",
+      "title": "Desapego",
+      "reflection": "Desapego não significa não gostar das coisas. Significa não permitir que elas determinem completamente nosso valor e nossa paz.\n\nPodemos apreciar uma conquista sem transformar a conquista em identidade. Podemos cuidar de algo sem acreditar que nossa felicidade depende de nunca perdê-lo.\n\nO que possuímos muda. O que aprendemos e o bem que fazemos podem nos transformar de maneira mais profunda.",
+      "interiorization": "Existe alguma coisa que você teme perder porque sente que ela define quem você é?",
+      "prayer": "Que eu saiba usufruir das coisas sem ser dominado por elas. Que eu coloque cada bem em seu devido lugar e não confunda posse com realização.",
+      "practice": "Escolha hoje um objeto, hábito ou excesso que você pode deixar de lado por algumas horas para perceber que consegue viver sem ele.",
+      "closingPhrase": "Desapegar não é deixar de amar; é aprender a não transformar posse em prisão.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. XVI — Não se pode servir a Deus e a Mamon."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 22"
+    },
+    {
+      "id": "2026-11-23",
+      "date": "2026-11-23",
+      "title": "Gratidão",
+      "reflection": "Gratidão não exige fingir que tudo está bem.\n\nPodemos estar cansados e ainda reconhecer uma coisa boa. Podemos atravessar uma dificuldade e ainda agradecer por alguém que esteve ao nosso lado. Podemos desejar mudanças sem desprezar aquilo que já recebemos.\n\nA gratidão não apaga a realidade. Ela muda o que escolhemos enxergar dentro dela.",
+      "interiorization": "Qual foi uma coisa pequena que tornou seu dia melhor recentemente?",
+      "prayer": "Que eu não passe tão depressa pelas coisas boas que existem na minha vida. Que eu tenha olhos para reconhecer o bem sem negar aquilo que ainda precisa ser transformado.",
+      "practice": "Antes de dormir, escreva três coisas pelas quais você é verdadeiramente grato hoje.",
+      "closingPhrase": "A gratidão não precisa negar a dificuldade para reconhecer a luz que existe dentro dela.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. XXVII — Pedi e obtereis, sobre reconhecimento e sinceridade da prece."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 23"
+    },
+    {
+      "id": "2026-11-24",
+      "date": "2026-11-24",
+      "title": "Prece",
+      "reflection": "A prece pode ser mais do que um pedido.\n\nPode ser agradecimento. Pode ser silêncio. Pode ser uma conversa íntima. Pode ser o momento em que reconhecemos nossa fragilidade e pedimos força para agir melhor.\n\nNão é necessário encontrar palavras bonitas. Uma prece pode começar com uma frase simples e verdadeira.\n\nHoje, em vez de tentar impressionar Deus com palavras, experimente falar com sinceridade.",
+      "interiorization": "O que você gostaria de colocar diante de Deus hoje?",
+      "prayer": "Que minha prece seja sincera. Que eu saiba pedir ajuda sem abandonar minha responsabilidade e agradecer sem transformar a gratidão em obrigação.",
+      "practice": "Faça uma prece curta hoje usando suas próprias palavras. Não procure uma fórmula pronta.",
+      "closingPhrase": "Quando a palavra nasce da sinceridade, ela não precisa ser complicada.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. XXVII — Pedi e obtereis, especialmente os itens sobre qualidades e ação da prece."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 24"
+    },
+    {
+      "id": "2026-11-25",
+      "date": "2026-11-25",
+      "title": "A palavra que escolhemos",
+      "reflection": "Uma palavra pode durar segundos e permanecer na memória de alguém por anos.\n\nFalamos quando estamos felizes, irritados, cansados, com medo. Nem sempre percebemos o peso que colocamos sobre aquilo que dizemos.\n\nNão precisamos deixar de falar verdades. Precisamos aprender a falar sem transformar verdade em violência.\n\nAntes de responder, talvez uma pergunta ajude: aquilo que vou dizer precisa ser dito desta maneira?",
+      "interiorization": "Existe uma conversa que você poderia conduzir com mais cuidado?",
+      "prayer": "Que eu tenha domínio sobre minhas palavras. Que eu saiba ser firme sem ser cruel, sincero sem ser agressivo e silencioso quando o silêncio for mais sábio.",
+      "practice": "Hoje, antes de uma resposta difícil, faça uma pausa de alguns segundos.",
+      "closingPhrase": "Nem toda verdade precisa ser dita com dureza.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. IX — Bem-aventurados os que são brandos e pacíficos."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 25"
+    },
+    {
+      "id": "2026-11-26",
+      "date": "2026-11-26",
+      "title": "Convivência",
+      "reflection": "Conviver é descobrir que o mundo não foi feito para confirmar todas as nossas preferências.\n\nPessoas pensam diferente, têm ritmos diferentes, expressam afeto de maneiras diferentes e enxergam problemas por ângulos que não enxergamos.\n\nRespeitar não significa concordar com tudo. Significa reconhecer que o outro também possui consciência, história e direito de pensar.\n\nA convivência é uma escola diária de paciência e humildade.",
+      "interiorization": "Em qual relação você poderia trocar a necessidade de convencer pela disposição de compreender?",
+      "prayer": "Que eu saiba conviver com diferenças sem abandonar meus valores e sem transformar minhas convicções em desprezo pelo outro.",
+      "practice": "Hoje, converse com alguém que pensa diferente e tente compreender primeiro o que sustenta a visão dessa pessoa.",
+      "closingPhrase": "A convivência amadurece quando compreender deixa de significar concordar e passa a significar escutar.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. XI — A lei de amor."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 26"
+    },
+    {
+      "id": "2026-11-27",
+      "date": "2026-11-27",
+      "title": "Conhecimento",
+      "reflection": "Buscar conhecimento espiritual também exige discernimento.\n\nNem tudo que parece profundo é necessariamente verdadeiro. Nem toda frase atribuída a um autor foi realmente escrita por ele. Nem toda interpretação corresponde ao que uma obra efetivamente ensina.\n\nEstudar é também aprender a verificar.\n\nA fé não precisa ter medo de perguntas. O conhecimento pode ser uma forma de respeito pela própria consciência.",
+      "interiorization": "Existe alguma crença que você gostaria de estudar melhor, em vez de simplesmente repetir?",
+      "prayer": "Que eu tenha coragem de perguntar, humildade para aprender e discernimento para distinguir aquilo que conheço daquilo que apenas ouvi dizer.",
+      "practice": "Escolha hoje uma informação espiritual que você costuma repetir e procure sua fonte original.",
+      "closingPhrase": "Buscar a verdade também é uma forma de cuidado com a própria consciência.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. XVII — Sede perfeitos; a estrutura do estudo deve ser complementada pela leitura direta das obras escolhidas."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 27"
+    },
+    {
+      "id": "2026-11-28",
+      "date": "2026-11-28",
+      "title": "Transformação",
+      "reflection": "Transformação espiritual não precisa acontecer em um único momento.\n\nEla pode aparecer em pequenas mudanças: uma reação que antes seria explosiva e hoje é mais consciente; uma pessoa que antes julgávamos e hoje tentamos compreender; um erro que antes repetiríamos e agora reconhecemos.\n\nTalvez não percebamos nossa própria mudança porque esperamos grandes sinais.\n\nOlhe para trás com honestidade. Existe algo que hoje você faz diferente?",
+      "interiorization": "Em que aspecto você percebe que amadureceu?",
+      "prayer": "Que eu tenha paciência com meu próprio processo e compromisso com aquilo que ainda preciso transformar.",
+      "practice": "Escreva uma mudança positiva que aconteceu em você nos últimos anos e uma que deseja cultivar daqui para frente.",
+      "closingPhrase": "Transformação também é perceber que você já não reage como reagia antes.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. XVII — Sede perfeitos."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 28"
+    },
+    {
+      "id": "2026-11-29",
+      "date": "2026-11-29",
+      "title": "Paz interior",
+      "reflection": "Paz não significa ausência de problemas.\n\nÀs vezes a vida continua exigindo respostas, decisões e coragem enquanto tentamos permanecer serenos.\n\nA paz pode estar menos relacionada ao controle das circunstâncias e mais à maneira como escolhemos atravessá-las.\n\nNão precisamos resolver tudo hoje. Podemos cuidar do que está ao nosso alcance e permitir que o restante encontre seu tempo.",
+      "interiorization": "O que hoje está roubando sua paz sem depender inteiramente de você?",
+      "prayer": "Que eu tenha serenidade para agir sobre aquilo que posso transformar e confiança para não carregar como responsabilidade aquilo que não está em minhas mãos.",
+      "practice": "Escolha uma preocupação e divida-a em duas partes: o que depende de você e o que não depende.",
+      "closingPhrase": "Paz não é controlar tudo; é aprender a permanecer inteiro enquanto a vida acontece.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. IX — Bem-aventurados os que são brandos e pacíficos."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 29"
+    },
+    {
+      "id": "2026-11-30",
+      "date": "2026-11-30",
+      "title": "O que permanece",
+      "reflection": "Um mês termina sem que a vida tenha necessariamente encontrado todas as respostas.\n\nTalvez você tenha começado novembro com uma preocupação que ainda existe. Talvez alguma coisa tenha mudado. Talvez você tenha percebido algo sobre si mesmo que não havia percebido antes.\n\nNão avalie o mês apenas pelo que conseguiu concluir. Pergunte também pelo que aprendeu, pelo bem que praticou, pelas atitudes que conseguiu transformar e pelas perguntas que agora carrega com mais consciência.\n\nUm devocional termina. A jornada, não.\n\nAmanhã começa outro dia. E com ele, outra oportunidade de continuar aprendendo a ser quem você deseja se tornar.",
+      "interiorization": "O que você leva deste mês? O que deseja continuar praticando em dezembro?",
+      "prayer": "Que eu agradeça pelo caminho percorrido e tenha humildade para reconhecer o quanto ainda posso aprender. Que aquilo que foi reflexão neste mês possa encontrar lugar nas minhas escolhas daqui para frente.",
+      "practice": "Escolha uma prática deste mês que você deseja manter durante dezembro.",
+      "closingPhrase": "O verdadeiro encerramento não é esquecer o que aprendemos; é levar o aprendizado para a próxima etapa.",
+      "source": {
+        "kind": "inspiration",
+        "text": "Allan Kardec, O Evangelho segundo o Espiritismo, cap. XVII — Sede perfeitos."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 30"
+    }
+  ],
+  "issues": []
+}
