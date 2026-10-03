@@ -1,9 +1,6 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
-import { IconChevronRight } from "@/components/icons";
-import { account } from "@/lib/account";
 import { SettingsGroups } from "@/components/reader";
 import { Button } from "@/components/ui";
 import { type PermissionState, REMINDER_BODY, webNotifications } from "@/lib/notifications";
@@ -84,21 +81,5 @@ export function NotificationSettings() {
         </Button>
       )}
     </div>
-  );
-}
-
-export function AccountLink() {
-  const hydrated = useHydrated();
-  const { email } = account.useValue();
-  return (
-    <Link href="/conta/" className="mb-10 flex min-h-16 items-center justify-between gap-4 rounded-[24px] border border-line-soft bg-surface px-5 py-4 hover:border-line">
-      <span className="min-w-0">
-        <span className="eyebrow block">Conta</span>
-        <span className="mt-1 block truncate text-[0.9375rem] text-ink">
-          {hydrated && email ? email : "Entrar ou criar conta"}
-        </span>
-      </span>
-      <IconChevronRight size={18} className="shrink-0 text-muted" />
-    </Link>
   );
 }

@@ -1,12 +1,12 @@
 import type { NextConfig } from "next";
 
-// As páginas de leitura continuam pré-geradas (estáticas); só /api/* roda no servidor
-// (contas e sincronização). Hospedagem recomendada: Vercel.
+// Exportação estática: o ALTAR é só leitura, sem backend.
+// O resultado (pasta out/) pode ser hospedado em qualquer servidor estático.
 const nextConfig: NextConfig = {
+  output: "export",
   trailingSlash: true,
   images: { unoptimized: true },
   reactStrictMode: true,
-  serverExternalPackages: ["pg"],
 };
 
 export default nextConfig;
