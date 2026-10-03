@@ -112,9 +112,32 @@ export async function renderShareImage(d: Devotional): Promise<Blob> {
   ctx.bezierCurveTo(650, 470, 860, 300, 1080, 330);
   ctx.stroke();
 
-  // Grão do papel (determinístico)
+  // Papel, como no app (determinístico): variação de tom, fibras e grão.
   let seed = 7;
   const rand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+  for (let i = 0; i < 14; i++) {
+    const x = rand() * SHARE_W;
+    const y = rand() * SHARE_H;
+    const r = 180 + rand() * 320;
+    const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+    g.addColorStop(0, `rgba(${c.grain},${0.025 + rand() * 0.025})`);
+    g.addColorStop(1, `rgba(${c.grain},0)`);
+    ctx.fillStyle = g;
+    ctx.fillRect(x - r, y - r, r * 2, r * 2);
+  }
+  ctx.lineWidth = 1.2;
+  ctx.lineCap = "round";
+  for (let i = 0; i < 2600; i++) {
+    const x = rand() * SHARE_W;
+    const y = rand() * SHARE_H;
+    const len = 6 + rand() * 18;
+    const vertical = rand() < 0.5;
+    ctx.strokeStyle = `rgba(${c.grain},${0.02 + rand() * 0.035})`;
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(vertical ? x + (rand() - 0.5) * 2 : x + len, vertical ? y + len : y + (rand() - 0.5) * 2);
+    ctx.stroke();
+  }
   ctx.fillStyle = `rgba(${c.grain},0.05)`;
   for (let i = 0; i < 9000; i++) ctx.fillRect(rand() * SHARE_W, rand() * SHARE_H, 1.6, 1.6);
 
