@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { IconArrowLeft, IconArrowRight } from "@/components/icons";
+import { DateBanner } from "@/components/date-banners";
 import { DateIllustration, hasIllustration } from "@/components/illustrations";
 import { Completion, ReaderBar } from "@/components/reader";
 import { devotionals, getDevotional, neighbours, paragraphs } from "@/content/devotionals";
@@ -37,6 +38,7 @@ export default async function DevotionalPage({ params }: { params: Promise<{ id:
             {d.isSpecial && hasIllustration(d.date) && (
               <DateIllustration date={d.date} className="-mx-2 mb-10 aspect-[16/9] rounded-[24px] bg-special sm:mx-0" />
             )}
+            <DateBanner date={d.date} className="mb-8" />
             <p className="eyebrow">
               <time dateTime={d.date} aria-label={accessibleDate(d.date)}>
                 {shortDate(d.date)} <span aria-hidden="true">·</span> {weekday(d.date)}
