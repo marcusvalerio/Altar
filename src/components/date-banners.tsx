@@ -265,6 +265,12 @@ export function bannerFor(date: string) {
   return bannerByDay[date.slice(5)];
 }
 
+/** Cor e nome da edição especial do dia (para o "banho" de cor da leitura). */
+export function editionFor(date: string) {
+  const id = bannerFor(date);
+  return id ? { label: MAP[id].label, color: MAP[id].bg } : null;
+}
+
 /** Faixa leve (≈ altura de um dedo) com a data comemorativa do dia. */
 export function DateBanner({ date, className = "" }: { date: string; className?: string }) {
   const id = bannerFor(date);
