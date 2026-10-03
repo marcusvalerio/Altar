@@ -97,10 +97,10 @@ export default async function DevotionalPage({ params }: { params: Promise<{ id:
             </section>
           )}
 
-          {/* Fonte: somente ao final, discreta. "Fonte de inspiração" ≠ citação literal. */}
+          {/* Fonte: somente ao final, discreta. "Fonte de inspiração" ≠ citação literal. Rótulo vem do arquivo. */}
           {d.source && (
             <footer className="border-t border-line-soft pt-6">
-              <p className="eyebrow">Fonte de inspiração</p>
+              <p className="eyebrow">{d.source.label.toLowerCase()}</p>
               <p className="mt-2 text-[0.875rem] leading-relaxed text-muted">{d.source.text}</p>
             </footer>
           )}

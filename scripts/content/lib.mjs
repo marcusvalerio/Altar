@@ -7,7 +7,7 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 
-export const SOURCE_FILE = "content/source/devocional_novembro_2026.txt";
+export const SOURCE_FILE = "content/source/devocional_outubro_2026.txt";
 export const OUTPUT_FILE = "src/content/generated/devotionals.json";
 
 const MONTHS = {
@@ -15,20 +15,32 @@ const MONTHS = {
   JULHO: 7, AGOSTO: 8, SETEMBRO: 9, OUTUBRO: 10, NOVEMBRO: 11, DEZEMBRO: 12,
 };
 
-// Cabeçalhos de seção, na ordem obrigatória em que aparecem no arquivo.
+// Cabeçalhos de seção, na ordem obrigatória. Algumas seções aceitam variantes
+// de rótulo; o rótulo original é preservado para exibição e reconstrução.
 export const SECTIONS = [
-  { heading: "REFLEXÃO", key: "reflection" },
-  { heading: "MOMENTO DE INTERIORIZAÇÃO", key: "interiorization" },
-  { heading: "PRECE", key: "prayer" },
-  { heading: "PRÁTICA DO DIA", key: "practice" },
-  { heading: "FRASE FINAL", key: "closingPhrase" },
-  { heading: "FONTE DE INSPIRAÇÃO", key: "source" },
+  { headings: ["REFLEXÃO"], key: "reflection" },
+  { headings: ["MOMENTO DE INTERIORIZAÇÃO"], key: "interiorization" },
+  { headings: ["PRECE"], key: "prayer" },
+  { headings: ["PRÁTICA DO DIA"], key: "practice" },
+  { headings: ["FRASE FINAL"], key: "closingPhrase" },
+  { headings: ["FONTE DE INSPIRAÇÃO", "FONTE DE INSPIRAÇÃO / REFERÊNCIA"], key: "source" },
 ];
+const HEADING_TO_KEY = new Map(SECTIONS.flatMap((s) => s.headings.map((h) => [h, s.key])));
+const SECTION_NAMES = SECTIONS.map((s) => s.headings[0]);
 
 const SEPARATOR = /^=+$/;
-const DAY_LINE = /^DIA (\d{2}) — (\d{2})\/(\d{2})$/;
+const DAY_LINE = /^DIA (\d{2}) — (\d{2})\/(\d{2})(?:\/(\d{4}))?$/;
 const THEME_LINE = /^TEMA: (.+)$/;
 const SPECIAL_LINE = /^CARD ESPECIAL: (.+)$/;
+const TRAILER_LINE = /^NOTAS? DE VERIFICAÇÃO EDITORIAL$/;
+const HEADING_PATTERNS = [/^DEVOCIONAL — ([A-ZÇ]+)\/(\d{4})$/, /^EDIÇÃO ([A-ZÇ]+) DE (\d{4})$/];
+
+// Marcadores de citação deixados por ferramentas de geração de texto
+// (caracteres de uso privado U+E200…U+E202, ex.: "citeturn0search1").
+// Não são texto editorial e ficariam visíveis como lixo na tela. São removidos
+// por uma regra técnica explícita, e CADA remoção é reportada pelo validador.
+const CITATION_MARKER = /[ \t]*cite[^\n]*/g;
+const PRIVATE_USE = /[-]/;
 
 const pad = (n) => String(n).padStart(2, "0");
 
@@ -36,7 +48,6 @@ export function readSource(path = SOURCE_FILE) {
   const raw = readFileSync(path, "utf8");
   return {
     raw,
-    // Única normalização: fim de linha. O texto em si não é tocado.
     text: raw.replace(/\r\n?/g, "\n"),
     sha256: createHash("sha256").update(raw).digest("hex"),
   };
@@ -51,100 +62,97 @@ function trimBlankLines(lines) {
   return lines.slice(start, end);
 }
 
+/** Bloco de nota editorial: primeira linha em caixa alta vira título. */
+function toNote(lines) {
+  const content = trimBlankLines(lines.filter((l) => !SEPARATOR.test(l))).filter((l) => l.trim() !== "");
+  if (!content.length) return null;
+  const hasTitle = content[0] === content[0].toUpperCase() && /[A-Z]/.test(content[0]);
+  return { title: hasTitle ? content[0] : "", paragraphs: hasTitle ? content.slice(1) : content };
+}
+
 /**
  * Faz o recorte do arquivo. Retorna dados + lista de problemas encontrados.
  * Problemas nunca são "consertados": são registrados para revisão editorial.
  */
-export function parseSource(text) {
+export function parseSource(originalText) {
   const issues = [];
   const error = (where, message) => issues.push({ level: "error", where, message });
   const warn = (where, message) => issues.push({ level: "warning", where, message });
 
-  const chunks = [];
-  let current = [];
-  for (const line of text.split("\n")) {
-    if (SEPARATOR.test(line)) {
-      chunks.push(current);
-      current = [];
-    } else {
-      current.push(line);
-    }
-  }
-  chunks.push(current);
+  // ---- Normalização técnica (reportada) ---------------------------------------
+  const removedMarkers = [];
+  const lines = originalText.split("\n").map((line, i) =>
+    line.replace(CITATION_MARKER, (m) => {
+      removedMarkers.push({ line: i + 1, marker: m.trim().replace(/[-]/g, "·") });
+      return "";
+    }),
+  );
 
-  // ---- Cabeçalho do arquivo -------------------------------------------------
-  const head = trimBlankLines(chunks.shift() ?? []);
+  // ---- Localiza dias e notas finais -----------------------------------------
+  const dayStarts = lines.flatMap((l, i) => (DAY_LINE.test(l) ? [i] : []));
+  const trailerStart = lines.findIndex((l, i) => TRAILER_LINE.test(l) && i > (dayStarts.at(-1) ?? -1));
+  const end = trailerStart === -1 ? lines.length : trailerStart;
+
+  const head = trimBlankLines(lines.slice(0, dayStarts[0] ?? lines.length).filter((l) => !SEPARATOR.test(l)));
   const heading = head[0] ?? "";
   const subtitle = head[1] ?? "";
-  const headingMatch = /^DEVOCIONAL — ([A-ZÇ]+)\/(\d{4})$/.exec(heading);
+
   let year = null;
   let month = null;
-  if (!headingMatch || !MONTHS[headingMatch[1]]) {
-    error("cabeçalho", `Não foi possível identificar mês/ano em: "${heading}"`);
-  } else {
-    month = MONTHS[headingMatch[1]];
-    year = Number(headingMatch[2]);
+  for (const line of head.slice(0, 3)) {
+    for (const re of HEADING_PATTERNS) {
+      const m = re.exec(line);
+      if (m && MONTHS[m[1]]) {
+        month = MONTHS[m[1]];
+        year = Number(m[2]);
+      }
+    }
   }
+  if (!month) error("cabeçalho", `Não foi possível identificar mês/ano no cabeçalho: "${head.slice(0, 3).join(" / ")}"`);
 
-  let editorialNote = null;
-  const noteIndex = head.indexOf("NOTA EDITORIAL DE CONFIABILIDADE");
-  if (noteIndex === -1) {
-    warn("cabeçalho", "Nota editorial de confiabilidade não encontrada.");
-  } else {
-    editorialNote = {
-      title: head[noteIndex],
-      paragraphs: trimBlankLines(head.slice(noteIndex + 1)).filter((l) => l.trim() !== ""),
-    };
+  const editorialNotes = [];
+  const headNote = toNote(head.slice(2));
+  if (headNote) editorialNotes.push(headNote);
+  if (trailerStart !== -1) {
+    const trailer = toNote(lines.slice(trailerStart));
+    if (trailer) editorialNotes.push(trailer);
   }
+  if (!editorialNotes.length) warn("cabeçalho", "Nenhuma nota editorial encontrada no arquivo.");
 
   // ---- Dias ------------------------------------------------------------------
   const devotionals = [];
-  chunks.forEach((chunk, index) => {
-    const lines = trimBlankLines(chunk);
-    const where = `bloco ${index + 1}`;
-    if (lines.length === 0) {
-      error(where, "Bloco vazio entre separadores.");
-      return;
-    }
-
-    const dayMatch = DAY_LINE.exec(lines[0]);
-    if (!dayMatch) {
-      error(where, `Primeira linha não é um cabeçalho de dia: "${lines[0]}"`);
-      return;
-    }
-    const [, dayNumber, dd, mm] = dayMatch;
+  dayStarts.forEach((start, index) => {
+    const stop = index + 1 < dayStarts.length ? dayStarts[index + 1] : end;
+    const block = trimBlankLines(lines.slice(start, stop).filter((l) => !SEPARATOR.test(l)));
+    const [, dayNumber, dd, mm, yyyy] = DAY_LINE.exec(block[0]);
     const label = `DIA ${dayNumber}`;
-    if (dayNumber !== dd) {
-      error(label, `Número do dia (${dayNumber}) difere da data (${dd}/${mm}).`);
-    }
-    if (month !== null && Number(mm) !== month) {
-      error(label, `Mês da data (${mm}) difere do mês do arquivo (${pad(month)}).`);
-    }
+
+    if (dayNumber !== dd) error(label, `Número do dia (${dayNumber}) difere da data (${dd}/${mm}).`);
+    if (month !== null && Number(mm) !== month) error(label, `Mês da data (${mm}) difere do mês do arquivo (${pad(month)}).`);
+    if (yyyy && year !== null && Number(yyyy) !== year) error(label, `Ano da data (${yyyy}) difere do ano do arquivo (${year}).`);
 
     let cursor = 1;
-    const themeMatch = THEME_LINE.exec(lines[cursor] ?? "");
+    const themeMatch = THEME_LINE.exec(block[cursor] ?? "");
     let title = "";
     if (!themeMatch) {
-      error(label, `Linha "TEMA:" ausente (encontrado: "${lines[cursor] ?? ""}").`);
+      error(label, `Linha "TEMA:" ausente (encontrado: "${block[cursor] ?? ""}").`);
     } else {
       title = themeMatch[1];
       cursor++;
     }
 
     let commemorativeDate;
-    const specialMatch = SPECIAL_LINE.exec(lines[cursor] ?? "");
+    const specialMatch = SPECIAL_LINE.exec(block[cursor] ?? "");
     if (specialMatch) {
       commemorativeDate = { label: specialMatch[1] };
       cursor++;
     }
 
-    // Seções: cada cabeçalho conhecido abre uma seção que vai até o próximo.
-    const known = new Map(SECTIONS.map((s) => [s.heading, s.key]));
     const found = [];
     let open = null;
-    for (const line of lines.slice(cursor)) {
-      if (known.has(line)) {
-        open = { heading: line, key: known.get(line), lines: [] };
+    for (const line of block.slice(cursor)) {
+      if (HEADING_TO_KEY.has(line)) {
+        open = { heading: line, key: HEADING_TO_KEY.get(line), lines: [] };
         found.push(open);
       } else if (open) {
         open.lines.push(line);
@@ -153,20 +161,21 @@ export function parseSource(text) {
       }
     }
 
-    const order = found.map((s) => s.heading).join(" → ");
-    const expected = SECTIONS.map((s) => s.heading).join(" → ");
+    const order = found.map((s) => SECTION_NAMES[SECTIONS.findIndex((x) => x.key === s.key)]).join(" → ");
+    const expected = SECTION_NAMES.join(" → ");
     if (order !== expected) {
       error(label, `Seções fora do padrão. Esperado: ${expected}. Encontrado: ${order || "(nenhuma)"}.`);
     }
 
     const fields = {};
+    const headings = {};
     for (const section of found) {
       if (fields[section.key] !== undefined) {
         error(label, `Seção duplicada: ${section.heading}.`);
         continue;
       }
-      // Parágrafos são separados por linha em branco, exatamente como no arquivo.
       fields[section.key] = trimBlankLines(section.lines).join("\n");
+      headings[section.key] = section.heading;
     }
 
     const date = year ? `${year}-${mm}-${dd}` : `????-${mm}-${dd}`;
@@ -180,13 +189,21 @@ export function parseSource(text) {
       prayer: fields.prayer,
       practice: fields.practice,
       closingPhrase: fields.closingPhrase,
-      source: fields.source !== undefined ? { kind: "inspiration", text: fields.source } : undefined,
+      source:
+        fields.source !== undefined
+          ? { kind: "inspiration", label: headings.source, text: fields.source }
+          : undefined,
       ...(commemorativeDate ? { commemorativeDate } : {}),
       isSpecial: Boolean(commemorativeDate),
-      // Bloco original, usado apenas para a verificação de round-trip.
-      _raw: lines.join("\n"),
+      // Apenas para a verificação de round-trip.
+      _dayLine: block[0],
+      _raw: block.join("\n"),
     });
   });
+
+  for (const m of removedMarkers) {
+    warn(`linha ${m.line}`, `Marcador técnico de citação removido: "${m.marker}" — recomenda-se limpar o arquivo-fonte.`);
+  }
 
   return {
     meta: {
@@ -195,7 +212,10 @@ export function parseSource(text) {
       subtitle,
       year,
       month,
-      editorialNote,
+      editorialNotes,
+      technicalNormalizations: removedMarkers.length
+        ? [`${removedMarkers.length} marcador(es) técnico(s) de citação removido(s) (caracteres U+E200–U+E202).`]
+        : [],
       fieldMapping: {
         title: "TEMA",
         "commemorativeDate.label": "CARD ESPECIAL",
@@ -204,7 +224,7 @@ export function parseSource(text) {
         prayer: "PRECE",
         practice: "PRÁTICA DO DIA",
         closingPhrase: "FRASE FINAL",
-        "source.text": "FONTE DE INSPIRAÇÃO",
+        "source.text": "FONTE DE INSPIRAÇÃO (/ REFERÊNCIA)",
       },
     },
     devotionals,
@@ -214,12 +234,12 @@ export function parseSource(text) {
 
 /** Reconstrói o bloco de um dia a partir dos campos estruturados. */
 export function serializeDevotional(d) {
-  const out = [d.dayLabel + " — " + d.date.slice(8, 10) + "/" + d.date.slice(5, 7), `TEMA: ${d.title}`];
+  const out = [d._dayLine, `TEMA: ${d.title}`];
   if (d.commemorativeDate) out.push(`CARD ESPECIAL: ${d.commemorativeDate.label}`);
-  for (const { heading, key } of SECTIONS) {
+  for (const { key, headings } of SECTIONS) {
     const value = key === "source" ? d.source?.text : d[key];
     if (value === undefined) continue;
-    out.push("", heading, value);
+    out.push("", key === "source" ? d.source.label : headings[0], value);
   }
   return out.join("\n");
 }
@@ -232,7 +252,7 @@ export function validate(parsed) {
   const { year, month } = parsed.meta;
   const list = parsed.devotionals;
 
-  // 1. Quantidade de dias = dias reais do mês (novembro → 30; nunca 31).
+  // 1. Quantidade de dias = dias reais do mês.
   if (year && month) {
     const daysInMonth = new Date(Date.UTC(year, month, 0)).getUTCDate();
     if (list.length !== daysInMonth) {
@@ -249,7 +269,6 @@ export function validate(parsed) {
       const date = `${year}-${pad(month)}-${pad(day)}`;
       if (!seen.has(date)) error("arquivo", `Data ausente: ${date}.`);
     }
-    // Ordem cronológica.
     list.forEach((d, i) => {
       if (i > 0 && d.date <= list[i - 1].date) error(d.dayLabel, "Dias fora de ordem cronológica.");
     });
@@ -257,18 +276,16 @@ export function validate(parsed) {
 
   for (const d of list) {
     const where = d.dayLabel;
-    // 2. Campos obrigatórios não vazios.
     if (!d.title.trim()) error(where, "Título (TEMA) vazio.");
     if (!d.reflection.trim()) error(where, "Reflexão vazia.");
-    for (const { heading, key } of SECTIONS) {
+    for (const { headings, key } of SECTIONS) {
       const value = key === "source" ? d.source?.text : d[key];
-      if (value === undefined) error(where, `Seção ausente: ${heading}.`);
-      else if (!value.trim()) error(where, `Seção vazia: ${heading}.`);
+      if (value === undefined) error(where, `Seção ausente: ${headings[0]}.`);
+      else if (!value.trim()) error(where, `Seção vazia: ${headings[0]}.`);
+      else if (PRIVATE_USE.test(value)) error(where, `${headings[0]} contém caracteres invisíveis/técnicos.`);
     }
 
-    // 3. Round-trip: a reconstrução deve ser idêntica ao bloco original.
-    //    Garante que nenhuma prece/reflexão/fonte foi alterada, truncada
-    //    ou deslocada para outro dia durante a importação.
+    // 2. Round-trip: a reconstrução deve ser idêntica ao bloco original.
     const rebuilt = serializeDevotional(d);
     if (rebuilt !== d._raw) {
       const a = rebuilt.split("\n");
@@ -277,11 +294,11 @@ export function validate(parsed) {
       error(where, `Reconstrução difere do original na linha ${at + 1}: "${b[at] ?? ""}" ≠ "${a[at] ?? ""}".`);
     }
 
-    // 4. Heurística de truncamento: seções devem terminar em pontuação final.
-    for (const { heading, key } of SECTIONS) {
+    // 3. Heurística de truncamento.
+    for (const { headings, key } of SECTIONS) {
       const value = key === "source" ? d.source?.text : d[key];
       if (value && !/[.?!…”"»)]$/.test(value.trim())) {
-        warn(where, `${heading} não termina com pontuação final — verificar se o texto está completo.`);
+        warn(where, `${headings[0]} não termina com pontuação final — verificar se o texto está completo.`);
       }
     }
   }
@@ -289,12 +306,12 @@ export function validate(parsed) {
   return issues;
 }
 
-/** Dados prontos para o app (sem o bloco bruto). */
+/** Dados prontos para o app (sem campos internos). */
 export function toPublicData(parsed, sha256) {
   return {
     meta: { ...parsed.meta, sha256 },
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    devotionals: parsed.devotionals.map(({ _raw, dayLabel, ...rest }) => ({
+    devotionals: parsed.devotionals.map(({ _raw, _dayLine, dayLabel, ...rest }) => ({
       ...rest,
       sourceDayLabel: dayLabel,
     })),

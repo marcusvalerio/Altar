@@ -58,7 +58,7 @@ export function markCompleted(id: string) {
 
 /**
  * "Hoje" no fuso do aparelho. Para pré-visualizar outro dia (desenvolvimento,
- * revisão editorial), use ?hoje=2026-11-03 na URL.
+ * revisão editorial), use ?hoje=2026-10-03 na URL.
  * Retorna null antes da hidratação (exportação estática não conhece o dia).
  */
 export function useToday(): string | null {

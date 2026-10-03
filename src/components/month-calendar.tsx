@@ -107,9 +107,11 @@ export function MonthCalendar({ year, month, today, completed, variant, selected
         <li className="flex items-center gap-2">
           <span aria-hidden="true" className="h-3 w-3 rounded-full bg-surface-2" /> lida
         </li>
-        <li className="flex items-center gap-2">
-          <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-mustard" /> data especial
-        </li>
+        {cells.some((iso) => iso && getDevotional(iso)?.isSpecial) && (
+          <li className="flex items-center gap-2">
+            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-mustard" /> data especial
+          </li>
+        )}
       </ul>
     </div>
   );

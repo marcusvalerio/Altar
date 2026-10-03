@@ -15,7 +15,7 @@ npm run dev          # http://localhost:3000
 
 O `npm run dev` importa e valida o conteúdo antes de subir o servidor. No modo de desenvolvimento, as inconsistências aparecem numa faixa na própria tela.
 
-**Ver outro dia como se fosse hoje.** O conteúdo cobre novembro de 2026. Para conferir a Home num dia específico, use `?hoje=2026-11-03`. O valor vale até a aba ser fechada.
+**Ver outro dia como se fosse hoje.** O conteúdo cobre outubro de 2026. Para conferir a Home num dia específico, use `?hoje=2026-10-12`. O valor vale até a aba ser fechada.
 
 ## Build e deploy
 
@@ -34,7 +34,7 @@ Outros comandos: `npm run lint`, `npm run typecheck`, `npm run content:import` e
 
 ## Conteúdo editorial
 
-O app **não escreve conteúdo**. A única fonte é o arquivo `content/source/devocional_novembro_2026.txt`, que é cópia fiel do arquivo entregue.
+O app **não escreve conteúdo**. A única fonte é o arquivo `content/source/devocional_outubro_2026.txt`, que é cópia fiel do arquivo entregue (edição de outubro de 2026, com 31 dias).
 
 ```
 content/source/*.txt  ──(scripts/content/import.mjs)──▶  src/content/generated/devotionals.json  ──▶  app
@@ -45,7 +45,7 @@ O importador apenas recorta o arquivo nos campos `TEMA`, `CARD ESPECIAL`, `REFLE
 
 O validador confere:
 
-- quantidade de dias igual aos dias reais do mês (novembro = 30, nunca 31);
+- quantidade de dias igual aos dias reais do mês (outubro = 31);
 - nenhuma data duplicada, ausente, inexistente ou fora de ordem;
 - número do `DIA` igual à data;
 - todas as seções presentes, na ordem certa, sem duplicação e sem conteúdo vazio;
@@ -61,15 +61,14 @@ O texto de `FONTE DE INSPIRAÇÃO` é mostrado como está, somente ao final da l
 
 ## Pontos editoriais em aberto
 
-Pontos encontrados na importação. Nenhum deles foi "corrigido" no código:
+Pontos encontrados na importação da edição de outubro/2026. Nenhum texto foi alterado:
 
-1. **Título × tema.** O arquivo traz apenas `TEMA:`, sem um título separado. O app usa o tema como título (`fieldMapping.title = "TEMA"`). Se houver títulos próprios, basta incluir uma linha no arquivo e um campo no importador.
-2. **Ano.** As datas vêm como `01/11`. O ano (2026) vem do cabeçalho `DEVOCIONAL — NOVEMBRO/2026`.
-3. **Datas especiais.** O arquivo traz só o rótulo (`DIA DE FINADOS` e `DIA NACIONAL DE ZUMBI E DA CONSCIÊNCIA NEGRA`), sem descrição. O card especial mostra o rótulo e o tema do dia. Nenhuma descrição foi criada.
-4. **Ilustrações.** Nenhuma ilustração foi fornecida. As duas datas especiais usam composições gráficas **abstratas e provisórias** (`src/components/illustrations.tsx`, mapeadas em `src/content/editorial-assets.ts`), que devem ser trocadas por ilustrações autorais.
-5. **Nota editorial do arquivo.** Ela diz que o conteúdo é um *rascunho* e que, antes de uma publicação comercial, é preciso conferir a edição bibliográfica, a paginação e a eventual necessidade de licença. A nota é exibida em **Mais → Sobre o conteúdo**.
-6. **Dia 20.** A fonte cita a Lei nº 14.759/2023 junto com a obra de Kardec. O texto foi mantido como está, e convém conferir a referência.
-7. **Fora de novembro.** Fora de novembro (por exemplo, em outubro), a Home diz que ainda não há leitura para o dia e oferece a primeira leitura disponível. Nenhum conteúdo é gerado.
+1. **Marcadores técnicos nas fontes.** 22 linhas de `FONTE DE INSPIRAÇÃO / REFERÊNCIA` terminavam com caracteres invisíveis de citação (`citeturn0search1` e parecidos, U+E200–U+E202), resíduo da ferramenta que gerou o texto. Eles apareceriam como lixo na tela, então o importador os remove por uma regra técnica explícita e o validador lista cada remoção (linha a linha) como aviso. O ideal é limpar o arquivo-fonte.
+2. **Possível erro de digitação no dia 02/10:** "transformar diferença em **inimizado**" (provavelmente "inimizade"). Mantido como está.
+3. **Título × tema.** O arquivo traz apenas `TEMA:`, que é usado como título.
+4. **Datas especiais.** Nenhum dia tem `CARD ESPECIAL:`. Os dias 02 (Não-Violência), 03 (Allan Kardec), 12 (Dia das Crianças) e 24 (Dia das Nações Unidas) tratam de datas, mas aparecem como leitura normal. Para virarem card especial, basta adicionar `CARD ESPECIAL: <rótulo>` logo abaixo do `TEMA:` desses dias.
+5. **Ilustrações.** Como não há datas especiais marcadas, as composições gráficas provisórias (`src/components/illustrations.tsx`) não estão associadas a nenhum dia (`src/content/editorial-assets.ts`).
+6. **Notas editoriais do arquivo** (introdução e "Notas de verificação editorial") são exibidas em **Mais → Sobre o conteúdo**. Elas pedem uma revisão bibliográfica final antes de uma publicação comercial.
 
 ## Estrutura
 

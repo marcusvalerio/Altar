@@ -9,7 +9,7 @@
 
 export type IllustrationId = "memoria" | "fraternidade";
 
-export const illustrationByDate: Record<string, { id: IllustrationId; provisional: true }> = {
-  "2026-11-02": { id: "memoria", provisional: true },
-  "2026-11-20": { id: "fraternidade", provisional: true },
-};
+// Só datas marcadas com "CARD ESPECIAL:" no arquivo-fonte devem receber ilustração.
+// A edição de outubro/2026 não marca nenhuma data especial.
+// Exemplo: "2026-10-02": { id: "fraternidade", provisional: true },
+export const illustrationByDate: Record<string, { id: IllustrationId; provisional: true }> = {};

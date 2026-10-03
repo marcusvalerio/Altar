@@ -8,6 +8,8 @@
 /** "Fonte de inspiração" ≠ citação literal. Ver src/content/quotes.ts. */
 export type InspirationSource = {
   kind: "inspiration";
+  /** Rótulo da seção exatamente como no arquivo (ex.: "FONTE DE INSPIRAÇÃO / REFERÊNCIA"). */
+  label: string;
   /** Texto exatamente como no arquivo (não é decomposto em autor/obra para não inferir dados). */
   text: string;
 };
@@ -48,7 +50,9 @@ export type ContentBundle = {
     subtitle: string;
     year: number;
     month: number;
-    editorialNote: { title: string; paragraphs: string[] } | null;
+    editorialNotes: { title: string; paragraphs: string[] }[];
+    /** Normalizações técnicas aplicadas na importação (sempre reportadas). */
+    technicalNormalizations: string[];
     fieldMapping: Record<string, string>;
     sha256: string;
   };

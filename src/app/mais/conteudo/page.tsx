@@ -7,7 +7,6 @@ export const metadata: Metadata = { title: "Sobre o conteúdo" };
 
 export default function Page() {
   const specials = devotionals.filter((d) => d.commemorativeDate);
-  const note = contentMeta.editorialNote;
   return (
     <Screen>
       <ScreenHeader title="Sobre o conteúdo" back={{ href: "/mais/", label: "Mais" }} />
@@ -20,20 +19,20 @@ export default function Page() {
             Nenhuma reflexão, prece, prática ou frase é escrita automaticamente pelo aplicativo.
           </p>
           <p className="mt-3 text-muted">
-            {contentMeta.heading} · {contentMeta.subtitle.toLowerCase()} · {devotionals.length} leituras.
+            {contentMeta.subtitle} · {devotionals.length} leituras.
           </p>
         </section>
 
-        {note && (
-          <section>
-            <h2 className="eyebrow mb-3">{note.title.toLowerCase()}</h2>
+        {contentMeta.editorialNotes.map((note, n) => (
+          <section key={n}>
+            {note.title && <h2 className="eyebrow mb-3">{note.title.toLowerCase()}</h2>}
             <div className="space-y-3 rounded-[20px] bg-surface-2/60 p-5 text-ink-2">
               {note.paragraphs.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
             </div>
           </section>
-        )}
+        ))}
 
         <section>
           <h2 className="eyebrow mb-3">Fonte de inspiração</h2>
