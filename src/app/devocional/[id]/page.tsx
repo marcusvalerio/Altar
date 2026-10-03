@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { IconArrowLeft, IconArrowRight } from "@/components/icons";
-import { DateBanner } from "@/components/date-banners";
+import { DateBanner, editionFor } from "@/components/date-banners";
 import { DateIllustration, hasIllustration } from "@/components/illustrations";
 import { Completion, ReaderBar } from "@/components/reader";
 import { devotionals, getDevotional, neighbours, paragraphs } from "@/content/devotionals";
@@ -28,27 +28,41 @@ export default async function DevotionalPage({ params }: { params: Promise<{ id:
   const d = getDevotional((await params).id);
   if (!d) notFound();
   const { previous, next } = neighbours(d.id);
+  const edition = editionFor(d.date);
 
   return (
     <>
       <ReaderBar id={d.id} />
-      <main className="mx-auto w-full max-w-[38rem] px-6 pb-[calc(env(safe-area-inset-bottom)+4rem)] pt-[calc(env(safe-area-inset-top)+6rem)] sm:px-8">
+      {edition && (
+        // Edição especial: a página ganha um banho de cor da data, que se perde no papel.
+        <div
+          aria-hidden="true"
+          className="animate-fade pointer-events-none absolute inset-x-0 top-0 h-[34rem]"
+          style={{ background: `linear-gradient(to bottom, color-mix(in srgb, ${edition.color} 22%, transparent), transparent)` }}
+        />
+      )}
+      <main className="relative mx-auto w-full max-w-[38rem] px-6 pb-[calc(env(safe-area-inset-bottom)+4rem)] pt-[calc(env(safe-area-inset-top)+6rem)] sm:px-8">
         <article lang="pt-BR">
-          <header className="animate-rise">
+          <header>
             {d.isSpecial && hasIllustration(d.date) && (
-              <DateIllustration date={d.date} className="-mx-2 mb-10 aspect-[16/9] rounded-[24px] bg-special sm:mx-0" />
+              <DateIllustration date={d.date} className="animate-rise -mx-2 mb-10 aspect-[16/9] rounded-[24px] bg-special sm:mx-0" />
             )}
-            <DateBanner date={d.date} className="mb-8" />
-            <p className="eyebrow">
+            {edition && (
+              <>
+                <p className="eyebrow animate-rise mb-3 text-ink">Edição especial</p>
+                <DateBanner date={d.date} className="animate-rise delay-1 mb-10 shadow-[var(--shadow)]" />
+              </>
+            )}
+            <p className="eyebrow animate-rise delay-1">
               <time dateTime={d.date} aria-label={accessibleDate(d.date)}>
                 {shortDate(d.date)} <span aria-hidden="true">·</span> {weekday(d.date)}
               </time>
             </p>
             {d.commemorativeDate && (
-              <p className="mt-4 text-[0.8125rem] font-medium uppercase tracking-[0.14em] text-terracotta">{d.commemorativeDate.label}</p>
+              <p className="animate-rise delay-2 mt-4 text-[0.8125rem] font-medium uppercase tracking-[0.14em] text-terracotta">{d.commemorativeDate.label}</p>
             )}
-            <h1 className="reading-title mt-4 font-display text-ink">{d.title}</h1>
-            <div aria-hidden="true" className="mt-8 h-[3px] w-10 rounded-full bg-mustard" />
+            <h1 className="reading-title animate-rise delay-2 mt-4 font-display text-ink">{d.title}</h1>
+            <div aria-hidden="true" className="animate-draw delay-4 mt-8 h-[3px] w-10 rounded-full bg-mustard" />
           </header>
 
           <Section label="Reflexão" className="mt-12">
@@ -93,7 +107,7 @@ export default async function DevotionalPage({ params }: { params: Promise<{ id:
           )}
 
           {d.closingPhrase && (
-            <section aria-label="Frase final" className="my-28 text-center">
+            <section aria-label="Frase final" className="reveal my-28 text-center">
               <p className="eyebrow mb-8">Frase final</p>
               <p className="closing-phrase mx-auto max-w-[32rem] text-balance font-display text-ink">{d.closingPhrase}</p>
             </section>

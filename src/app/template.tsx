@@ -1,4 +1,4 @@
-// Transição entre telas: um leve surgimento, nada mais.
+// Troca de tela instantânea; cada tela faz a própria entrada, leve.
 export default function Template({ children }: { children: React.ReactNode }) {
-  return <div className="animate-fade">{children}</div>;
+  return children;
 }

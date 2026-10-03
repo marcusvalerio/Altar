@@ -3,6 +3,7 @@
 // cores da paleta do app, no espírito da pintura popular: formas simples,
 // estampas e colares de contas. O movimento acompanha o sentido da data.
 import { bannerByDay, type BannerId } from "@/content/editorial-assets";
+import { BannerFrame } from "./banner-frame";
 
 // Paleta do app (mesmos valores de globals.css e illustrations.tsx).
 const C = {
@@ -265,13 +266,23 @@ export function bannerFor(date: string) {
   return bannerByDay[date.slice(5)];
 }
 
+/** Cor e nome da edição especial do dia (para o "banho" de cor da leitura). */
+export function editionFor(date: string) {
+  const id = bannerFor(date);
+  return id ? { label: MAP[id].label, color: MAP[id].bg } : null;
+}
+
 /** Faixa leve (≈ altura de um dedo) com a data comemorativa do dia. */
 export function DateBanner({ date, className = "" }: { date: string; className?: string }) {
   const id = bannerFor(date);
   if (!id) return null;
+  return <Banner id={id} className={className} />;
+}
+
+function Banner({ id, className }: { id: BannerId; className: string }) {
   const { label, bg, ink, Art } = MAP[id];
   return (
-    <div className={`relative h-16 overflow-hidden rounded-[18px] ${className}`} style={{ background: bg }}>
+    <BannerFrame className={`relative h-16 overflow-hidden rounded-[18px] [contain:paint] ${className}`} style={{ background: bg }}>
       <div className="absolute inset-0">
         <Art />
       </div>
@@ -283,6 +294,6 @@ export function DateBanner({ date, className = "" }: { date: string; className?:
           {label}
         </p>
       </div>
-    </div>
+    </BannerFrame>
   );
 }

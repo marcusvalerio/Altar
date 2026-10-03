@@ -1,12 +1,14 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, m } from "motion/react";
+import { useEffect, useId, useRef, useState } from "react";
 import type { Devotional } from "@/content/types";
 import { renderShareImage } from "@/lib/share-image";
 import { THEMES, TEXT_SIZES, completed, favorites, markCompleted, preferences, setPreferences, toggleFavorite, unmarkCompleted } from "@/lib/state";
 import { useHydrated } from "@/lib/store";
 import { IconArrowLeft, IconBookmark, IconCheck, IconClose, IconDownload, IconShare, IconTextSize } from "./icons";
+import { ease, spring } from "./motion";
 import { Button } from "./ui";
 
 /* ------------------------------------------------------------------------- */
@@ -16,7 +18,8 @@ import { Button } from "./ui";
 export function ReaderBar({ id }: { id: string }) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
-  const progress = useScrollProgress();
+  const { progress, hidden } = useScrollState();
+  const tucked = hidden && !open;
 
   function goBack() {
     const sameOrigin = document.referrer && new URL(document.referrer).origin === window.location.origin;
@@ -26,10 +29,14 @@ export function ReaderBar({ id }: { id: string }) {
 
   return (
     <div className="fixed inset-x-0 top-0 z-40 pt-[env(safe-area-inset-top)]">
-      <div className="border-b border-line-soft bg-bg/85 backdrop-blur-md supports-[backdrop-filter]:bg-bg/75">
+      {/* Ao descer, a barra se recolhe e deixa só a linha de progresso; ao subir, volta. */}
+      <div
+        className="border-b border-line-soft bg-bg/85 backdrop-blur-md transition-transform duration-500 ease-[var(--ease-settle)] supports-[backdrop-filter]:bg-bg/75"
+        style={{ transform: tucked ? "translateY(calc(-100% + 2px))" : "none" }}
+      >
         <div className="mx-auto flex h-14 max-w-2xl items-center justify-between px-2 sm:px-4">
-          <button type="button" onClick={goBack} className="inline-flex min-h-11 items-center gap-2 rounded-full px-3 text-sm text-muted hover:text-ink">
-            <IconArrowLeft size={20} />
+          <button type="button" onClick={goBack} className="group inline-flex min-h-11 items-center gap-2 rounded-full px-3 text-sm text-muted transition-colors hover:text-ink">
+            <IconArrowLeft size={20} className="transition-transform duration-300 ease-[var(--ease-settle)] group-hover:-translate-x-0.5 group-active:-translate-x-1" />
             <span>Voltar</span>
           </button>
           <div className="flex items-center gap-1">
@@ -90,26 +97,34 @@ function ReadingSettings({ onClose }: { onClose: () => void }) {
 
 /** Controles de tamanho do texto e tema (usados na leitura e em Mais). */
 export function SettingsGroups({ prefs }: { prefs: ReturnType<typeof preferences.useValue> }) {
+  const uid = useId();
   return (
-    <div className="space-y-5">
+    <div className="space-y-6">
       <fieldset>
-        <legend className="eyebrow mb-2.5">Tamanho do texto</legend>
-        <div className="grid grid-cols-4 gap-1.5">
+        <legend className="eyebrow mb-3">Tamanho do texto</legend>
+        <div className="relative grid grid-cols-4 gap-1 rounded-[18px] bg-surface-2/70 p-1">
           {TEXT_SIZES.map((s, i) => (
-            <Segment key={s.value} active={prefs.textSize === s.value} onClick={() => setPreferences({ textSize: s.value })} label={s.label}>
+            <Segment key={s.value} group={`${uid}-size`} active={prefs.textSize === s.value} onClick={() => setPreferences({ textSize: s.value })} label={s.label}>
               <span className="font-display" style={{ fontSize: `${15 + i * 3}px` }} aria-hidden="true">
                 Aa
               </span>
             </Segment>
           ))}
         </div>
+        {/* Prévia viva: o tamanho muda suavemente, como na leitura. */}
+        <p aria-hidden="true" className="mt-3 font-display leading-snug text-ink-2 transition-[font-size] duration-500 ease-[var(--ease-settle)]" style={{ fontSize: "var(--reading-size)" }}>
+          Assim fica o texto da leitura.
+        </p>
       </fieldset>
       <fieldset>
-        <legend className="eyebrow mb-2.5">Tema</legend>
-        <div className="grid grid-cols-3 gap-1.5">
+        <legend className="eyebrow mb-3">Tema</legend>
+        <div className="relative grid grid-cols-3 gap-1 rounded-[18px] bg-surface-2/70 p-1">
           {THEMES.map((t) => (
-            <Segment key={t.value} active={prefs.theme === t.value} onClick={() => setPreferences({ theme: t.value })} label={t.label}>
-              <span className="text-[0.8125rem]">{t.label}</span>
+            <Segment key={t.value} group={`${uid}-theme`} active={prefs.theme === t.value} onClick={() => setPreferences({ theme: t.value })} label={t.label}>
+              <span className="inline-flex items-center gap-2 text-[0.8125rem]">
+                <ThemeSwatch value={t.value} />
+                {t.label}
+              </span>
             </Segment>
           ))}
         </div>
@@ -118,7 +133,13 @@ export function SettingsGroups({ prefs }: { prefs: ReturnType<typeof preferences
   );
 }
 
-function Segment({ active, onClick, label, children }: { active: boolean; onClick: () => void; label: string; children: React.ReactNode }) {
+/** Amostra de papel do tema: claro, escuro ou meio a meio (automático). */
+function ThemeSwatch({ value }: { value: string }) {
+  const bg = value === "light" ? "#EBEBDF" : value === "dark" ? "#141312" : "linear-gradient(135deg, #EBEBDF 50%, #141312 50%)";
+  return <span aria-hidden="true" className="h-3.5 w-3.5 rounded-full border border-line" style={{ background: bg }} />;
+}
+
+function Segment({ group, active, onClick, label, children }: { group: string; active: boolean; onClick: () => void; label: string; children: React.ReactNode }) {
   return (
     <button
       type="button"
@@ -126,23 +147,35 @@ function Segment({ active, onClick, label, children }: { active: boolean; onClic
       aria-pressed={active}
       aria-label={label}
       title={label}
-      className={`flex min-h-12 items-center justify-center rounded-2xl border transition-colors duration-300 ${
-        active ? "border-ink bg-ink text-bg" : "border-line-soft text-ink hover:border-line"
-      }`}
+      className={`relative flex min-h-12 items-center justify-center rounded-[14px] transition-colors duration-300 active:scale-[0.97] ${active ? "text-ink" : "text-muted hover:text-ink"}`}
     >
-      {children}
+      {/* A pílula desliza até a opção escolhida. */}
+      {active && <m.span layoutId={group} transition={spring.place} className="absolute inset-0 rounded-[14px] bg-surface shadow-[0_1px_2px_rgb(67_49_39/0.12),0_6px_16px_-10px_rgb(67_49_39/0.4)]" />}
+      <span className="relative">{children}</span>
     </button>
   );
 }
 
-function useScrollProgress() {
-  const [p, setP] = useState(0);
+/** Progresso da leitura e se a barra deve se recolher (descendo, longe do topo). */
+function useScrollState() {
+  const [state, setState] = useState({ progress: 0, hidden: false });
   useEffect(() => {
     let raf = 0;
+    let last = window.scrollY;
     const update = () => {
       raf = 0;
+      const y = window.scrollY;
       const max = document.documentElement.scrollHeight - window.innerHeight;
-      setP(max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 1);
+      const progress = max > 0 ? Math.min(1, Math.max(0, y / max)) : 1;
+      const delta = y - last;
+      last = y;
+      setState((prev) => {
+        let hidden = prev.hidden;
+        if (y < 120 || progress > 0.985) hidden = false;
+        else if (delta > 6) hidden = true;
+        else if (delta < -6) hidden = false;
+        return prev.progress === progress && prev.hidden === hidden ? prev : { progress, hidden };
+      });
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(update);
@@ -156,7 +189,7 @@ function useScrollProgress() {
       cancelAnimationFrame(raf);
     };
   }, []);
-  return p;
+  return state;
 }
 
 /* ------------------------------------------------------------------------- */
@@ -168,9 +201,25 @@ export function FavoriteButton({ id, withLabel }: { id: string; withLabel?: bool
   const [pulse, setPulse] = useState(0);
   const label = active ? "Remover dos favoritos" : "Favoritar";
 
+  // Ao guardar: o marcador assenta e um anel fino se abre e some. Ao remover: só esvazia.
   const icon = (
-    <span key={pulse} className={pulse ? "animate-pop inline-flex" : "inline-flex"}>
-      <IconBookmark size={withLabel ? 20 : 22} filled={active} className={active ? "text-mustard-ink" : undefined} />
+    <span className="relative inline-flex">
+      <m.span key={pulse} initial={pulse && active ? { scale: 0.7 } : false} animate={{ scale: 1 }} transition={spring.touch} className="inline-flex">
+        <IconBookmark size={withLabel ? 20 : 22} filled={active} className={`transition-colors duration-300 ${active ? "text-mustard-ink" : ""}`} />
+      </m.span>
+      <AnimatePresence>
+        {pulse > 0 && active && (
+          <m.span
+            key={pulse}
+            aria-hidden="true"
+            initial={{ opacity: 0.6, scale: 0.6 }}
+            animate={{ opacity: 0, scale: 1.9 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.7, ease: ease.settle }}
+            className="absolute inset-0 rounded-full border border-mustard"
+          />
+        )}
+      </AnimatePresence>
     </span>
   );
 
@@ -183,7 +232,7 @@ export function FavoriteButton({ id, withLabel }: { id: string; withLabel?: bool
     return (
       <Button variant="quiet" onClick={onClick} aria-pressed={active}>
         {icon}
-        {active ? "Favoritado" : "Favoritar"}
+        {active ? "Guardado" : "Favoritar"}
       </Button>
     );
   }
@@ -194,7 +243,7 @@ export function FavoriteButton({ id, withLabel }: { id: string; withLabel?: bool
       aria-pressed={active}
       aria-label={label}
       title={label}
-      className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted hover:text-ink"
+      className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted transition-colors hover:text-ink active:scale-95"
     >
       {icon}
     </button>
@@ -209,49 +258,80 @@ export function Completion({ devotional }: { devotional: Devotional }) {
   const done = completed.useValue();
   const hydrated = useHydrated();
   const isDone = hydrated && Boolean(done[devotional.id]);
-  // Animação só quando a pessoa acabou de marcar (não ao reabrir um dia já feito).
+  // A sequência só acontece quando a pessoa acabou de marcar (não ao reabrir um dia já feito).
   const [justMarked, setJustMarked] = useState(false);
+  const enter = (delay: number) =>
+    justMarked
+      ? { initial: { opacity: 0, y: 8 }, animate: { opacity: 1, y: 0 }, transition: { duration: 1.1, delay, ease: ease.settle } }
+      : { initial: false as const };
 
   return (
     <section aria-live="polite" className="mt-24 text-center">
-      {isDone ? (
-        <div key="done" className={justMarked ? "animate-rise" : ""}>
-          <div aria-hidden="true" className="mx-auto mb-6 flex h-12 w-12 items-center justify-center">
-            <span className={`block h-2.5 w-2.5 rounded-full bg-mustard ${justMarked ? "animate-breathe" : ""}`} />
-          </div>
-          <p className="eyebrow inline-flex items-center gap-1.5 text-ink">
-            <IconCheck size={14} /> Leitura concluída
-          </p>
-          <p className="mx-auto mt-4 max-w-xs font-display text-[1.25rem] leading-snug text-ink">
-            Que essa reflexão permaneça
-            <br />
-            com você ao longo do dia.
-          </p>
-          <button
-            type="button"
-            onClick={() => {
-              unmarkCompleted(devotional.id);
-              setJustMarked(false);
-            }}
-            className="mt-4 inline-flex min-h-11 items-center px-3 text-xs text-muted underline-offset-4 hover:text-ink hover:underline"
-          >
-            Desmarcar
-          </button>
-        </div>
-      ) : (
-        <div key="todo">
-          <Button
-            onClick={() => {
-              markCompleted(devotional.id);
-              setJustMarked(true);
-            }}
-            disabled={!hydrated}
-          >
-            <IconCheck size={18} /> Marcar como concluída
-          </Button>
-          <p className="mt-3 text-xs text-muted">O dia fica marcado no calendário.</p>
-        </div>
-      )}
+      <AnimatePresence mode="wait" initial={false}>
+        {isDone ? (
+          <m.div key="done" exit={{ opacity: 0, transition: { duration: 0.2 } }}>
+            {/* Um ponto de luz, envolto por um traço que se fecha devagar. */}
+            <div aria-hidden="true" className="relative mx-auto mb-7 h-14 w-14">
+              <svg viewBox="0 0 56 56" className="absolute inset-0 h-full w-full -rotate-90" fill="none">
+                <m.circle
+                  cx="28"
+                  cy="28"
+                  r="26"
+                  stroke="var(--mustard)"
+                  strokeWidth="1"
+                  initial={justMarked ? { pathLength: 0, opacity: 0 } : false}
+                  animate={{ pathLength: 1, opacity: 1 }}
+                  transition={{ duration: 1.6, ease: ease.settle }}
+                />
+              </svg>
+              <m.span
+                className="absolute left-1/2 top-1/2 -ml-[5px] -mt-[5px] block h-2.5 w-2.5 rounded-full bg-mustard"
+                initial={justMarked ? { scale: 0 } : false}
+                animate={{ scale: 1 }}
+                transition={{ ...spring.place, delay: 0.15 }}
+              />
+            </div>
+            <m.p {...enter(0.35)} className="eyebrow inline-flex items-center gap-1.5 text-ink">
+              <IconCheck size={14} /> Leitura concluída
+            </m.p>
+            {devotional.closingPhrase && (
+              <m.p {...enter(0.6)} className="mx-auto mt-8 max-w-[28rem] text-balance font-display text-[calc(var(--reading-size)*1.35)] leading-[1.25] text-ink">
+                {devotional.closingPhrase}
+              </m.p>
+            )}
+            <m.p {...enter(0.9)} className="mx-auto mt-6 max-w-xs text-[0.9375rem] leading-relaxed text-muted">
+              Que essa reflexão permaneça
+              <br />
+              com você ao longo do dia.
+            </m.p>
+            <m.div {...enter(1.15)}>
+              <button
+                type="button"
+                onClick={() => {
+                  unmarkCompleted(devotional.id);
+                  setJustMarked(false);
+                }}
+                className="mt-3 inline-flex min-h-11 items-center px-3 text-xs text-muted underline-offset-4 hover:text-ink hover:underline"
+              >
+                Desmarcar
+              </button>
+            </m.div>
+          </m.div>
+        ) : (
+          <m.div key="todo" exit={{ opacity: 0, scale: 0.98, transition: { duration: 0.28, ease: ease.calm } }}>
+            <Button
+              onClick={() => {
+                setJustMarked(true);
+                markCompleted(devotional.id);
+              }}
+              disabled={!hydrated}
+            >
+              <IconCheck size={18} /> Marcar como concluída
+            </Button>
+            <p className="mt-3 text-xs text-muted">O dia fica marcado no calendário.</p>
+          </m.div>
+        )}
+      </AnimatePresence>
       <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
         <FavoriteButton id={devotional.id} withLabel />
         <ShareButton devotional={devotional} />
@@ -334,14 +414,14 @@ export function ShareButton({ devotional }: { devotional: Devotional }) {
 
   return (
     <>
-      <Button variant="quiet" onClick={open}>
-        <IconShare size={20} /> Compartilhar
+      <Button variant="quiet" onClick={open} className="group">
+        <IconShare size={20} className="transition-transform duration-500 ease-[var(--ease-settle)] group-hover:-translate-y-0.5" /> Compartilhar
       </Button>
       <dialog
         ref={dialog}
         aria-labelledby="share-title"
         onClick={(e) => e.target === dialog.current && dialog.current?.close()}
-        className="m-auto w-[min(92vw,26rem)] rounded-[28px] bg-surface p-0 text-ink shadow-[var(--shadow)] backdrop:bg-[#141312]/55 backdrop:backdrop-blur-sm"
+        className="sheet m-auto w-[min(92vw,26rem)] rounded-[28px] bg-surface p-0 text-ink shadow-[var(--shadow)] backdrop:bg-[#141312]/55 backdrop:backdrop-blur-sm"
       >
         <div className="p-6">
           <div className="flex items-center justify-between">

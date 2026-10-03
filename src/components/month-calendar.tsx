@@ -1,6 +1,10 @@
 "use client";
 
+import { m } from "motion/react";
 import Link from "next/link";
+import { useId } from "react";
+import { bannerFor } from "./date-banners";
+import { spring } from "./motion";
 import { getDevotional } from "@/content/devotionals";
 import { WEEKDAY_INITIALS, WEEKDAY_NAMES, accessibleDate, monthGrid, monthName } from "@/lib/dates";
 
@@ -18,13 +22,20 @@ type Props = {
 export function MonthCalendar({ year, month, today, completed, variant, selected, onSelect }: Props) {
   const cells = monthGrid(year, month);
   const full = variant === "full";
+  const pill = useId();
 
   return (
     <div>
-      <div className="mb-3 flex items-baseline justify-between">
-        <h2 className="eyebrow text-ink">
-          {monthName(month)} <span className="text-muted">{year}</span>
-        </h2>
+      <div className="mb-4 flex items-baseline justify-between">
+        {full ? (
+          <h2 className="font-display text-[1.75rem] capitalize leading-none text-ink">
+            {monthName(month)} <span className="text-[1rem] text-muted">{year}</span>
+          </h2>
+        ) : (
+          <h2 className="eyebrow text-ink">
+            {monthName(month)} <span className="text-muted">{year}</span>
+          </h2>
+        )}
       </div>
 
       <div role="grid" aria-label={`${monthName(month)} de ${year}`} className="grid grid-cols-7 gap-y-1">
@@ -44,35 +55,42 @@ export function MonthCalendar({ year, month, today, completed, variant, selected
               const isToday = iso === today;
               const isRead = Boolean(completed[iso]);
               const isSelected = full && iso === selected;
+              const isEdition = Boolean(d && (d.isSpecial || bannerFor(iso)));
               const label = [
                 accessibleDate(iso),
                 d ? d.title : "sem leitura",
                 isToday ? "hoje" : "",
                 isRead ? "leitura concluída" : "",
-                d?.commemorativeDate ? `data especial: ${d.commemorativeDate.label.toLowerCase()}` : "",
+                d?.commemorativeDate ? `data especial: ${d.commemorativeDate.label.toLowerCase()}` : isEdition ? "edição especial" : "",
               ]
                 .filter(Boolean)
                 .join(". ");
 
-              const circle = `relative mx-auto flex items-center justify-center rounded-full tabular-nums transition-[background-color,color,box-shadow] duration-300 ${
-                full ? "h-11 w-11 text-[0.9375rem]" : "h-9 w-9 text-[0.8125rem]"
+              // Estados: lido = papel tingido de mostarda; hoje = um traço azul sob o número;
+              // edição especial = um losango; selecionado = a pílula escura que desliza.
+              const circle = `relative mx-auto flex items-center justify-center rounded-full tabular-nums transition-[color,background-color,transform] duration-300 active:scale-[0.94] ${
+                full ? "h-11 w-11 text-[1rem]" : "h-9 w-9 text-[0.8125rem]"
               } ${
                 isSelected
-                  ? "bg-ink text-bg"
+                  ? "text-bg"
                   : isRead
-                    ? "bg-mustard font-medium text-[#2b211b]"
+                    ? "bg-mustard/25 text-mustard-ink"
                     : d
                       ? "text-ink hover:bg-surface-2/70"
-                      : "text-muted/50"
-              } ${isToday && !isSelected ? "ring-1 ring-accent ring-offset-0" : ""}`;
+                      : "text-muted/40"
+              }`;
 
               const inner = (
                 <>
-                  {String(day).padStart(2, "0")}
-                  {d?.isSpecial && (
+                  {isSelected && <m.span layoutId={pill} transition={spring.place} className="absolute inset-0 rounded-full bg-ink" />}
+                  <span className="relative">{String(day).padStart(2, "0")}</span>
+                  {isToday && (
+                    <span aria-hidden="true" className={`absolute bottom-[5px] left-1/2 h-[2px] w-3 -translate-x-1/2 rounded-full ${isSelected ? "bg-bg" : "bg-accent"}`} />
+                  )}
+                  {isEdition && (
                     <span
                       aria-hidden="true"
-                      className={`absolute bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full ${isSelected ? "bg-bg" : isRead ? "bg-[#2b211b]" : "bg-mustard"}`}
+                      className={`absolute right-[7px] top-[7px] h-[5px] w-[5px] rotate-45 ${isSelected ? "bg-bg" : "bg-terracotta"}`}
                     />
                   )}
                 </>
@@ -100,16 +118,16 @@ export function MonthCalendar({ year, month, today, completed, variant, selected
         ))}
       </div>
 
-      <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-1.5 text-[0.75rem] text-muted" aria-label="Legenda">
+      <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-1.5 text-[0.75rem] text-muted" aria-label="Legenda">
         <li className="flex items-center gap-2">
-          <span aria-hidden="true" className="h-3 w-3 rounded-full ring-1 ring-accent" /> hoje
+          <span aria-hidden="true" className="h-[2px] w-3 rounded-full bg-accent" /> hoje
         </li>
         <li className="flex items-center gap-2">
-          <span aria-hidden="true" className="h-3 w-3 rounded-full bg-mustard" /> concluída
+          <span aria-hidden="true" className="h-3 w-3 rounded-full bg-mustard/40" /> lida
         </li>
-        {cells.some((iso) => iso && getDevotional(iso)?.isSpecial) && (
+        {cells.some((iso) => iso && getDevotional(iso) && (getDevotional(iso)?.isSpecial || bannerFor(iso))) && (
           <li className="flex items-center gap-2">
-            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-mustard" /> data especial
+            <span aria-hidden="true" className="h-[5px] w-[5px] rotate-45 bg-terracotta" /> edição especial
           </li>
         )}
       </ul>
