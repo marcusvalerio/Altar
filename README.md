@@ -97,7 +97,8 @@ src/app/                        telas: Início, Calendário, Favoritos, Mais, De
 ## Funcionalidades
 
 - **Abertura:** um campo de letras (A, L, T, A, R) caminha devagar em fileiras diagonais e onduladas. Ao tocar em **Entrar**, cinco letras do próprio campo se deslocam e formam ALTAR, e o app se abre (`src/components/entry.tsx`, canvas). Aparece uma vez por sessão, só pela página inicial; links diretos para uma leitura não passam por ela. Com "reduzir movimento", o campo fica parado e a passagem é imediata.
-- **Leitura:** coluna de leitura, barra de progresso discreta, tamanho do texto (Pequeno, Médio, Grande, Muito grande) e tema (Automático, Claro, Escuro). A conclusão é registrada ao chegar ao fim, e a pessoa pode favoritar ou compartilhar.
+- **Leitura:** coluna de leitura, barra de progresso discreta, tamanho do texto (Pequeno, Médio, Grande, Muito grande) e tema (Automático, Claro, Escuro). Ao final, o botão **Marcar como concluída** marca o dia (com opção de desmarcar); a pessoa também pode favoritar ou compartilhar.
+- **Calendário:** dias concluídos aparecem preenchidos em mostarda. Pelo painel do dia selecionado também dá para marcar ou desmarcar a conclusão sem abrir a leitura.
 - **Compartilhamento:** imagem 1080×1920 gerada no aparelho (canvas) e enviada pela folha de compartilhamento do sistema (Web Share API); se não houver suporte, a imagem é baixada.
 - **Persistência local** (`localStorage`, prefixo `altar:`): preferências, favoritos, dias concluídos e lembrete.
 - **Offline:** todas as páginas e recursos são pré-carregados pelo service worker.

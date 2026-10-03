@@ -60,7 +60,7 @@ export function MonthCalendar({ year, month, today, completed, variant, selected
                 isSelected
                   ? "bg-ink text-bg"
                   : isRead
-                    ? "bg-surface-2 text-ink"
+                    ? "bg-mustard font-medium text-[#2b211b]"
                     : d
                       ? "text-ink hover:bg-surface-2/70"
                       : "text-muted/50"
@@ -72,7 +72,7 @@ export function MonthCalendar({ year, month, today, completed, variant, selected
                   {d?.isSpecial && (
                     <span
                       aria-hidden="true"
-                      className={`absolute bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full ${isSelected ? "bg-bg" : "bg-mustard"}`}
+                      className={`absolute bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full ${isSelected ? "bg-bg" : isRead ? "bg-[#2b211b]" : "bg-mustard"}`}
                     />
                   )}
                 </>
@@ -105,7 +105,7 @@ export function MonthCalendar({ year, month, today, completed, variant, selected
           <span aria-hidden="true" className="h-3 w-3 rounded-full ring-1 ring-accent" /> hoje
         </li>
         <li className="flex items-center gap-2">
-          <span aria-hidden="true" className="h-3 w-3 rounded-full bg-surface-2" /> lida
+          <span aria-hidden="true" className="h-3 w-3 rounded-full bg-mustard" /> concluída
         </li>
         {cells.some((iso) => iso && getDevotional(iso)?.isSpecial) && (
           <li className="flex items-center gap-2">
