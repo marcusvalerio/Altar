@@ -96,6 +96,7 @@ src/app/                        telas: Início, Calendário, Favoritos, Mais, De
 
 ## Funcionalidades
 
+- **Entrada:** no primeiro acesso pela página inicial, uma tela de abertura com o botão **Entrar**, que leva direto ao app. Não há conta nem cadastro. Links diretos para uma leitura nunca passam por essa tela.
 - **Splash:** letras dispersas, depois a coluna A·L·T·A·R, depois ALTAR, que cresce levemente. ~2,2 s no primeiro acesso, ~0,7 s nos seguintes; não aparece de novo na mesma sessão. Toque para pular.
 - **Leitura:** coluna de leitura, barra de progresso discreta, tamanho do texto (Pequeno, Médio, Grande, Muito grande) e tema (Automático, Claro, Escuro). A conclusão é registrada ao chegar ao fim, e a pessoa pode favoritar ou compartilhar.
 - **Compartilhamento:** imagem 1080×1920 gerada no aparelho (canvas) e enviada pela folha de compartilhamento do sistema (Web Share API); se não houver suporte, a imagem é baixada.

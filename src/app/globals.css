@@ -156,7 +156,6 @@ body::before {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 6px;
 }
 
 .font-display {
@@ -281,3 +280,15 @@ body::before {
   }
   .splash-letter { transform: none !important; }
 }
+
+/* Tela de entrada (primeiro acesso) */
+.welcome {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  overflow: hidden auto;
+  background: var(--bg);
+  transition: opacity 0.5s var(--ease-calm), transform 0.5s var(--ease-calm);
+}
+.welcome[data-leaving] { opacity: 0; transform: translateY(-8px); pointer-events: none; }
+:root[data-welcome="skip"] .welcome { display: none; }
