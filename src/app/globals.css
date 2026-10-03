@@ -280,33 +280,6 @@ body::before {
   }
 }
 
-/* ==========================================================================
-   Transições entre telas (View Transitions API via <ViewTransition> do React)
-   ========================================================================== */
-::view-transition-group(*) {
-  animation-duration: 520ms;
-  animation-timing-function: var(--ease-settle);
-}
-::view-transition-old(.page) { animation: 160ms ease-out both vt-out; }
-::view-transition-new(.page) { animation: 320ms var(--ease-settle) 40ms both vt-in; }
-@keyframes vt-out { to { opacity: 0; } }
-@keyframes vt-in { from { opacity: 0; transform: translateY(6px); } }
-
-/* Card → leitura: título, data e linha mudam de lugar; o resto se dissolve. */
-::view-transition-group(.morph) { animation-duration: 760ms; animation-timing-function: cubic-bezier(0.5, 0, 0.12, 1); }
-::view-transition-image-pair(.morph) { isolation: isolate; }
-::view-transition-old(.morph),
-::view-transition-new(.morph) {
-  animation-duration: 760ms;
-  height: 100%;
-  object-fit: none;
-  object-position: left top;
-}
-::view-transition-group(.surface) { animation-duration: 760ms; animation-timing-function: cubic-bezier(0.5, 0, 0.12, 1); }
-::view-transition-old(.surface) { animation: 640ms var(--ease-settle) both vt-surface-out; }
-::view-transition-new(.surface) { animation: 640ms var(--ease-settle) both fade; }
-@keyframes vt-surface-out { to { opacity: 0; } }
-
 /* Abertura (campo de letras → ALTAR) */
 .entry {
   position: fixed;
@@ -330,8 +303,5 @@ body::before {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  ::view-transition-group(*),
-  ::view-transition-old(*),
-  ::view-transition-new(*) { animation: none !important; }
   .reveal { animation: none !important; }
 }
