@@ -120,7 +120,7 @@ export async function renderShareImage(d: Devotional): Promise<Blob> {
     const y = rand() * SHARE_H;
     const r = 180 + rand() * 320;
     const g = ctx.createRadialGradient(x, y, 0, x, y, r);
-    g.addColorStop(0, `rgba(${c.grain},${0.025 + rand() * 0.025})`);
+    g.addColorStop(0, `rgba(${c.grain},${0.0375 + rand() * 0.0375})`);
     g.addColorStop(1, `rgba(${c.grain},0)`);
     ctx.fillStyle = g;
     ctx.fillRect(x - r, y - r, r * 2, r * 2);
@@ -132,13 +132,13 @@ export async function renderShareImage(d: Devotional): Promise<Blob> {
     const y = rand() * SHARE_H;
     const len = 6 + rand() * 18;
     const vertical = rand() < 0.5;
-    ctx.strokeStyle = `rgba(${c.grain},${0.02 + rand() * 0.035})`;
+    ctx.strokeStyle = `rgba(${c.grain},${0.03 + rand() * 0.0525})`;
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.lineTo(vertical ? x + (rand() - 0.5) * 2 : x + len, vertical ? y + len : y + (rand() - 0.5) * 2);
     ctx.stroke();
   }
-  ctx.fillStyle = `rgba(${c.grain},0.05)`;
+  ctx.fillStyle = `rgba(${c.grain},0.075)`;
   for (let i = 0; i < 9000; i++) ctx.fillRect(rand() * SHARE_W, rand() * SHARE_H, 1.6, 1.6);
 
   ctx.textBaseline = "alphabetic";
