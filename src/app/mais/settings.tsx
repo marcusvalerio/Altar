@@ -1,6 +1,8 @@
 "use client";
 
+import { m } from "motion/react";
 import { useState } from "react";
+import { spring } from "@/components/motion";
 import { SettingsGroups } from "@/components/reader";
 import { Button } from "@/components/ui";
 import { type PermissionState, REMINDER_BODY, webNotifications } from "@/lib/notifications";
@@ -46,11 +48,11 @@ export function NotificationSettings() {
           aria-label="Lembrete diário"
           disabled={!hydrated || current === "unsupported"}
           onClick={toggle}
-          className={`relative mt-1 inline-flex h-8 w-[3.25rem] shrink-0 items-center rounded-full border transition-colors duration-300 disabled:opacity-40 ${
-            enabled ? "border-ink bg-ink" : "border-line bg-surface-2"
+          className={`relative mt-1 inline-flex h-8 w-[3.25rem] shrink-0 items-center rounded-full border p-[3px] transition-colors duration-300 disabled:opacity-40 ${
+            enabled ? "justify-end border-ink bg-ink" : "justify-start border-line bg-surface-2"
           }`}
         >
-          <span className={`block h-6 w-6 rounded-full bg-bg shadow transition-transform duration-300 ${enabled ? "translate-x-[1.375rem]" : "translate-x-[0.1875rem]"}`} />
+          <m.span layout transition={spring.touch} className="block h-6 w-6 rounded-full bg-bg shadow" />
         </button>
       </div>
 
