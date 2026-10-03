@@ -228,6 +228,14 @@ body::before {
 .animate-breathe { animation: breathe 5.5s ease-in-out infinite; transform-origin: center; }
 .animate-drift { animation: drift 9s ease-in-out infinite; }
 .animate-pop { animation: pop 0.45s var(--ease-calm); }
+.banner-bob { animation: banner-bob 3.2s ease-in-out infinite; }
+.banner-sway { animation: banner-sway 2.6s ease-in-out infinite; }
+.banner-sway-soft { animation: banner-sway-soft 7s ease-in-out infinite; }
+.banner-twinkle { animation: banner-twinkle 2.8s ease-in-out infinite; }
+@keyframes banner-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-1.5px); } }
+@keyframes banner-sway { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
+@keyframes banner-sway-soft { 0%, 100% { transform: rotate(-0.6deg); } 50% { transform: rotate(0.6deg); } }
+@keyframes banner-twinkle { 0%, 100% { opacity: 0.35; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.1); } }
 .delay-1 { animation-delay: 80ms; }
 .delay-2 { animation-delay: 160ms; }
 .delay-3 { animation-delay: 240ms; }

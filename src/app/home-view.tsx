@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { DateBanner } from "@/components/date-banners";
 import { DevotionalCard, SpecialCard } from "@/components/cards";
 import { MonthCalendar, pickMonth } from "@/components/month-calendar";
 import { Screen, Wordmark } from "@/components/ui";
@@ -27,6 +28,8 @@ export function HomeView() {
           </div>
         )}
       </section>
+
+      {today && <DateBanner date={today} className="animate-fade mt-6" />}
 
       <div className="mt-8 min-h-[22rem]">{today && <TodaySection today={today} done={done} />}</div>
 

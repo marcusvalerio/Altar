@@ -13,3 +13,10 @@ export type IllustrationId = "memoria" | "fraternidade";
 // A edição de outubro/2026 não marca nenhuma data especial.
 // Exemplo: "2026-10-02": { id: "fraternidade", provisional: true },
 export const illustrationByDate: Record<string, { id: IllustrationId; provisional: true }> = {};
+
+export type BannerId = "criancas";
+
+/** Faixas comemorativas animadas (src/components/date-banners.tsx), por data. */
+export const bannerByDate: Record<string, BannerId> = {
+  "2026-10-12": "criancas",
+};
