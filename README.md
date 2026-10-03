@@ -2,7 +2,7 @@
 
 MVP 1.0. Um espaço digital para alguns minutos de leitura, reflexão e interiorização.
 
-Aplicação web mobile-first, instalável como PWA, que funciona offline. Não tem login nem backend: tudo fica guardado no próprio aparelho.
+Aplicação web mobile-first, instalável como PWA, com as leituras disponíveis offline. Conta é opcional: sem ela, tudo fica guardado no próprio aparelho.
 
 ## Executar localmente
 
@@ -17,20 +17,48 @@ O `npm run dev` importa e valida o conteúdo antes de subir o servidor. No modo 
 
 **Ver outro dia como se fosse hoje.** O conteúdo cobre outubro de 2026. Para conferir a Home num dia específico, use `?hoje=2026-10-12`. O valor vale até a aba ser fechada.
 
-## Build e deploy
+## Build e deploy (Vercel)
 
 ```bash
-npm run build        # importa + valida (estrito) + gera o site estático em out/ + service worker
-npm start            # serve out/ em http://localhost:3000
+npm run build        # importa + valida (estrito) + service worker + build Next.js
+npm start            # servidor de produção em http://localhost:3000
 ```
 
-A pasta `out/` é um site 100% estático e pode ir para qualquer hospedagem estática, como Vercel, Netlify, Cloudflare Pages, GitHub Pages ou S3:
+As páginas de leitura são pré-geradas (estáticas). Só `/api/*` roda no servidor, para contas e sincronização.
 
-- **Vercel / Netlify / Cloudflare Pages:** comando de build `npm run build`; diretório de saída `out`.
-- O app precisa estar na **raiz do domínio**, porque o service worker e o manifest usam `/`.
-- Use HTTPS. O service worker (offline) e as notificações exigem HTTPS.
+**Na Vercel:**
+1. Importe o repositório. O preset Next.js é detectado sozinho.
+2. Em **Settings → Git → Production Branch**, use o branch que contém o app (ou faça o merge no `main`).
+3. Em **Settings → Environment Variables**, cadastre:
 
-Outros comandos: `npm run lint`, `npm run typecheck`, `npm run content:import` e `npm run content:validate`.
+| Variável | Para quê |
+| --- | --- |
+| `DATABASE_URL` | Conexão do Neon (projeto **altar**). Use a string *pooled* do console do Neon. |
+| `RESEND_API_KEY` | Envio dos e-mails de confirmação ([resend.com](https://resend.com)). |
+| `EMAIL_FROM` | Remetente, ex.: `ALTAR <ola@seudominio.com.br>`. O domínio precisa estar verificado na Resend. |
+| `APP_URL` | Endereço público, ex.: `https://altar.vercel.app`, usado nos links dos e-mails. |
+
+Sem `DATABASE_URL`, o app funciona normalmente, mas sem contas. Sem `RESEND_API_KEY`, o cadastro responde "Não conseguimos enviar o e-mail agora".
+
+## Contas (opcionais)
+
+A leitura nunca exige login. A conta serve para guardar favoritos, leituras concluídas e preferências e levá-los para outros aparelhos.
+
+**Cadastro em dois passos, sem senha no primeiro momento:**
+1. **Mais → Conta → Criar uma conta.** A pessoa informa só o e-mail.
+2. Ela recebe um e-mail **"Confirmar e criar senha"**. O link (válido por 24 h, de uso único) abre a tela em que ela cria a senha, e ao salvar já entra na conta.
+
+**Esqueci minha senha** usa o mesmo caminho: e-mail → link → nova senha. A resposta é sempre a mesma, exista ou não conta, para não revelar quais e-mails estão cadastrados.
+
+**Segurança:**
+- Senhas guardadas com scrypt.
+- Links e sessões guardados apenas como hash SHA-256.
+- Cookie de sessão `httpOnly`/`secure`/`SameSite=Lax`, válido por 180 dias.
+- Bloqueio de requisições de outras origens.
+- Intervalo mínimo de 1 minuto entre e-mails para o mesmo endereço.
+- Trocar a senha encerra as outras sessões.
+
+**Desenvolvimento:** sem `RESEND_API_KEY`, o e-mail aparece no terminal e a tela mostra o link para teste. Para testar com um Postgres local, aplique o esquema com `DATABASE_URL=... npm run db:schema` e rode `DATABASE_URL=... npm run dev`.
 
 ## Conteúdo editorial
 
@@ -107,4 +135,4 @@ src/app/                        telas: Início, Calendário, Favoritos, Mais, De
 
 ## Fora do escopo do MVP
 
-Login, cadastro, backend, pagamentos, comunidade, gamificação (sem pontos ou sequências), IA gerando conteúdo, citações automáticas e scraping.
+Pagamentos, comunidade, gamificação (sem pontos ou sequências), IA gerando conteúdo, citações automáticas e scraping.

@@ -9,21 +9,24 @@
     "content:sql": "node scripts/content/neon-sql.mjs",
     "predev": "npm run content:import && npm run content:validate -- --warn-only",
     "dev": "next dev",
-    "prebuild": "npm run content:import && npm run content:validate",
+    "prebuild": "npm run content:import && npm run content:validate && node scripts/generate-sw.mjs",
     "build": "next build",
-    "postbuild": "node scripts/generate-sw.mjs",
-    "start": "npx http-server out -p 3000 -c-1",
+    "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "db:schema": "psql \"$DATABASE_URL\" -v ON_ERROR_STOP=1 -f db/schema.sql"
   },
   "dependencies": {
     "next": "^16.3.8",
+    "pg": "^8.23.1",
     "react": "^19.3.0",
-    "react-dom": "^19.3.0"
+    "react-dom": "^19.3.0",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^26.6.4",
+    "@types/pg": "^8.23.1",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "eslint": "^9.39.5",
