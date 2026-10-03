@@ -1,0 +1,686 @@
+{
+  "meta": {
+    "sourceFile": "content/source/devocional_outubro_2026.txt",
+    "heading": "ALTAR — DEVOCIONAL ESPÍRITA",
+    "subtitle": "EDIÇÃO OUTUBRO DE 2026",
+    "year": 2026,
+    "month": 10,
+    "editorialNotes": [
+      {
+        "title": "CONTEÚDO EDITORIAL COMPLETO",
+        "paragraphs": [
+          "Textos originais preparados para o MVP do ALTAR. As reflexões, interiorizações, preces, práticas e frases finais abaixo são textos editoriais do projeto; as fontes indicadas são referências de inspiração temática, não citações literais."
+        ]
+      },
+      {
+        "title": "NOTAS DE VERIFICAÇÃO EDITORIAL",
+        "paragraphs": [
+          "1. Este arquivo contém 31 dias, correspondentes a 31 dias de outubro de 2026.",
+          "2. Os textos devocionais são originais do projeto e não são apresentados como citações de autores.",
+          "3. As referências ao final de cada dia indicam a obra, capítulo ou fonte que orientou o tema. Não significam que o texto acima seja uma transcrição da fonte.",
+          "4. No dia 02/10, a data do Dia Internacional da Não-Violência foi conferida na documentação oficial das Nações Unidas.",
+          "5. No dia 03/10, a data de nascimento de Allan Kardec foi conferida em biografias de instituições espíritas e fontes biográficas.",
+          "6. No dia 24/10, a data do Dia das Nações Unidas foi conferida na documentação oficial da ONU.",
+          "7. Não foram incluídas citações longas de obras de terceiros.",
+          "8. Antes de publicação comercial, cada referência bibliográfica deve passar por uma revisão editorial final, especialmente quanto à edição/tradução utilizada pelo projeto.",
+          "9. O conteúdo não deve ser alterado automaticamente por IA durante a importação para o aplicativo."
+        ]
+      }
+    ],
+    "technicalNormalizations": [
+      "22 marcador(es) técnico(s) de citação removido(s) (caracteres U+E200–U+E202)."
+    ],
+    "fieldMapping": {
+      "title": "TEMA",
+      "commemorativeDate.label": "CARD ESPECIAL",
+      "reflection": "REFLEXÃO",
+      "interiorization": "MOMENTO DE INTERIORIZAÇÃO",
+      "prayer": "PRECE",
+      "practice": "PRÁTICA DO DIA",
+      "closingPhrase": "FRASE FINAL",
+      "source.text": "FONTE DE INSPIRAÇÃO (/ REFERÊNCIA)"
+    },
+    "sha256": "78c165ff0546219fdc7b1aa2b76be3a00bdae29804a87f495938c5dab014aef3"
+  },
+  "devotionals": [
+    {
+      "id": "2026-10-01",
+      "date": "2026-10-01",
+      "title": "Começar de dentro",
+      "reflection": "Há dias em que queremos mudar tudo ao mesmo tempo. A rotina, as relações, os pensamentos, o futuro. Mas toda mudança que permanece costuma começar em um lugar mais silencioso: dentro de nós.\n\nAntes de exigir de si uma grande transformação, observe o pequeno movimento possível hoje. Uma palavra mais cuidadosa. Um pensamento interrompido antes de virar julgamento. Um pedido de desculpas. Um instante de silêncio antes de responder.\n\nNão precisamos transformar o dia inteiro para começar a viver de outra maneira. Às vezes, basta escolher conscientemente o próximo gesto.\n\nA vida interior não é separada da vida cotidiana. Ela aparece justamente na forma como atravessamos as coisas simples.\n\nHoje, não tente ser outra pessoa. Procure apenas perceber quem você está sendo e qual direção deseja dar ao próximo passo.",
+      "interiorization": "Feche os olhos por alguns instantes e pergunte a si mesmo: que pequena mudança interior faria diferença no meu dia?",
+      "prayer": "Deus, ajuda-me a olhar para dentro com sinceridade e sem dureza. Que eu reconheça o que precisa ser transformado e tenha serenidade para começar pelo que está ao meu alcance.",
+      "practice": "Escolha uma atitude pequena que você deseja fazer diferente hoje e pratique-a conscientemente.",
+      "closingPhrase": "Toda transformação verdadeira encontra primeiro um lugar dentro de nós.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Livro dos Espíritos, questão 919 — Conhecimento de si mesmo."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 01"
+    },
+    {
+      "id": "2026-10-02",
+      "date": "2026-10-02",
+      "title": "A paz que começa em mim",
+      "reflection": "A paz não significa ausência de conflitos. Há situações que exigem posicionamento, limites e coragem. Mas existe uma diferença entre enfrentar uma dificuldade e permitir que a violência encontre morada dentro de nós.\n\nHoje, o convite é observar a maneira como respondemos ao que nos contraria. Uma palavra pode aumentar uma ferida ou abrir espaço para o diálogo. Um impulso pode alimentar uma disputa ou terminar uma cadeia de reações.\n\nA não violência também pode começar em gestos muito próximos: não humilhar, não devolver ofensa com ofensa, não transformar diferença em inimizado, não usar a fragilidade de alguém contra essa pessoa.\n\nA paz do mundo não está inteiramente em nossas mãos. Mas a qualidade da nossa próxima atitude está.\n\nQue hoje nossa força não seja medida pela capacidade de ferir, e sim pela capacidade de permanecer humanos quando seria mais fácil endurecer.",
+      "interiorization": "Lembre-se de uma situação que costuma despertar irritação em você. Como seria responder a ela sem alimentar a violência?",
+      "prayer": "Senhor, dá-me firmeza sem agressividade, coragem sem crueldade e lucidez para escolher palavras que não aumentem a dor.",
+      "practice": "Antes de responder a uma provocação, faça uma pausa consciente de alguns segundos.",
+      "closingPhrase": "Nem toda força precisa fazer barulho.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "Referência da data: Organização das Nações Unidas, Dia Internacional da Não-Violência, 2 de outubro."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 02"
+    },
+    {
+      "id": "2026-10-03",
+      "date": "2026-10-03",
+      "title": "Uma vida dedicada ao estudo",
+      "reflection": "Há pessoas cuja trajetória nos lembra que uma obra começa muito antes de ser conhecida. Allan Kardec nasceu em Lyon, em 3 de outubro de 1804, e sua trajetória esteve ligada ao estudo, à educação e à organização do conhecimento.\n\nMais do que transformar esta data em uma homenagem, podemos recebê-la como um convite ao nosso próprio compromisso com o aprendizado.\n\nEspiritualidade não precisa significar abandono da razão. Podemos estudar, perguntar, comparar, reconhecer aquilo que ainda não compreendemos e continuar caminhando sem transformar dúvida em medo.\n\nAprender também é uma forma de humildade: admitir que ainda existe muito a conhecer.\n\nQue este dia nos inspire a cultivar uma fé que não tenha receio da reflexão e um conhecimento que não perca a humanidade de vista.",
+      "interiorization": "Pense em algo que você acredita conhecer bem. O que ainda poderia aprender sobre isso?",
+      "prayer": "Deus, conserva em mim a disposição para aprender. Que o conhecimento me torne mais humilde, mais responsável e mais útil aos outros.",
+      "practice": "Separe hoje alguns minutos para estudar algo que realmente contribua para seu crescimento.",
+      "closingPhrase": "Conhecer também é aprender a permanecer aberto.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "Referência biográfica: Instituto de Pesquisas Espíritas Allan Kardec — biografia de Allan Kardec."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 03"
+    },
+    {
+      "id": "2026-10-04",
+      "date": "2026-10-04",
+      "title": "O silêncio necessário",
+      "reflection": "Existe um tipo de cansaço que não se resolve apenas dormindo. É o cansaço produzido pelo excesso de estímulos, opiniões, cobranças e pensamentos que disputam nossa atenção.\n\nÀs vezes, precisamos de silêncio não para fugir da vida, mas para voltar a escutá-la.\n\nQuando tudo fica muito barulhento por dentro, até uma decisão simples parece enorme. O silêncio cria um pequeno espaço entre o que acontece e a maneira como reagimos.\n\nNão é necessário transformar sua casa em um retiro. Um minuto sem tela. Uma caminhada sem fones. Uma refeição sem pressa. Uma oração curta. Um olhar atento para o céu.\n\nSão pequenas portas.\n\nHoje, experimente abrir uma delas.\n\nTalvez você não encontre imediatamente uma resposta. Talvez encontre apenas você mesmo. E isso já pode ser um começo.",
+      "interiorization": "Fique alguns minutos sem música, tela ou conversa. Apenas observe sua respiração e os sons ao redor.",
+      "prayer": "Deus, ensina-me a não temer o silêncio. Que nele eu encontre clareza, equilíbrio e espaço para perceber aquilo que a pressa costuma esconder.",
+      "practice": "Crie hoje cinco minutos de silêncio intencional.",
+      "closingPhrase": "Às vezes, o silêncio não responde; ele apenas abre espaço para que escutemos.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Livro dos Espíritos, questão 919 — Conhecimento de si mesmo."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 04"
+    },
+    {
+      "id": "2026-10-05",
+      "date": "2026-10-05",
+      "title": "Não carregar tudo",
+      "reflection": "Há uma diferença entre responsabilidade e a tentativa de controlar tudo.\n\nPodemos cuidar do que depende de nós sem assumir o peso de acontecimentos que não estão sob nosso alcance. Ainda assim, muitas vezes carregamos conversas que já terminaram, problemas que pertencem a outras pessoas, futuros que ainda não chegaram.\n\nEsse excesso pesa.\n\nPergunte-se hoje: o que realmente está nas minhas mãos?\n\nTalvez seja a próxima atitude. O modo como vou tratar alguém. O cuidado com meu corpo. Uma tarefa que precisa ser concluída. Um pedido que precisa ser feito.\n\nO restante pode exigir paciência.\n\nSoltar não é abandonar. É reconhecer limites.\n\nHá serenidade em fazer bem aquilo que nos cabe e permitir que o restante encontre seu próprio tempo.",
+      "interiorization": "Liste mentalmente três preocupações. Ao lado de cada uma, pergunte: depende de mim agora?",
+      "prayer": "Senhor, ajuda-me a distinguir responsabilidade de controle. Dá-me serenidade para agir onde posso e confiança para não carregar aquilo que não me pertence.",
+      "practice": "Escolha uma preocupação que não depende de você e pratique conscientemente o desapego dela hoje.",
+      "closingPhrase": "Fazer o que nos cabe também é uma forma de paz.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Evangelho segundo o Espiritismo, capítulo XXV — Buscai e achareis."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 05"
+    },
+    {
+      "id": "2026-10-06",
+      "date": "2026-10-06",
+      "title": "A delicadeza das palavras",
+      "reflection": "Uma palavra dura pode durar segundos na boca de quem a diz e muito mais tempo na memória de quem a recebe.\n\nPor isso, falar com cuidado não é fraqueza. É responsabilidade.\n\nNem toda verdade precisa ser dita da forma mais áspera. Nem todo limite precisa virar humilhação. Nem toda discordância precisa terminar em vitória de alguém.\n\nAntes de falar, podemos perguntar: isso é verdadeiro? É necessário? Existe uma maneira mais humana de dizer?\n\nIsso não significa esconder o que sentimos. Significa aprender a expressá-lo sem transformar o outro em inimigo.\n\nA delicadeza não elimina a firmeza. Ela dá direção à firmeza.\n\nHoje, que nossas palavras sejam instrumentos de clareza, não de ferida.",
+      "interiorization": "Lembre-se de uma conversa difícil que você terá ou poderá ter. Escolha previamente uma frase que preserve sua verdade sem atacar ninguém.",
+      "prayer": "Deus, guarda minha palavra. Que eu tenha coragem para dizer o necessário e delicadeza para não transformar sinceridade em crueldade.",
+      "practice": "Antes de uma conversa importante, respire profundamente três vezes e escolha conscientemente o tom que deseja levar para ela.",
+      "closingPhrase": "A verdade pode ser firme sem deixar de ser humana.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Evangelho segundo o Espiritismo, capítulo IX — Bem-aventurados os mansos e pacíficos."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 06"
+    },
+    {
+      "id": "2026-10-07",
+      "date": "2026-10-07",
+      "title": "A comparação cansa",
+      "reflection": "Comparar a própria vida com a vida que aparece diante dos nossos olhos é uma maneira silenciosa de esquecer que cada pessoa atravessa caminhos diferentes.\n\nVemos resultados, mas raramente vemos todo o percurso.\n\nNão sabemos quantas noites alguém passou acordado, quantas perdas enfrentou, quais oportunidades recebeu ou quais lutas ainda carrega. E também não vemos tudo isso em nossa própria história quando somos duros demais conosco.\n\nSeu caminho não precisa parecer com o de ninguém para ter valor.\n\nTalvez hoje você esteja em uma fase de preparação. Talvez esteja recomeçando. Talvez esteja simplesmente tentando continuar.\n\nIsso também é vida.\n\nEm vez de perguntar por que ainda não chegou onde outra pessoa está, pergunte: qual é o próximo passo possível para mim?\n\nÉ uma pergunta mais simples. E muito mais útil.",
+      "interiorization": "Perceba hoje um momento em que você se comparar. Interrompa a comparação e volte sua atenção para seu próprio caminho.",
+      "prayer": "Senhor, livra-me da necessidade de medir minha vida pela vida dos outros. Que eu reconheça meu caminho com gratidão e responsabilidade.",
+      "practice": "Ao perceber uma comparação, substitua-a por uma ação concreta em favor do seu próprio crescimento.",
+      "closingPhrase": "Seu caminho não precisa ser igual para ser verdadeiro.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Evangelho segundo o Espiritismo, capítulo XVII — Sede perfeitos."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 07"
+    },
+    {
+      "id": "2026-10-08",
+      "date": "2026-10-08",
+      "title": "O valor do pequeno bem",
+      "reflection": "Nem todo bem precisa ser grande para ser importante.\n\nUm copo de água. Uma mensagem enviada no momento certo. Um lugar cedido. Uma tarefa feita sem esperar reconhecimento. Uma escuta paciente.\n\nPequenos gestos podem não mudar o mundo inteiro, mas mudam o mundo de alguém por alguns minutos. E talvez seja assim que o bem se espalhe: de pessoa para pessoa, de gesto para gesto.\n\nÀs vezes esperamos uma oportunidade extraordinária para sermos úteis. Enquanto isso, deixamos passar dezenas de possibilidades pequenas.\n\nHoje, olhe ao redor.\n\nExiste algo simples que você pode fazer para aliviar um pouco o caminho de alguém?\n\nFaça sem transformar o gesto em espetáculo.\n\nO bem também pode ser silencioso.",
+      "interiorization": "Observe uma pessoa próxima e identifique uma pequena necessidade que você possa atender sem invadir seu espaço.",
+      "prayer": "Deus, abre meus olhos para as oportunidades simples de servir. Que eu não espere grandes ocasiões para praticar o bem.",
+      "practice": "Faça hoje um pequeno bem sem contar a ninguém.",
+      "closingPhrase": "O bem não precisa ser grande para ser verdadeiro.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Evangelho segundo o Espiritismo, capítulo XI — Amar o próximo como a si mesmo."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 08"
+    },
+    {
+      "id": "2026-10-09",
+      "date": "2026-10-09",
+      "title": "Quando perdoar ainda dói",
+      "reflection": "Perdoar não significa dizer que aquilo que aconteceu não teve importância.\n\nAlgumas feridas precisam de tempo. Algumas relações precisam de distância. Alguns limites precisam permanecer.\n\nO perdão pode ser outra coisa: parar de alimentar dentro de si uma história que continua machucando.\n\nTalvez você ainda não consiga perdoar completamente. Tudo bem. Comece apenas por não desejar reproduzir a mesma dor.\n\nO coração também precisa de processos.\n\nPerdoar não é apagar memória. É tentar não permitir que a memória determine todos os próximos passos.\n\nHoje, se houver alguém que ainda ocupa um espaço doloroso dentro de você, não se force a sentir algo que não sente. Apenas peça serenidade para caminhar em direção à liberdade interior.",
+      "interiorization": "Ao pensar em uma mágoa, pergunte: o que posso fazer hoje para que essa lembrança tenha menos poder sobre mim?",
+      "prayer": "Senhor, acolhe minhas feridas e ensina-me a caminhar sem alimentar o desejo de retribuir a dor com outra dor.",
+      "practice": "Evite hoje uma atitude de revanche que você normalmente teria diante de uma lembrança dolorosa.",
+      "closingPhrase": "Perdoar também pode ser deixar de alimentar a ferida.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Evangelho segundo o Espiritismo, capítulo X — Bem-aventurados os que são misericordiosos."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 09"
+    },
+    {
+      "id": "2026-10-10",
+      "date": "2026-10-10",
+      "title": "A coragem de recomeçar",
+      "reflection": "Recomeços raramente chegam com a sensação perfeita de estar preparado.\n\nÀs vezes começamos ainda com medo. Ainda cansados. Ainda lembrando do que deu errado.\n\nMesmo assim, existe um momento em que continuar parado começa a doer mais do que dar o primeiro passo.\n\nRecomeçar não exige apagar o passado. O que aconteceu pode continuar sendo parte da nossa história sem continuar dirigindo nosso futuro.\n\nTalvez o novo começo de hoje seja pequeno: organizar uma tarefa, pedir ajuda, retomar um estudo, cuidar de uma relação, voltar a uma prática que fazia bem.\n\nNão despreze os começos modestos.\n\nUma vida muda muitas vezes por meio de decisões que parecem pequenas no dia em que são tomadas.",
+      "interiorization": "Existe algo que você vem adiando por medo de não conseguir? Qual seria a menor forma possível de começar?",
+      "prayer": "Deus, dá-me coragem para começar novamente. Que meus erros sejam aprendizado e não uma sentença sobre quem posso me tornar.",
+      "practice": "Retome hoje uma pequena ação positiva que você abandonou.",
+      "closingPhrase": "Recomeçar não apaga o caminho; transforma a direção.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Evangelho segundo o Espiritismo, capítulo XVII — Sede perfeitos."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 10"
+    },
+    {
+      "id": "2026-10-11",
+      "date": "2026-10-11",
+      "title": "A presença que oferecemos",
+      "reflection": "Estar perto de alguém não significa necessariamente estar presente.\n\nPodemos ouvir enquanto pensamos na resposta. Conversar enquanto olhamos para uma tela. Estar na mesma sala e, ainda assim, permanecer distantes.\n\nA presença é uma forma de cuidado.\n\nQuando realmente escutamos alguém, não precisamos resolver tudo. Às vezes, o maior gesto é permitir que a pessoa termine uma frase sem interromper, conte uma história sem pressa, exista diante de nós sem precisar disputar atenção.\n\nHoje, experimente oferecer presença a alguém.\n\nDeixe o celular de lado. Olhe nos olhos. Escute.\n\nTalvez você descubra que algumas pessoas não estavam pedindo soluções. Estavam pedindo apenas um espaço seguro para serem ouvidas.",
+      "interiorization": "Escolha uma conversa hoje em que você ficará alguns minutos sem olhar para o celular.",
+      "prayer": "Senhor, ensina-me a estar verdadeiramente presente. Que eu saiba ouvir antes de responder e acolher antes de aconselhar.",
+      "practice": "Ofereça atenção inteira a uma pessoa hoje.",
+      "closingPhrase": "Às vezes, estar inteiro é o maior presente que podemos oferecer.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Evangelho segundo o Espiritismo, capítulo XI — Amar o próximo como a si mesmo."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 11"
+    },
+    {
+      "id": "2026-10-12",
+      "date": "2026-10-12",
+      "title": "A criança que ainda vive em nós",
+      "reflection": "O Dia das Crianças pode ser mais do que uma data para celebrar a infância. Pode ser um convite para lembrar que a ternura também precisa de espaço na vida adulta.\n\nExiste algo precioso na capacidade de se encantar, perguntar, imaginar e recomeçar sem carregar a necessidade de parecer pronto o tempo inteiro.\n\nCuidar das crianças também é responsabilidade: oferecer proteção, presença, respeito e oportunidade para que cresçam com dignidade.\n\nE cuidar daquilo que ainda existe de sensível em nós também é necessário.\n\nTalvez hoje você possa recuperar uma pequena alegria que abandonou porque a vida ficou séria demais.\n\nNão para fugir das responsabilidades, mas para lembrar que viver não é apenas suportar tarefas.\n\nExiste espaço para ternura.",
+      "interiorization": "Que qualidade da infância você gostaria de reencontrar em sua vida: curiosidade, espontaneidade, confiança ou alegria?",
+      "prayer": "Deus, protege as crianças e inspira os adultos a cuidar delas com amor e responsabilidade. Que eu também preserve em mim a capacidade de ternura.",
+      "practice": "Faça hoje algo simples que desperte alegria sem utilidade prática: desenhar, ouvir música, brincar ou caminhar.",
+      "closingPhrase": "A maturidade não precisa expulsar a ternura.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Evangelho segundo o Espiritismo, capítulo VIII — Bem-aventurados os que têm puro o coração."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 12"
+    },
+    {
+      "id": "2026-10-13",
+      "date": "2026-10-13",
+      "title": "Aceitar não é desistir",
+      "reflection": "Aceitação às vezes é confundida com conformismo.\n\nMas aceitar que algo aconteceu não significa aprovar, gostar ou desistir de mudar.\n\nSignifica parar de gastar toda a energia tentando negar uma realidade que já está diante de nós.\n\nA partir da aceitação, podemos perguntar: o que faço agora?\n\nTalvez a resposta seja reconstruir. Talvez seja colocar um limite. Talvez seja procurar ajuda. Talvez seja simplesmente atravessar o dia.\n\nHá uma força tranquila em reconhecer o ponto em que estamos sem fingir que estamos em outro lugar.\n\nNão precisamos amar o momento para atravessá-lo com dignidade.\n\nHoje, aceite o ponto de partida.\n\nA caminhada começa de onde estamos, não de onde gostaríamos de estar.",
+      "interiorization": "Nomeie uma realidade que você tem dificuldade de aceitar. Depois, identifique uma ação que ainda está ao seu alcance.",
+      "prayer": "Senhor, dá-me serenidade para reconhecer a realidade e coragem para agir sobre aquilo que posso transformar.",
+      "practice": "Pare de lutar mentalmente contra uma realidade já acontecida e concentre-se no próximo passo possível.",
+      "closingPhrase": "Aceitar o ponto de partida permite escolher a direção.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Livro dos Espíritos, questão 919 — Conhecimento de si mesmo."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 13"
+    },
+    {
+      "id": "2026-10-14",
+      "date": "2026-10-14",
+      "title": "A responsabilidade sobre o que fazemos",
+      "reflection": "É fácil atribuir nossos comportamentos às circunstâncias.\n\nFoi o estresse. Foi o outro. Foi o dia ruim. Foi o que fizeram comigo.\n\nAs circunstâncias realmente influenciam. Mas existe uma pergunta importante entre o acontecimento e nossa resposta: o que eu escolho fazer com isso?\n\nAssumir responsabilidade não significa carregar culpa por tudo. Significa reconhecer a parcela que nos pertence.\n\nIsso devolve alguma liberdade.\n\nSe uma palavra feriu alguém, podemos reparar. Se erramos, podemos aprender. Se repetimos um padrão, podemos começar a interrompê-lo.\n\nHoje, troque uma justificativa automática por uma pergunta sincera:\n\nQual foi a minha parte?\n\nA resposta pode ser desconfortável. Mas também pode abrir espaço para mudança.",
+      "interiorization": "Pense em um conflito recente e identifique, com honestidade, uma atitude sua que poderia ter sido diferente.",
+      "prayer": "Deus, ajuda-me a reconhecer meus erros sem orgulho e sem desespero. Que a responsabilidade se transforme em aprendizado.",
+      "practice": "Se você perceber hoje um erro seu, reconheça-o sem criar desculpas e faça uma reparação possível.",
+      "closingPhrase": "Reconhecer a própria parte é uma forma de recuperar liberdade.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Livro dos Espíritos, questão 919 — Conhecimento de si mesmo."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 14"
+    },
+    {
+      "id": "2026-10-15",
+      "date": "2026-10-15",
+      "title": "O bem sem plateia",
+      "reflection": "Existe uma diferença entre fazer o bem e precisar ser visto fazendo o bem.\n\nQuando ninguém aplaude, ninguém agradece e ninguém sabe, o gesto continua tendo valor.\n\nTalvez até mais liberdade exista nele.\n\nNão precisamos transformar toda boa ação em prova de que somos boas pessoas. Podemos simplesmente fazê-la.\n\nUma ajuda discreta. Um cuidado. Uma doação. Uma tarefa assumida. Uma palavra de incentivo.\n\nO bem não precisa construir uma imagem sobre nós.\n\nHoje, faça alguma coisa útil sem fotografar, contar ou esperar reconhecimento.\n\nDeixe que o gesto termine no próprio gesto.\n\nTalvez isso pareça pequeno.\n\nMas existe uma paz especial em fazer algo bom sem precisar transformar aquilo em identidade.",
+      "interiorization": "Faça hoje uma ação útil que ninguém precise saber que foi você quem fez.",
+      "prayer": "Senhor, livra-me da necessidade de reconhecimento. Que eu aprenda a fazer o bem pelo bem e não apenas pelo olhar dos outros.",
+      "practice": "Pratique uma boa ação em silêncio.",
+      "closingPhrase": "Há gestos que ficam mais leves quando não precisam ser vistos.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Evangelho segundo o Espiritismo, capítulo XIII — Que a vossa mão esquerda não saiba o que dá a vossa direita."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 15"
+    },
+    {
+      "id": "2026-10-16",
+      "date": "2026-10-16",
+      "title": "O que realmente importa",
+      "reflection": "A rotina pode nos convencer de que tudo é urgente.\n\nMensagens. Trabalho. Compras. Prazos. Notícias. Pequenos problemas.\n\nQuando tudo parece importante, perdemos a capacidade de distinguir prioridade de ruído.\n\nHoje, pare por alguns minutos e pergunte:\n\nO que realmente importa para mim?\n\nTalvez a resposta não seja uma tarefa. Talvez seja uma pessoa. Uma relação. Uma saúde que precisa de cuidado. Um valor que você deixou de praticar. Um projeto que continua esperando.\n\nNão é necessário abandonar as obrigações.\n\nÉ apenas necessário lembrar que a vida não pode ser medida apenas pela quantidade de coisas resolvidas.\n\nQue o dia de hoje tenha espaço para aquilo que, quando tudo fica em silêncio, ainda parece importante.",
+      "interiorization": "Se hoje terminasse à noite, qual atitude faria você sentir que o dia valeu a pena?",
+      "prayer": "Deus, ajuda-me a distinguir o essencial do excesso. Que minhas escolhas sejam guiadas por valores e não apenas pela urgência.",
+      "practice": "Escolha uma prioridade realmente importante e proteja um pequeno espaço do dia para ela.",
+      "closingPhrase": "Nem tudo que exige atenção merece o centro da nossa vida.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Evangelho segundo o Espiritismo, capítulo XVI — Não se pode servir a Deus e a Mamon."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 16"
+    },
+    {
+      "id": "2026-10-17",
+      "date": "2026-10-17",
+      "title": "A esperança também trabalha",
+      "reflection": "Esperança não é ficar parado esperando que tudo se resolva.\n\nHá uma esperança que movimenta.\n\nEla olha para uma situação difícil e pergunta: qual é a próxima coisa que posso fazer?\n\nMesmo quando não sabemos o resultado, podemos cuidar do processo.\n\nEstudar. Tentar novamente. Pedir ajuda. Organizar. Esperar o momento adequado. Continuar.\n\nTalvez você não consiga enxergar o caminho inteiro. Isso não significa que não exista um próximo passo.\n\nHoje, não exija de si certeza sobre o futuro.\n\nProcure apenas uma atitude que mantenha aberta a possibilidade de um amanhã diferente.\n\nÀs vezes, a esperança começa assim: fazendo aquilo que ainda podemos fazer.",
+      "interiorization": "Qual é uma pequena ação que mantém viva uma possibilidade importante para você?",
+      "prayer": "Senhor, conserva em mim uma esperança ativa e serena. Que eu não confunda confiança com passividade e saiba agir enquanto aguardo os resultados.",
+      "practice": "Faça hoje uma ação concreta relacionada a algo que você deseja construir no futuro.",
+      "closingPhrase": "Esperar também pode ser uma forma de continuar caminhando.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Evangelho segundo o Espiritismo, capítulo XIX — A fé transporta montanhas."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 17"
+    },
+    {
+      "id": "2026-10-18",
+      "date": "2026-10-18",
+      "title": "Quando a culpa não ensina",
+      "reflection": "A consciência pode nos mostrar um erro. A culpa, quando se transforma em condenação permanente, pode nos prender nele.\n\nReconhecer o que fizemos é importante. Aprender também.\n\nMas permanecer repetindo internamente “eu sou isso” não muda o passado.\n\nUma pergunta diferente pode ajudar:\n\nO que esse erro pode me ensinar sobre quem quero ser daqui para frente?\n\nTalvez exista uma reparação a fazer. Talvez seja necessário pedir perdão. Talvez seja preciso mudar um hábito.\n\nO passado não pode ser refeito, mas pode ser compreendido.\n\nHoje, se você lembrar de algo que gostaria de ter feito diferente, tente olhar para essa lembrança com responsabilidade e compaixão.\n\nNão para se absolver facilmente.\n\nPara aprender a não repetir.",
+      "interiorization": "Escolha um erro passado e escreva mentalmente uma lição concreta que ele deixou.",
+      "prayer": "Deus, ajuda-me a reconhecer meus erros sem me transformar neles. Que eu tenha humildade para reparar e coragem para mudar.",
+      "practice": "Transforme uma lembrança de culpa em uma ação de reparação ou aprendizado.",
+      "closingPhrase": "O erro pode ser uma porta para a consciência quando deixamos de usá-lo como sentença.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Livro dos Espíritos, questão 919 — Conhecimento de si mesmo."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 18"
+    },
+    {
+      "id": "2026-10-19",
+      "date": "2026-10-19",
+      "title": "Servir sem desaparecer",
+      "reflection": "Cuidar dos outros é uma virtude. Mas cuidar não significa desaparecer.\n\nHá momentos em que confundimos amor com disponibilidade absoluta. Dizemos sim quando deveríamos descansar. Assumimos tarefas que não cabem a nós. Tentamos salvar todos e esquecemos que também precisamos de cuidado.\n\nUm limite saudável não precisa ser falta de amor.\n\nPodemos dizer não sem desprezar. Podemos pedir espaço sem abandonar. Podemos cuidar de alguém sem assumir sua vida como se fosse nossa.\n\nA caridade também precisa de discernimento.\n\nHoje, observe onde você está oferecendo mais do que consegue sustentar.\n\nTalvez o gesto de cuidado que falta seja dirigido a você mesmo.",
+      "interiorization": "Existe algum lugar em sua vida em que você precisa estabelecer um limite com mais clareza?",
+      "prayer": "Senhor, ensina-me a cuidar sem controlar e a ajudar sem me perder de mim. Dá-me equilíbrio para reconhecer meus próprios limites.",
+      "practice": "Diga hoje um \"não\" necessário de maneira respeitosa, se houver uma situação em que você esteja ultrapassando seus limites.",
+      "closingPhrase": "Cuidar também é saber até onde podemos ir.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Evangelho segundo o Espiritismo, capítulo XI — Amar o próximo como a si mesmo."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 19"
+    },
+    {
+      "id": "2026-10-20",
+      "date": "2026-10-20",
+      "title": "O que fazemos com o que recebemos",
+      "reflection": "Todos recebemos alguma coisa da vida.\n\nTempo. Conhecimento. Afeto. Oportunidades. Habilidades. Recursos.\n\nA pergunta não é apenas quanto recebemos, mas o que fazemos com aquilo.\n\nUma capacidade pode ficar adormecida ou ser colocada a serviço. Um conhecimento pode terminar em orgulho ou se transformar em utilidade. Um recurso pode servir apenas ao conforto pessoal ou também aliviar a necessidade de alguém.\n\nNão precisamos ter muito para começar.\n\nTalvez você tenha algo simples que outra pessoa precisa: uma explicação, uma escuta, uma indicação, uma hora de ajuda.\n\nHoje, olhe para o que está em suas mãos com menos sensação de posse e mais senso de responsabilidade.",
+      "interiorization": "Qual é uma habilidade ou recurso que você possui e poderia colocar a serviço de alguém?",
+      "prayer": "Deus, ajuda-me a usar com responsabilidade aquilo que recebi. Que meus recursos não terminem apenas em mim.",
+      "practice": "Use hoje uma habilidade sua para facilitar o caminho de outra pessoa.",
+      "closingPhrase": "O valor do que recebemos também aparece naquilo que fazemos com isso.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Evangelho segundo o Espiritismo, capítulo XVI — A verdadeira propriedade."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 20"
+    },
+    {
+      "id": "2026-10-21",
+      "date": "2026-10-21",
+      "title": "Não precisar ter razão",
+      "reflection": "Algumas discussões continuam porque duas pessoas estão mais preocupadas em vencer do que em compreender.\n\nTer razão pode ser importante em algumas situações. Mas nem toda conversa precisa terminar com um vencedor.\n\nÀs vezes, a relação vale mais do que a última palavra.\n\nIsso não significa aceitar injustiças ou abandonar princípios. Significa perceber quando insistir não acrescenta compreensão, apenas aumenta a distância.\n\nPodemos discordar sem desumanizar.\n\nPodemos ouvir sem concordar.\n\nPodemos mudar de ideia quando descobrimos algo novo.\n\nHoje, experimente deixar uma pequena disputa terminar sem precisar provar que você está certo.\n\nTalvez ninguém perceba.\n\nMas você perceberá a diferença dentro de si.",
+      "interiorization": "Em uma conversa de hoje, experimente ouvir a posição do outro até o fim antes de preparar sua resposta.",
+      "prayer": "Senhor, dá-me humildade para ouvir. Que eu não transforme toda diferença em ameaça e saiba reconhecer quando aprender é mais importante que vencer.",
+      "practice": "Em uma conversa, faça uma pergunta genuína antes de apresentar sua própria opinião.",
+      "closingPhrase": "Nem toda conversa precisa de um vencedor.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Evangelho segundo o Espiritismo, capítulo IX — Bem-aventurados os mansos e pacíficos."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 21"
+    },
+    {
+      "id": "2026-10-22",
+      "date": "2026-10-22",
+      "title": "A gratidão pelo que permanece",
+      "reflection": "Nossa atenção costuma correr para aquilo que falta.\n\nO que ainda não aconteceu. O que não temos. O que não conseguimos. O que gostaríamos de mudar.\n\nEnquanto isso, algumas coisas silenciosas continuam sustentando nossa vida.\n\nUma pessoa que permanece. Uma amizade. Um lugar seguro. Um corpo que nos permite caminhar. Uma oportunidade. Uma memória boa. Uma manhã comum.\n\nGratidão não significa negar as dificuldades.\n\nSignifica não permitir que elas ocupem todo o campo de visão.\n\nHoje, olhe para aquilo que permaneceu.\n\nTalvez você descubra que existe mais apoio ao seu redor do que percebeu nos dias difíceis.",
+      "interiorization": "Nomeie três coisas simples que continuam presentes em sua vida e pelas quais você pode agradecer.",
+      "prayer": "Senhor, abre meus olhos para o bem que permanece mesmo quando atravesso dificuldades. Que a gratidão não me torne cego aos problemas, mas me ajude a enxergá-los com equilíbrio.",
+      "practice": "Agradeça sinceramente a uma pessoa que faz parte da sua vida.",
+      "closingPhrase": "Gratidão não apaga a dificuldade; amplia o olhar.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Evangelho segundo o Espiritismo, capítulo XIX — A fé transporta montanhas."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 22"
+    },
+    {
+      "id": "2026-10-23",
+      "date": "2026-10-23",
+      "title": "Antes de julgar",
+      "reflection": "É muito fácil completar a história de alguém com informações que não temos.\n\nVemos uma atitude e inventamos uma intenção. Ouvimos uma frase e imaginamos todo o contexto. Conhecemos um erro e transformamos aquele instante em definição de uma pessoa inteira.\n\nAntes de julgar, podemos lembrar da nossa própria complexidade.\n\nTambém já fomos vistos no pior dia.\n\nTambém já fomos mal interpretados.\n\nIsso não significa ignorar comportamentos prejudiciais. Significa separar a avaliação de um ato da condenação de uma pessoa inteira.\n\nHoje, quando surgir vontade de julgar alguém rapidamente, faça uma pausa.\n\nPergunte:\n\nO que eu realmente sei?\n\nEssa pergunta pode devolver humildade ao olhar.",
+      "interiorization": "Quando perceber um julgamento automático hoje, separe mentalmente fatos observáveis de interpretações que você criou.",
+      "prayer": "Deus, torna meu olhar mais justo e menos apressado. Que eu consiga reconhecer erros sem transformar pessoas inteiras em seus erros.",
+      "practice": "Evite hoje comentar sobre alguém uma informação que você não sabe se é verdadeira.",
+      "closingPhrase": "Humildade começa quando percebemos o quanto ainda não sabemos.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Evangelho segundo o Espiritismo, capítulo X — Bem-aventurados os que são misericordiosos."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 23"
+    },
+    {
+      "id": "2026-10-24",
+      "date": "2026-10-24",
+      "title": "Uma humanidade compartilhada",
+      "reflection": "Nenhuma pessoa vive completamente isolada.\n\nDependemos de redes que atravessam famílias, cidades e países. O alimento chega por caminhos que não vemos. O conhecimento circula. Pessoas diferentes trabalham juntas para resolver problemas que nenhuma delas resolveria sozinha.\n\nO Dia das Nações Unidas pode ser recebido como um convite para lembrar que diferenças não eliminam nossa humanidade compartilhada.\n\nNão precisamos concordar em tudo para reconhecer dignidade no outro.\n\nA fraternidade começa perto, mas não precisa terminar perto.\n\nHoje, pense em alguém cuja realidade é muito diferente da sua.\n\nComo seria olhar para essa pessoa antes de olhar para suas diferenças?\n\nTalvez o primeiro passo para um mundo mais humano seja simplesmente ampliar o círculo de quem consideramos digno de cuidado.",
+      "interiorization": "Pense em uma diferença importante entre você e outra pessoa. O que permanece em comum apesar dessa diferença?",
+      "prayer": "Senhor, amplia meu sentimento de fraternidade. Que eu consiga enxergar humanidade onde minhas diferenças poderiam me fazer enxergar distância.",
+      "practice": "Faça hoje um gesto de respeito por alguém com quem você normalmente não teria contato.",
+      "closingPhrase": "A diferença pode existir sem destruir o vínculo humano.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "Referência da data: Organização das Nações Unidas, United Nations Day, 24 de outubro."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 24"
+    },
+    {
+      "id": "2026-10-25",
+      "date": "2026-10-25",
+      "title": "A humildade de aprender",
+      "reflection": "Existe uma força especial em conseguir dizer: eu não sei.\n\nNão saber não diminui ninguém.\n\nPelo contrário, reconhecer limites abre espaço para perguntas, estudo e transformação.\n\nQuando acreditamos que já sabemos tudo, qualquer informação nova parece ameaça. Quando aceitamos que ainda estamos aprendendo, podemos ouvir sem precisar defender uma imagem.\n\nA humildade intelectual também é uma forma de paz.\n\nHoje, permita-se não ter uma resposta.\n\nPesquise. Pergunte. Escute alguém. Leia.\n\nTalvez você mude de opinião.\n\nE mudar de opinião diante de novas razões não é fracasso. Pode ser sinal de que continuamos vivos para aprender.",
+      "interiorization": "Existe algum assunto sobre o qual você poderia admitir: \"ainda não sei o suficiente\"?",
+      "prayer": "Deus, conserva em mim a humildade para aprender. Que eu não confunda convicção com fechamento e tenha coragem para rever aquilo que precisar ser revisto.",
+      "practice": "Aprenda hoje algo novo sem transformar o conhecimento em disputa.",
+      "closingPhrase": "Quem aceita aprender nunca precisa fingir que sabe tudo.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Evangelho segundo o Espiritismo, capítulo XIX — A fé transporta montanhas."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 25"
+    },
+    {
+      "id": "2026-10-26",
+      "date": "2026-10-26",
+      "title": "A medida do progresso",
+      "reflection": "Nem todo progresso aparece por fora.\n\nÀs vezes, a mudança mais importante é responder com menos raiva. Pedir desculpas mais rápido. Conseguir ouvir. Perceber um pensamento antes de agir sobre ele.\n\nSão conquistas silenciosas.\n\nPor isso, cuidado ao medir seu crescimento apenas por resultados visíveis.\n\nTalvez você esteja muito diferente de quem era há um ano, mas esteja tão acostumado consigo mesmo que não perceba.\n\nO crescimento moral não precisa ser perfeito para ser real.\n\nHoje, procure uma pequena diferença entre você de algum tempo atrás e você de agora.\n\nReconheça o que melhorou.\n\nE escolha uma coisa que ainda precisa de cuidado.",
+      "interiorization": "Qual comportamento seu melhorou nos últimos meses? Reconheça essa mudança sem transformar reconhecimento em vaidade.",
+      "prayer": "Senhor, ajuda-me a perceber meu progresso com humildade e a continuar trabalhando aquilo que ainda precisa amadurecer.",
+      "practice": "Anote uma mudança positiva que você deseja continuar fortalecendo.",
+      "closingPhrase": "Nem todo crescimento faz barulho.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Evangelho segundo o Espiritismo, capítulo XVII — Sede perfeitos."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 26"
+    },
+    {
+      "id": "2026-10-27",
+      "date": "2026-10-27",
+      "title": "Quando a vida pede paciência",
+      "reflection": "Há processos que não podem ser acelerados apenas porque estamos ansiosos.\n\nUma recuperação. Um aprendizado. Uma relação. Um projeto. Uma mudança interior.\n\nA pressa pode fazer parecer que nada está acontecendo, quando na verdade algo está sendo construído em uma velocidade diferente da nossa expectativa.\n\nPaciência não é abandonar o movimento.\n\nÉ continuar fazendo o que cabe a nós sem exigir que o resultado apareça imediatamente.\n\nTalvez hoje você esteja cansado de esperar.\n\nEntão reduza a espera ao tamanho de um dia.\n\nNão tente resolver o futuro inteiro.\n\nFaça o que cabe hoje.\n\nAmanhã terá suas próprias tarefas.",
+      "interiorization": "Que situação você está tentando acelerar? O que está sob seu controle hoje?",
+      "prayer": "Deus, dá-me paciência para respeitar os processos que não dependem apenas da minha vontade. Que eu saiba agir sem transformar espera em desespero.",
+      "practice": "Escolha uma tarefa de hoje e faça-a com atenção, sem antecipar mentalmente o resultado final.",
+      "closingPhrase": "Algumas coisas crescem em silêncio antes de aparecerem.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Evangelho segundo o Espiritismo, capítulo XVII — Sede perfeitos."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 27"
+    },
+    {
+      "id": "2026-10-28",
+      "date": "2026-10-28",
+      "title": "O cuidado com o corpo",
+      "reflection": "Cuidar da vida interior não significa esquecer o corpo.\n\nDormir. Alimentar-se. Movimentar-se. Descansar. Procurar ajuda quando necessário.\n\nO corpo também participa da nossa experiência cotidiana e merece respeito.\n\nÀs vezes, tratamos o descanso como prêmio depois de cumprir tudo. Mas ninguém consegue sustentar indefinidamente uma vida construída apenas sobre esforço.\n\nHoje, observe seu corpo sem julgamento.\n\nEle está cansado? Tenso? Pedindo pausa?\n\nTalvez o cuidado que você precisa não seja uma grande mudança, mas uma noite de sono melhor, uma refeição feita com atenção, uma caminhada ou simplesmente alguns minutos de descanso.\n\nCuidar de si não precisa ser egoísmo.\n\nPode ser responsabilidade.",
+      "interiorization": "Faça uma pausa e perceba seu corpo: onde existe tensão ou cansaço neste momento?",
+      "prayer": "Senhor, ajuda-me a tratar meu corpo com respeito e equilíbrio. Que eu reconheça seus limites e cuide dele sem transformar cuidado em vaidade.",
+      "practice": "Ofereça hoje ao seu corpo um cuidado simples que você vem adiando.",
+      "closingPhrase": "Cuidar de si também é reconhecer os limites que a vida apresenta.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Livro dos Espíritos, Parte Segunda — Do mundo espírita ou mundo dos Espíritos, questões sobre a encarnação e a vida corporal."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 28"
+    },
+    {
+      "id": "2026-10-29",
+      "date": "2026-10-29",
+      "title": "A coragem de pedir ajuda",
+      "reflection": "Existe uma ideia silenciosa de que deveríamos conseguir resolver tudo sozinhos.\n\nMas ninguém atravessa a vida sem receber ajuda.\n\nPedir apoio não apaga nossa força. Pode ser justamente o reconhecimento de que uma dificuldade ficou grande demais para ser carregada sozinho.\n\nPodemos pedir uma conversa. Uma orientação. Uma ajuda prática. Um acompanhamento profissional. Um abraço.\n\nNão é necessário esperar o limite para procurar alguém.\n\nHoje, se alguma coisa estiver pesada demais, escolha uma pessoa segura e diga com honestidade:\n\nEu preciso de ajuda.\n\nTalvez essa frase seja menor do que o problema.\n\nMas pode ser o começo de uma mudança.",
+      "interiorization": "Existe alguma dificuldade que você vem tentando carregar sozinho? Quem poderia ser uma pessoa segura para procurar?",
+      "prayer": "Deus, dá-me humildade para pedir ajuda quando necessário e sabedoria para reconhecer as pessoas e caminhos que podem me apoiar.",
+      "practice": "Peça hoje uma ajuda concreta para uma questão que você não precisa enfrentar sozinho.",
+      "closingPhrase": "Pedir ajuda também é um ato de coragem.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Evangelho segundo o Espiritismo, capítulo XI — Amar o próximo como a si mesmo."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 29"
+    },
+    {
+      "id": "2026-10-30",
+      "date": "2026-10-30",
+      "title": "O que fica",
+      "reflection": "Quando um dia termina, nem tudo que aconteceu continua importante.\n\nAlgumas preocupações desaparecem. Algumas discussões perdem força. Algumas tarefas deixam de importar.\n\nMas certas coisas ficam.\n\nA maneira como tratamos alguém. O cuidado que oferecemos. A palavra que escolhemos. O conhecimento que adquirimos. A qualidade das nossas atitudes.\n\nTalvez seja útil terminar o dia perguntando não apenas o que conseguimos produzir, mas o que conseguimos cultivar.\n\nQue tipo de pessoa fui hoje?\n\nNão para fazer um julgamento cruel de si mesmo.\n\nPara perceber a direção.\n\nAmanhã será outro dia.\n\nMas aquilo que praticamos hoje pode acompanhar nosso próximo passo.",
+      "interiorization": "Antes de dormir, pergunte: qual atitude minha de hoje eu gostaria de repetir amanhã?",
+      "prayer": "Senhor, agradeço pelo dia vivido. Ajuda-me a reconhecer o que preciso melhorar e a conservar aquilo que foi bom.",
+      "practice": "Faça uma breve revisão do dia antes de dormir, sem condenação e sem desculpas.",
+      "closingPhrase": "O dia passa; aquilo que cultivamos pode permanecer.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Livro dos Espíritos, questão 919 — Conhecimento de si mesmo."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 30"
+    },
+    {
+      "id": "2026-10-31",
+      "date": "2026-10-31",
+      "title": "Encerrar também é preparar",
+      "reflection": "Todo fim carrega alguma coisa do começo seguinte.\n\nAo terminar outubro, não precisamos fazer uma grande avaliação da vida.\n\nPodemos apenas olhar para o mês e reconhecer alguns movimentos.\n\nOnde fomos mais pacientes?\n\nOnde ainda reagimos do mesmo jeito?\n\nQue relação recebeu cuidado?\n\nQue hábito precisa de atenção?\n\nQue pensamento já não faz tanto sentido?\n\nA reflexão não precisa virar cobrança.\n\nUm mês é feito de muitos dias comuns, e são justamente eles que constroem nossa experiência.\n\nTalvez você não tenha cumprido tudo que imaginou.\n\nAinda assim, chegou até aqui.\n\nReceba isso com honestidade e serenidade.\n\nAmanhã começa outro mês.\n\nVocê não precisa levar tudo com você.",
+      "interiorization": "Escolha uma coisa que deseja levar para novembro e uma coisa que deseja deixar em outubro.",
+      "prayer": "Deus, agradeço pelo caminho percorrido neste mês. Ajuda-me a levar comigo o aprendizado e a deixar para trás aquilo que já não precisa continuar.",
+      "practice": "Faça uma pequena revisão de outubro e registre uma intenção simples para o próximo mês.",
+      "closingPhrase": "Encerrar um ciclo também é abrir espaço para o próximo.",
+      "source": {
+        "kind": "inspiration",
+        "label": "FONTE DE INSPIRAÇÃO / REFERÊNCIA",
+        "text": "O Livro dos Espíritos, questão 919 — Conhecimento de si mesmo."
+      },
+      "isSpecial": false,
+      "sourceDayLabel": "DIA 31"
+    }
+  ],
+  "issues": [
+    {
+      "level": "warning",
+      "where": "linha 70",
+      "message": "Marcador técnico de citação removido: \"·cite·turn0search1·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 102",
+      "message": "Marcador técnico de citação removido: \"·cite·turn2search1·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 288",
+      "message": "Marcador técnico de citação removido: \"·cite·turn1search1·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 324",
+      "message": "Marcador técnico de citação removido: \"·cite·turn3search9·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 360",
+      "message": "Marcador técnico de citação removido: \"·cite·turn3search0·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 396",
+      "message": "Marcador técnico de citação removido: \"·cite·turn1search1·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 472",
+      "message": "Marcador técnico de citação removido: \"·cite·turn0search6·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 512",
+      "message": "Marcador técnico de citação removido: \"·cite·turn0search6·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 594",
+      "message": "Marcador técnico de citação removido: \"·cite·turn3search1·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 634",
+      "message": "Marcador técnico de citação removido: \"·cite·turn1search0·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 676",
+      "message": "Marcador técnico de citação removido: \"·cite·turn0search6·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 712",
+      "message": "Marcador técnico de citação removido: \"·cite·turn1search1·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 748",
+      "message": "Marcador técnico de citação removido: \"·cite·turn3search12·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 828",
+      "message": "Marcador técnico de citação removido: \"·cite·turn1search0·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 870",
+      "message": "Marcador técnico de citação removido: \"·cite·turn3search9·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 908",
+      "message": "Marcador técnico de citação removido: \"·cite·turn0search16·turn0search15·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 948",
+      "message": "Marcador técnico de citação removido: \"·cite·turn1search0·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 988",
+      "message": "Marcador técnico de citação removido: \"·cite·turn3search0·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 1030",
+      "message": "Marcador técnico de citação removido: \"·cite·turn3search0·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 1110",
+      "message": "Marcador técnico de citação removido: \"·cite·turn1search1·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 1152",
+      "message": "Marcador técnico de citação removido: \"·cite·turn0search6·\" — recomenda-se limpar o arquivo-fonte."
+    },
+    {
+      "level": "warning",
+      "where": "linha 1204",
+      "message": "Marcador técnico de citação removido: \"·cite·turn0search6·\" — recomenda-se limpar o arquivo-fonte."
+    }
+  ]
+}
