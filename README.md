@@ -70,6 +70,16 @@ Pontos encontrados na importação da edição de outubro/2026. Nenhum texto foi
 5. **Ilustrações.** Como não há datas especiais marcadas, as composições gráficas provisórias (`src/components/illustrations.tsx`) não estão associadas a nenhum dia (`src/content/editorial-assets.ts`).
 6. **Notas editoriais do arquivo** (introdução e "Notas de verificação editorial") são exibidas em **Mais → Sobre o conteúdo**. Elas pedem uma revisão bibliográfica final antes de uma publicação comercial.
 
+## Banco de dados (Neon)
+
+O conteúdo editorial também fica guardado no Postgres do Neon, no projeto **altar** (`polished-sea-11997910`, região São Paulo).
+
+- **Esquema:** `db/schema.sql`. Tabelas: `editions`, `editorial_notes`, `devotionals`, `import_issues` e `verified_quotes`. Esta última fica vazia até existirem citações conferidas.
+- **Gravar uma edição:** `npm run content:sql` gera `db/seed/<ano-mês>.sql` a partir dos dados já validados e se recusa a gerar se houver erro. Depois: `psql "$DATABASE_URL" -f db/seed/2026-10.sql`. A gravação substitui a edição inteira, em uma transação.
+- **Edição de outubro/2026:** gravada com 31 dias. A integridade foi conferida por hash SHA-256 de todos os textos, calculado no banco e localmente, com resultado idêntico.
+- **O app continua lendo do JSON gerado no build** (rápido, funciona offline e não expõe credenciais no navegador). O banco é o arquivo editorial e a base para recursos futuros: CMS, contas, sincronização de favoritos.
+- **Credenciais:** pegue a `DATABASE_URL` no console do Neon e não a coloque no repositório.
+
 ## Estrutura
 
 ```

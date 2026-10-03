@@ -6,6 +6,7 @@
   "scripts": {
     "content:import": "node scripts/content/import.mjs",
     "content:validate": "node scripts/content/validate.mjs",
+    "content:sql": "node scripts/content/neon-sql.mjs",
     "predev": "npm run content:import && npm run content:validate -- --warn-only",
     "dev": "next dev",
     "prebuild": "npm run content:import && npm run content:validate",
