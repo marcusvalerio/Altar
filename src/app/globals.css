@@ -202,11 +202,11 @@ body::before {
    Movimento — lento, suave, discreto. Desligado com prefers-reduced-motion.
    ========================================================================== */
 
-/* "As coisas encontram o lugar delas": chegam de muito perto, sem pressa,
-   com um desfoque mínimo que se dissolve — nunca deslizam de longe. */
+/* "As coisas encontram o lugar delas": chegam de muito perto, sem pressa —
+   nunca deslizam de longe. Só opacidade e transform (baratos no celular). */
 @keyframes rise {
-  from { opacity: 0; transform: translate3d(0, 8px, 0) scale(0.995); filter: blur(3px); }
-  to { opacity: 1; transform: none; filter: none; }
+  from { opacity: 0; transform: translate3d(0, 8px, 0); }
+  to { opacity: 1; transform: none; }
 }
 @keyframes fade {
   from { opacity: 0; }
@@ -231,6 +231,9 @@ body::before {
 .animate-breathe { animation: breathe 5.5s ease-in-out infinite; transform-origin: center; }
 .animate-drift { animation: drift 9s ease-in-out infinite; }
 .animate-pop { animation: pop 0.45s var(--ease-calm); }
+/* Faixas: animações pausadas até a faixa entrar na tela (data-playing). */
+.banner :is(.banner-bob, .banner-sway, .banner-sway-soft, .banner-twinkle, .banner-glide, .banner-spin, .banner-page, .banner-flame, .banner-rise, .animate-breathe) { animation-play-state: paused; }
+.banner[data-playing] :is(.banner-bob, .banner-sway, .banner-sway-soft, .banner-twinkle, .banner-glide, .banner-spin, .banner-page, .banner-flame, .banner-rise, .animate-breathe) { animation-play-state: running; }
 .banner-bob { animation: banner-bob 3.2s ease-in-out infinite; }
 .banner-sway { animation: banner-sway 2.6s ease-in-out infinite; }
 .banner-sway-soft { animation: banner-sway-soft 7s ease-in-out infinite; }
@@ -284,10 +287,10 @@ body::before {
   animation-duration: 520ms;
   animation-timing-function: var(--ease-settle);
 }
-::view-transition-old(.page) { animation: 180ms ease-out both vt-out; }
-::view-transition-new(.page) { animation: 420ms var(--ease-settle) 80ms both vt-in; }
-@keyframes vt-out { to { opacity: 0; filter: blur(2px); } }
-@keyframes vt-in { from { opacity: 0; transform: translateY(6px); filter: blur(3px); } }
+::view-transition-old(.page) { animation: 160ms ease-out both vt-out; }
+::view-transition-new(.page) { animation: 320ms var(--ease-settle) 40ms both vt-in; }
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(6px); } }
 
 /* Card → leitura: título, data e linha mudam de lugar; o resto se dissolve. */
 ::view-transition-group(.morph) { animation-duration: 760ms; animation-timing-function: cubic-bezier(0.5, 0, 0.12, 1); }

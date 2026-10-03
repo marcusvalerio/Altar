@@ -28,7 +28,7 @@ export function ReaderBar({ id }: { id: string }) {
   }
 
   return (
-    <div className="animate-fade fixed inset-x-0 top-0 z-40 pt-[env(safe-area-inset-top)]">
+    <div className="fixed inset-x-0 top-0 z-40 pt-[env(safe-area-inset-top)]">
       {/* Ao descer, a barra se recolhe e deixa só a linha de progresso; ao subir, volta. */}
       <div
         className="border-b border-line-soft bg-bg/85 backdrop-blur-md transition-transform duration-500 ease-[var(--ease-settle)] supports-[backdrop-filter]:bg-bg/75"
@@ -262,7 +262,7 @@ export function Completion({ devotional }: { devotional: Devotional }) {
   const [justMarked, setJustMarked] = useState(false);
   const enter = (delay: number) =>
     justMarked
-      ? { initial: { opacity: 0, y: 8, filter: "blur(3px)" }, animate: { opacity: 1, y: 0, filter: "blur(0px)" }, transition: { duration: 1.1, delay, ease: ease.settle } }
+      ? { initial: { opacity: 0, y: 8 }, animate: { opacity: 1, y: 0 }, transition: { duration: 1.1, delay, ease: ease.settle } }
       : { initial: false as const };
 
   return (
@@ -318,7 +318,7 @@ export function Completion({ devotional }: { devotional: Devotional }) {
             </m.div>
           </m.div>
         ) : (
-          <m.div key="todo" exit={{ opacity: 0, scale: 0.98, filter: "blur(2px)", transition: { duration: 0.28, ease: ease.calm } }}>
+          <m.div key="todo" exit={{ opacity: 0, scale: 0.98, transition: { duration: 0.28, ease: ease.calm } }}>
             <Button
               onClick={() => {
                 setJustMarked(true);
@@ -332,10 +332,10 @@ export function Completion({ devotional }: { devotional: Devotional }) {
           </m.div>
         )}
       </AnimatePresence>
-      <m.div layout="position" transition={{ duration: 0.8, ease: ease.settle }} className="mt-10 flex flex-wrap items-center justify-center gap-3">
+      <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
         <FavoriteButton id={devotional.id} withLabel />
         <ShareButton devotional={devotional} />
-      </m.div>
+      </div>
     </section>
   );
 }

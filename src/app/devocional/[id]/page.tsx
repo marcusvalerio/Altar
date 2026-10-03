@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ViewTransition } from "react";
 import { notFound } from "next/navigation";
 import { IconArrowLeft, IconArrowRight } from "@/components/icons";
-import { Arrive } from "@/components/arrival";
+import { Arrive, MorphFrom } from "@/components/arrival";
 import { DateBanner, editionFor } from "@/components/date-banners";
 import { DateIllustration, hasIllustration } from "@/components/illustrations";
 import { Completion, ReaderBar } from "@/components/reader";
@@ -36,9 +35,9 @@ export default async function DevotionalPage({ params }: { params: Promise<{ id:
     <>
       <ReaderBar id={d.id} />
       {/* Par da superfície do card: o card se expande até virar a página. */}
-      <ViewTransition name={`surface-${d.id}`} share="surface" default="none">
+      <MorphFrom id={d.id} name={`surface-${d.id}`} share="surface">
         <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10" />
-      </ViewTransition>
+      </MorphFrom>
       {edition && (
         // Edição especial: a página ganha um banho de cor da data, que se perde no papel.
         <div
@@ -67,17 +66,17 @@ export default async function DevotionalPage({ params }: { params: Promise<{ id:
             {d.commemorativeDate && (
               <p className="animate-rise delay-2 mt-4 text-[0.8125rem] font-medium uppercase tracking-[0.14em] text-terracotta">{d.commemorativeDate.label}</p>
             )}
-            <ViewTransition name={`title-${d.id}`} share="morph" default="none">
+            <MorphFrom id={d.id} name={`title-${d.id}`} share="morph">
               <Arrive id={d.id} as="h1" enter="animate-rise delay-2" className="reading-title mt-4 font-display text-ink">
                 {d.title}
               </Arrive>
-            </ViewTransition>
-            <ViewTransition name={`rule-${d.id}`} share="morph" default="none">
+            </MorphFrom>
+            <MorphFrom id={d.id} name={`rule-${d.id}`} share="morph">
               <Arrive id={d.id} as="div" enter="animate-draw delay-4" className="mt-8 h-[3px] w-10 rounded-full bg-mustard" />
-            </ViewTransition>
+            </MorphFrom>
           </header>
 
-          <Section label="Reflexão" className="animate-rise delay-5 mt-12">
+          <Section label="Reflexão" className="mt-12">
             <div className="reading">
               {paragraphs(d.reflection).map((p, i) => (
                 <p key={i}>{p}</p>
@@ -161,7 +160,7 @@ export default async function DevotionalPage({ params }: { params: Promise<{ id:
   );
 }
 
-function Section({ label, children, className = "reveal mt-16" }: { label: string; children: React.ReactNode; className?: string }) {
+function Section({ label, children, className = "mt-16" }: { label: string; children: React.ReactNode; className?: string }) {
   return (
     <section aria-label={label} className={className}>
       <h2 className="eyebrow mb-5">{label}</h2>

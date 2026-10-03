@@ -61,20 +61,20 @@ export function CalendarView() {
       </div>
 
       <section aria-live="polite" className="relative mt-8 min-h-[12rem]">
-        <AnimatePresence mode="popLayout" initial={false} custom={dir}>
+        <AnimatePresence mode="wait" initial={false} custom={dir}>
           {d && (
             <m.div
               key={d.id}
               custom={dir}
               variants={{
-                enter: (k: number) => ({ opacity: 0, x: 14 * k, filter: "blur(3px)" }),
-                center: { opacity: 1, x: 0, filter: "blur(0px)" },
-                exit: (k: number) => ({ opacity: 0, x: -10 * k, filter: "blur(2px)" }),
+                enter: (k: number) => ({ opacity: 0, x: 14 * k }),
+                center: { opacity: 1, x: 0 },
+                exit: (k: number) => ({ opacity: 0, x: -8 * k, transition: { duration: 0.14, ease: "easeIn" } }),
               }}
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ duration: 0.55, ease: ease.settle }}
+              transition={{ duration: 0.45, ease: ease.settle }}
             >
               <Link
                 href={`/devocional/${d.id}/`}

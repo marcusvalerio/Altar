@@ -68,9 +68,9 @@ export function FavoritesView() {
               <m.li
                 key={f.id}
                 layout="position"
-                initial={{ opacity: 0, y: 8, filter: "blur(3px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.8, delay: Math.min(i, 8) * 0.06, ease: ease.settle } }}
-                exit={{ opacity: 0, height: 0, filter: "blur(2px)", transition: { duration: 0.35, ease: ease.calm } }}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0, transition: { duration: 0.8, delay: Math.min(i, 8) * 0.06, ease: ease.settle } }}
+                exit={{ opacity: 0, height: 0, transition: { duration: 0.35, ease: ease.calm } }}
                 transition={spring.place}
                 className="flex items-start gap-4 overflow-hidden border-b border-line-soft last:border-b-0"
               >

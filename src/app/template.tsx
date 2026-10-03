@@ -1,7 +1,7 @@
-import { ViewTransition } from "react";
-
-// Transição entre telas: a tela anterior se dissolve rápido; a nova assenta.
-// Elementos com nome compartilhado (card → leitura) mudam de lugar em vez disso.
+// Sem transição de tela inteira: trocar de tela precisa ser instantâneo no celular.
+// O único movimento entre telas é o card da Início que se transforma na leitura
+// (título, linha e superfície com nome compartilhado — ver cards.tsx e a página
+// de leitura); cada tela faz a própria entrada, leve, só no que importa.
 export default function Template({ children }: { children: React.ReactNode }) {
-  return <ViewTransition default="page">{children}</ViewTransition>;
+  return children;
 }

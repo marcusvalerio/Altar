@@ -1,10 +1,8 @@
 "use client";
 
-import { m } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { IconBookmark, IconCalendar, IconMore, IconToday } from "./icons";
-import { spring } from "./motion";
 
 const ITEMS = [
   { href: "/", label: "Início", Icon: IconToday },
@@ -37,15 +35,13 @@ export function BottomNav() {
               >
                 <span className="relative transition-transform duration-300 ease-[var(--ease-settle)] group-active:scale-90">
                   <Icon size={22} />
-                  {/* O ponto azul viaja até a aba escolhida. */}
-                  {active && (
-                    <m.span
-                      layoutId="nav-dot"
-                      transition={spring.place}
-                      aria-hidden="true"
-                      className="absolute -bottom-1.5 left-1/2 -ml-[2px] h-1 w-1 rounded-full bg-accent"
-                    />
-                  )}
+                  {/* O ponto azul acende na aba escolhida (só CSS: nada é medido na troca de tela). */}
+                  <span
+                    aria-hidden="true"
+                    className={`absolute -bottom-1.5 left-1/2 -ml-[2px] h-1 w-1 rounded-full bg-accent transition-[opacity,transform] duration-500 ease-[var(--ease-settle)] ${
+                      active ? "scale-100 opacity-100" : "scale-0 opacity-0"
+                    }`}
+                  />
                 </span>
                 <span className={active ? "font-medium" : ""}>{label}</span>
               </Link>

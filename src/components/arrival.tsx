@@ -3,7 +3,7 @@
 // Quando a leitura é aberta pelo card, o título e a linha chegam voando do
 // card (View Transition). Nesse caso eles não fazem a entrada própria — senão
 // as duas animações brigariam. Aberta de qualquer outro jeito, a entrada acontece.
-import { type JSX, useEffect } from "react";
+import { type JSX, ViewTransition, useEffect } from "react";
 
 let arriving: string | null = null;
 
@@ -32,4 +32,18 @@ export function Arrive<T extends keyof JSX.IntrinsicElements>({
     if (fromCard) setTimeout(() => (arriving = null), 0);
   }, [fromCard]);
   return <Tag className={`${className} ${fromCard ? "" : enter}`} aria-hidden={as === "div" ? true : undefined}>{children}</Tag>;
+}
+
+/**
+ * Nome compartilhado com o card, ativo só quando a leitura foi aberta por ele.
+ * Vindo de qualquer outro lugar não há View Transition — a tela troca na hora.
+ */
+export function MorphFrom({ id, name, share, children }: { id: string; name: string; share: string; children: React.ReactNode }) {
+  const fromCard = typeof window !== "undefined" && arriving === id;
+  if (!fromCard) return children;
+  return (
+    <ViewTransition name={name} share={share} default="none">
+      {children}
+    </ViewTransition>
+  );
 }
