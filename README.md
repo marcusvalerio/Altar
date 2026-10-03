@@ -34,11 +34,12 @@ As páginas de leitura são pré-geradas (estáticas). Só `/api/*` roda no serv
 | Variável | Para quê |
 | --- | --- |
 | `DATABASE_URL` | Conexão do Neon (projeto **altar**). Use a string *pooled* do console do Neon. |
-| `RESEND_API_KEY` | Envio dos e-mails de confirmação ([resend.com](https://resend.com)). |
-| `EMAIL_FROM` | Remetente, ex.: `ALTAR <ola@seudominio.com.br>`. O domínio precisa estar verificado na Resend. |
+| `SMTP_USER` / `SMTP_PASS` | Conta que envia os e-mails de confirmação. Com Gmail: o endereço e uma [senha de app](https://myaccount.google.com/apppasswords) (exige verificação em duas etapas). |
+| `SMTP_HOST` / `SMTP_PORT` | Opcionais; padrão `smtp.gmail.com` e `465`. Outlook: `smtp-mail.outlook.com` e `587`. |
+| `EMAIL_FROM` | Opcional; padrão `ALTAR <SMTP_USER>`. |
 | `APP_URL` | Endereço público, ex.: `https://altar.vercel.app`, usado nos links dos e-mails. |
 
-Sem `DATABASE_URL`, o app funciona normalmente, mas sem contas. Sem `RESEND_API_KEY`, o cadastro responde "Não conseguimos enviar o e-mail agora".
+Sem `DATABASE_URL`, o app funciona normalmente, mas sem contas. Sem `SMTP_USER`/`SMTP_PASS`, o cadastro responde "Não conseguimos enviar o e-mail agora".
 
 ## Contas (opcionais)
 
@@ -58,7 +59,7 @@ A leitura nunca exige login. A conta serve para guardar favoritos, leituras conc
 - Intervalo mínimo de 1 minuto entre e-mails para o mesmo endereço.
 - Trocar a senha encerra as outras sessões.
 
-**Desenvolvimento:** sem `RESEND_API_KEY`, o e-mail aparece no terminal e a tela mostra o link para teste. Para testar com um Postgres local, aplique o esquema com `DATABASE_URL=... npm run db:schema` e rode `DATABASE_URL=... npm run dev`.
+**Desenvolvimento:** sem SMTP configurado, o e-mail aparece no terminal e a tela mostra o link para teste. Para testar com um Postgres local, aplique o esquema com `DATABASE_URL=... npm run db:schema` e rode `DATABASE_URL=... npm run dev`.
 
 ## Conteúdo editorial
 

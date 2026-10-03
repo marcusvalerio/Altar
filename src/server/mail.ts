@@ -1,35 +1,42 @@
 import "server-only";
+import nodemailer from "nodemailer";
 
 export class MailNotConfiguredError extends Error {}
 
 type Mail = { to: string; subject: string; html: string; text: string };
 
 /**
- * Envio de e-mail via Resend (https://resend.com) — só uma chamada HTTP, sem SDK.
- * Variáveis: RESEND_API_KEY e EMAIL_FROM (ex.: "ALTAR <ola@seudominio.com.br>").
- * Em desenvolvimento, sem chave, o e-mail é mostrado no terminal.
+ * Envio por SMTP de uma conta de e-mail comum — não precisa de domínio próprio.
+ * Gmail: ative a verificação em duas etapas e crie uma "senha de app"
+ * (https://myaccount.google.com/apppasswords).
+ * Variáveis: SMTP_USER e SMTP_PASS; opcionais SMTP_HOST (padrão smtp.gmail.com),
+ * SMTP_PORT (padrão 465) e EMAIL_FROM (padrão "ALTAR <SMTP_USER>").
+ * Em desenvolvimento, sem SMTP configurado, o e-mail é mostrado no terminal.
  */
 export async function sendMail(mail: Mail): Promise<{ delivered: boolean }> {
-  const key = process.env.RESEND_API_KEY;
-  if (!key) {
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASS;
+  if (!user || !pass) {
     if (process.env.NODE_ENV !== "production") {
       console.info(`\n[e-mail de desenvolvimento] para ${mail.to}\n${mail.subject}\n${mail.text}\n`);
       return { delivered: false };
     }
-    throw new MailNotConfiguredError("RESEND_API_KEY não configurada");
+    throw new MailNotConfiguredError("SMTP_USER/SMTP_PASS não configurados");
   }
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      from: process.env.EMAIL_FROM ?? "ALTAR <onboarding@resend.dev>",
-      to: [mail.to],
-      subject: mail.subject,
-      html: mail.html,
-      text: mail.text,
-    }),
+  const port = Number(process.env.SMTP_PORT ?? 465);
+  const transport = nodemailer.createTransport({
+    host: process.env.SMTP_HOST ?? "smtp.gmail.com",
+    port,
+    secure: port === 465,
+    auth: { user, pass },
   });
-  if (!res.ok) throw new Error(`Falha no envio de e-mail (${res.status}): ${await res.text()}`);
+  await transport.sendMail({
+    from: process.env.EMAIL_FROM ?? `ALTAR <${user}>`,
+    to: mail.to,
+    subject: mail.subject,
+    html: mail.html,
+    text: mail.text,
+  });
   return { delivered: true };
 }
 
