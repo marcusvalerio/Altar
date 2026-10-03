@@ -3,6 +3,7 @@ import { Faculty_Glyphic, Geist } from "next/font/google";
 import { AppRuntime, DevContentBanner } from "@/components/app-runtime";
 import { BottomNav } from "@/components/bottom-nav";
 import { Entry } from "@/components/entry";
+import { MotionProvider } from "@/components/motion";
 import "./globals.css";
 
 const faculty = Faculty_Glyphic({ weight: "400", subsets: ["latin", "latin-ext"], variable: "--font-faculty", display: "swap" });
@@ -40,11 +41,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: bootScript }} />
       </head>
       <body>
-        <Entry />
-        <DevContentBanner />
-        <div className="relative z-[1]">{children}</div>
-        <BottomNav />
-        <AppRuntime />
+        <MotionProvider>
+          <Entry />
+          <DevContentBanner />
+          <div className="relative z-[1]">{children}</div>
+          <BottomNav />
+          <AppRuntime />
+        </MotionProvider>
       </body>
     </html>
   );
