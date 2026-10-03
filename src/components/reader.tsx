@@ -4,9 +4,9 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import type { Devotional } from "@/content/types";
 import { renderShareImage } from "@/lib/share-image";
-import { THEMES, TEXT_SIZES, completed, favorites, markCompleted, preferences, setPreferences, toggleFavorite } from "@/lib/state";
+import { THEMES, TEXT_SIZES, completed, favorites, markCompleted, preferences, setPreferences, toggleFavorite, unmarkCompleted } from "@/lib/state";
 import { useHydrated } from "@/lib/store";
-import { IconArrowLeft, IconBookmark, IconClose, IconDownload, IconShare, IconTextSize } from "./icons";
+import { IconArrowLeft, IconBookmark, IconCheck, IconClose, IconDownload, IconShare, IconTextSize } from "./icons";
 import { Button } from "./ui";
 
 /* ------------------------------------------------------------------------- */
@@ -206,47 +206,78 @@ export function FavoriteButton({ id, withLabel }: { id: string; withLabel?: bool
 /* ------------------------------------------------------------------------- */
 
 export function Completion({ devotional }: { devotional: Devotional }) {
-  const ref = useRef<HTMLDivElement>(null);
   const done = completed.useValue();
   const hydrated = useHydrated();
-  const [reached, setReached] = useState(false);
-  const isDone = hydrated && (reached || Boolean(done[devotional.id]));
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setReached(true);
-          markCompleted(devotional.id);
-          io.disconnect();
-        }
-      },
-      { threshold: 0.6 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [devotional.id]);
+  const isDone = hydrated && Boolean(done[devotional.id]);
+  // Animação só quando a pessoa acabou de marcar (não ao reabrir um dia já feito).
+  const [justMarked, setJustMarked] = useState(false);
 
   return (
-    <section ref={ref} aria-live="polite" className="mt-24 text-center">
-      <div className={`transition-all duration-1000 ease-[var(--ease-calm)] ${isDone ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"}`}>
-        <div aria-hidden="true" className="mx-auto mb-6 flex h-12 w-12 items-center justify-center">
-          <span className={`block h-2.5 w-2.5 rounded-full bg-mustard ${isDone ? "animate-breathe" : ""}`} />
+    <section aria-live="polite" className="mt-24 text-center">
+      {isDone ? (
+        <div key="done" className={justMarked ? "animate-rise" : ""}>
+          <div aria-hidden="true" className="mx-auto mb-6 flex h-12 w-12 items-center justify-center">
+            <span className={`block h-2.5 w-2.5 rounded-full bg-mustard ${justMarked ? "animate-breathe" : ""}`} />
+          </div>
+          <p className="eyebrow inline-flex items-center gap-1.5 text-ink">
+            <IconCheck size={14} /> Leitura concluída
+          </p>
+          <p className="mx-auto mt-4 max-w-xs font-display text-[1.25rem] leading-snug text-ink">
+            Que essa reflexão permaneça
+            <br />
+            com você ao longo do dia.
+          </p>
+          <button
+            type="button"
+            onClick={() => {
+              unmarkCompleted(devotional.id);
+              setJustMarked(false);
+            }}
+            className="mt-4 inline-flex min-h-11 items-center px-3 text-xs text-muted underline-offset-4 hover:text-ink hover:underline"
+          >
+            Desmarcar
+          </button>
         </div>
-        <p className="eyebrow text-ink">Leitura concluída</p>
-        <p className="mx-auto mt-4 max-w-xs font-display text-[1.25rem] leading-snug text-ink">
-          Que essa reflexão permaneça
-          <br />
-          com você ao longo do dia.
-        </p>
-      </div>
+      ) : (
+        <div key="todo">
+          <Button
+            onClick={() => {
+              markCompleted(devotional.id);
+              setJustMarked(true);
+            }}
+            disabled={!hydrated}
+          >
+            <IconCheck size={18} /> Marcar como concluída
+          </Button>
+          <p className="mt-3 text-xs text-muted">O dia fica marcado no calendário.</p>
+        </div>
+      )}
       <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
         <FavoriteButton id={devotional.id} withLabel />
         <ShareButton devotional={devotional} />
       </div>
     </section>
+  );
+}
+
+/** Marcar/desmarcar um dia fora da leitura (ex.: no calendário). */
+export function CompleteToggle({ id }: { id: string }) {
+  const done = completed.useValue();
+  const hydrated = useHydrated();
+  const isDone = hydrated && Boolean(done[id]);
+  return (
+    <button
+      type="button"
+      aria-pressed={isDone}
+      disabled={!hydrated}
+      onClick={() => (isDone ? unmarkCompleted(id) : markCompleted(id))}
+      className={`inline-flex min-h-11 items-center gap-2 rounded-full border px-4 text-sm transition-colors duration-300 ${
+        isDone ? "border-mustard bg-mustard text-[#2b211b]" : "border-line text-ink hover:border-ink"
+      }`}
+    >
+      <IconCheck size={16} />
+      {isDone ? "Concluída" : "Marcar como concluída"}
+    </button>
   );
 }
 

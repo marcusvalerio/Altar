@@ -56,6 +56,15 @@ export function markCompleted(id: string) {
   completed.set((prev) => (prev[id] ? prev : { ...prev, [id]: new Date().toISOString() }));
 }
 
+export function unmarkCompleted(id: string) {
+  completed.set((prev) => {
+    if (!prev[id]) return prev;
+    const next = { ...prev };
+    delete next[id];
+    return next;
+  });
+}
+
 /**
  * "Hoje" no fuso do aparelho. Para pré-visualizar outro dia (desenvolvimento,
  * revisão editorial), use ?hoje=2026-10-03 na URL.

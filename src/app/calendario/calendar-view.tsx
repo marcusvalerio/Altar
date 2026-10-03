@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { IconArrowRight, IconCheck, IconChevronLeft, IconChevronRight } from "@/components/icons";
 import { MonthCalendar, pickMonth } from "@/components/month-calendar";
+import { CompleteToggle } from "@/components/reader";
 import { Screen, ScreenHeader } from "@/components/ui";
 import { contentMonths, devotionals, getDevotional } from "@/content/devotionals";
 import { dayMonthUpper, monthName, weekday } from "@/lib/dates";
@@ -50,29 +51,33 @@ export function CalendarView() {
 
       <section aria-live="polite" className="mt-8 min-h-[11rem]">
         {d && (
-          <Link
-            key={d.id}
-            href={`/devocional/${d.id}/`}
-            className={`animate-rise group block rounded-[24px] p-6 transition-colors ${
-              d.isSpecial ? "bg-special text-special-ink" : "border border-line-soft bg-surface hover:border-line"
-            }`}
-          >
-            <div className="flex items-start justify-between gap-3">
-              <p className={`eyebrow ${d.isSpecial ? "text-special-muted" : ""}`}>
-                {dayMonthUpper(d.date)} <span aria-hidden="true">·</span> {weekday(d.date)}
+          <div key={d.id} className="animate-rise">
+            <Link
+              href={`/devocional/${d.id}/`}
+              className={`group block rounded-[24px] p-6 transition-colors ${
+                d.isSpecial ? "bg-special text-special-ink" : "border border-line-soft bg-surface hover:border-line"
+              }`}
+            >
+              <div className="flex items-start justify-between gap-3">
+                <p className={`eyebrow ${d.isSpecial ? "text-special-muted" : ""}`}>
+                  {dayMonthUpper(d.date)} <span aria-hidden="true">·</span> {weekday(d.date)}
+                </p>
+                {done[d.id] && (
+                  <span className={`inline-flex items-center gap-1 text-xs ${d.isSpecial ? "text-special-muted" : "text-muted"}`}>
+                    <IconCheck size={14} /> concluída
+                  </span>
+                )}
+              </div>
+              {d.commemorativeDate && <p className="mt-3 text-[0.75rem] font-medium uppercase tracking-[0.14em] text-special-accent">{d.commemorativeDate.label}</p>}
+              <p className="mt-3 font-display text-[1.75rem] leading-tight">{d.title}</p>
+              <p className={`mt-5 inline-flex items-center gap-2 text-[0.9375rem] font-medium ${d.isSpecial ? "" : "text-ink"}`}>
+                Ler <IconArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
               </p>
-              {done[d.id] && (
-                <span className={`inline-flex items-center gap-1 text-xs ${d.isSpecial ? "text-special-muted" : "text-muted"}`}>
-                  <IconCheck size={14} /> lida
-                </span>
-              )}
+            </Link>
+            <div className="mt-3 flex justify-end">
+              <CompleteToggle id={d.id} />
             </div>
-            {d.commemorativeDate && <p className="mt-3 text-[0.75rem] font-medium uppercase tracking-[0.14em] text-special-accent">{d.commemorativeDate.label}</p>}
-            <p className="mt-3 font-display text-[1.75rem] leading-tight">{d.title}</p>
-            <p className={`mt-5 inline-flex items-center gap-2 text-[0.9375rem] font-medium ${d.isSpecial ? "" : "text-ink"}`}>
-              Ler <IconArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
-            </p>
-          </Link>
+          </div>
         )}
       </section>
     </Screen>
